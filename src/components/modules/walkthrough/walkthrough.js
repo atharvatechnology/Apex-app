@@ -1,7 +1,10 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
-import styles from '../../../styles/modules/walkthrough.scss';
+
 import Animated, { FadeIn } from 'react-native-reanimated';
+
+import styles from '../../../styles/modules/walkthrough.scss';
+
 
 const Walkthrough = (props) => {
   return (
