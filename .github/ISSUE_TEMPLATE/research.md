@@ -2,7 +2,7 @@
 name: Research
 about: Reasearch task esp. for choosing from different technology stack and algorithms.
 title: ''
-labels: ":heavy_plus_sign: enhancement:fire:"
+labels: ":heavy_plus_sign: enhancement:fire:, :scientist: reasearch :male_detective:"
 assignees: ''
 
 ---
@@ -21,3 +21,7 @@ assignees: ''
 
 ## Proposed Solutions
 <!---- Provide information different researched solutions and tasks ---->
+<!---- Comparative analysis of different solutions ---->
+
+## Final choice
+<!---- describe why this is better than other choices --->
