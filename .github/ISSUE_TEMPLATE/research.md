@@ -21,3 +21,7 @@ assignees: ''
 
 ## Proposed Solutions
 <!---- Provide information different researched solutions and tasks ---->
+<!---- Comparative analysis of different solutions ---->
+
+## Final choice
+<!---- describe why this is better than other choices --->
