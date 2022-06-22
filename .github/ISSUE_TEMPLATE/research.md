@@ -2,7 +2,7 @@
 name: Research
 about: Reasearch task esp. for choosing from different technology stack and algorithms.
 title: ''
-labels: ":heavy_plus_sign: enhancement:fire:"
+labels: ":heavy_plus_sign: enhancement:fire:, :scientist: reasearch :male_detective:"
 assignees: ''
 
 ---

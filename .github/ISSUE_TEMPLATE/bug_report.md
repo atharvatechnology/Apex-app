@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: ":bug: bug"
+labels: ":bug: bug, :heavy_plus_sign: enhancement:fire:"
 assignees: ''
 
 ---
