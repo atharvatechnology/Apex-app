@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 
-import Walkthrough from "../modules/walkthrough/walkthrough";
+import Walkthrough from "@modules/walkthrough/walkthrough";
 
 const WalkthroughTemplate = (props) => {
   return (
