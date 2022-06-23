@@ -21,3 +21,18 @@
   bottom: 0;
   margin: 6px 0px;
 }
+
+.paginationContainer {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paginationDot {
+  width: 20;
+}
+
+.inactiveDotStyle {
+  width: 8;
+  height: 8;
+}

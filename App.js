@@ -1,9 +1,15 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View, LogBox } from 'react-native';
 
 import Router from './src/navigation/AppNavigation';
+
+// Ignore log notification by message:
+LogBox.ignoreLogs(['Warning: ...']);
+
+// Ignore all log notifications:
+LogBox.ignoreAllLogs();
 
 const App = () => {
   return (
