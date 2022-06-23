@@ -1,0 +1,23 @@
+@use "../library" as themes;
+@import '../common';
+
+.container {
+  height: 100%;
+  padding: 16px 16px 16px 16px;
+  align-items: center;
+  background-color: themes.$primary;
+}
+
+.heading {
+  @extend .h1;
+  color: white;
+  padding: 0px 0px 48px 0px;
+}
+
+.textContainer {
+  width: 100%;
+  // background-color: green;
+  position: absolute;
+  bottom: 0;
+  margin: 6px 0px;
+}
