@@ -5,8 +5,19 @@
   background-color: themes.$input;
   border-radius: 5px;
   margin: 4px 0px;
+  position: relative;
 }
 
 .input {
   padding: 8px 24px;
+}
+
+.eye {
+  position: absolute;
+  right: 8px;
+  bottom: 30%;
+  z-index: 1;
+  // background-color: green;
+  height: 1rem;
+  width: 2rem;
 }

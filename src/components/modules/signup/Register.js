@@ -39,8 +39,8 @@ const Register = (props) => {
         <CustomTextInput onChange={() => { }} placeholder="Full Name" />
         <CustomTextInput onChange={() => { }} placeholder="Phone Number" />
         <CustomTextInput onChange={() => { }} placeholder="Email(Optional)" />
-        <CustomTextInput onChange={() => { }} placeholder="Password" />
-        <CustomTextInput onChange={() => { }} placeholder="Confirm Password" />
+        <CustomTextInput onChange={() => { }} placeholder="Password" hidden={true} />
+        <CustomTextInput onChange={() => { }} placeholder="Confirm Password" hidden={true} />
       </View>
 
       <CustomButton
