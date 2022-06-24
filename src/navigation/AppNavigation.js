@@ -14,7 +14,7 @@ import SignUpRouter from './signup';
 import Walkthrough from '@screens/walkthrough';
 
 
-const MyStack = createNativeStackNavigator();
+export const MyStack = createNativeStackNavigator();
 
 const MainRouter = () => {
   return (
@@ -24,7 +24,7 @@ const MainRouter = () => {
         <MyStack.Screen name="Walkthrough" component={Walkthrough} />
         <MyStack.Screen name="OnBoarding" component={OnBoarding} />
 
-        <MyStack.Screen name="Signup" component={SignUpRouter} />
+        {SignUpRouter()}
 
 
         {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}

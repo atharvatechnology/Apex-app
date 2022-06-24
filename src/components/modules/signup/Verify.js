@@ -5,15 +5,57 @@
 */
 
 import React, { useEffect } from "react";
-import { View } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
+
+import CustomTextInput from "@elements/CustomTextInput";
+import CustomButton from "@elements/CustomButton";
+import styles from '@styles/modules/signup/Verify.scss'
 
 
 const Verify = (props) => {
 
-  return (
-    <View >
+  const handleVerify = () => {
+    props.navigation.navigate('Interest')
+  }
 
-    </View>
+  const handleBack = () => {
+    props.navigation.navigate('Register')
+  }
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={handleBack} style={styles.left}>
+        <Image
+          source={require('@assets/images/leftArrow.png')}
+        />
+      </TouchableOpacity>
+
+      <Text style={styles.title}>Verify Yourself</Text>
+      <Text style={styles.p}>Code has been sent to your phone number</Text>
+
+      <View style={styles.formContainer}>
+        <CustomTextInput onChange={() => { }} placeholder="Enter code " />
+      </View>
+
+      <Text style={styles.p}>Code will expire in 33s</Text>
+
+
+      <View style={styles.bottomContainer}>
+        <CustomButton
+          type='white'
+          title={'Re-send code'}
+          style={styles.signUp}
+          onPress={handleVerify}
+        />
+
+        <CustomButton
+          type='theme'
+          title={'Verify'}
+          style={styles.signUp}
+          onPress={handleVerify}
+        />
+      </View>
+    </View >
   );
 }
 

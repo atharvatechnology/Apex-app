@@ -38,7 +38,7 @@ const OnBoarding = (props) => {
   }
 
   const handleSigninPress = () => {
-    props.navigation.navigate('Signup');
+    props.navigation.navigate('Register');
   }
 
   return (

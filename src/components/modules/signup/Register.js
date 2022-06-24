@@ -16,7 +16,7 @@ import CustomButton from "@elements/CustomButton";
 const Register = (props) => {
 
   const handleSignupPress = () => {
-
+    props.navigation.navigate('Verify')
   }
 
   return (
