@@ -1,7 +1,13 @@
-import React from "react";
-import { View, Text, ShadowPropTypesIOS } from "react-native";
+/**
+* This is a button Component
+* @param {String} props.type - type of button
+* @param {Function} props.onPress - function to execute on pressing
+* @param {String} props.title - text to display in button
+* @returns {CustomButton}- returns a Button Component
+*/
 
-import { TouchableOpacity } from "react-native-gesture-handler";
+import React from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 
 import styles from '@styles/elements/CustomButton.scss';
 

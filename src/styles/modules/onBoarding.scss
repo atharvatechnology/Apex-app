@@ -22,10 +22,16 @@
   margin: 6px 0px;
 }
 
+.pagination {
+  margin: 0px;
+  padding: 0px;
+}
+
 .paginationContainer {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 0px 0px 16px 0px;
 }
 
 .paginationDot {

@@ -1,12 +1,18 @@
+/**
+* This is an onboarding page with 3 slides. This page is shown only when user opens the app for the first time.
+* @param {Object} props.navigation - contains all the propeties of react navigation.
+* @returns {OnBoarding}- returns a module for on boarding.
+*/
+
 import React, { useRef, useState } from "react";
 import { Text, View } from "react-native";
 
-import Animated, { FadeIn } from 'react-native-reanimated';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import styles from '@styles/modules/onBoarding.scss';
 import CustomButton from "@elements/CustomButton";
-import { WIDTH, HEIGHT } from "@utils/constants";
+import { WIDTH } from "@utils/constants";
+
 
 const data = [
   {
@@ -20,20 +26,24 @@ const data = [
   },
 ]
 
-const Walkthrough = (props) => {
+const OnBoarding = (props) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const CarouselRef = useRef(null);
+
   const _renderItemWithParallax = ({ item, index }, parallaxProps) => {
     return (
       <Text style={styles.heading}>{item.title}</Text>
     );
   }
 
+  const handleSigninPress = () => {
+    console.log("cadcac")
+    props.navigation.navigate('Signup');
+  }
+
   return (
     <View style={styles.container}>
-
-
 
       <View style={styles.textContainer}>
         <Carousel
@@ -64,6 +74,7 @@ const Walkthrough = (props) => {
           <CustomButton
             type='white'
             title={activeSlide === 2 ? "Signup" : "Skip to Signup"}
+            onPress={handleSigninPress}
           />
         </View>
       </View>
@@ -73,4 +84,4 @@ const Walkthrough = (props) => {
   );
 }
 
-export default Walkthrough;
+export default OnBoarding;
