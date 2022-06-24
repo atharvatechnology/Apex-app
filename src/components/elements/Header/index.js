@@ -7,17 +7,21 @@
 */
 
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 
-import styles from '@styles/elements/CustomButton.scss';
+import styles from '@styles/elements/Header.scss';
 
-const CustomButton = (props) => {
+const Header = (props) => {
 
   return (
-    <View>
-
+    <View style={styles.container}>
+      <Image
+        style={styles.logo}
+        source={require('@assets/images/apexLogo.png')}
+      />
+      <Text style={styles.heading}>Apex Educational Academy</Text>
     </View>
   );
 }
 
-export default CustomButton;
+export default Header;

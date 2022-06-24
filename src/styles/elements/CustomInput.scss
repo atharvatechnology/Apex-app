@@ -1,0 +1,12 @@
+@use "../library" as themes;
+@import '../common';
+
+.container {
+  background-color: themes.$input;
+  border-radius: 5px;
+  margin: 4px 0px;
+}
+
+.input {
+  padding: 8px 24px;
+}

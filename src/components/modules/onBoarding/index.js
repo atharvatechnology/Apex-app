@@ -38,7 +38,6 @@ const OnBoarding = (props) => {
   }
 
   const handleSigninPress = () => {
-    console.log("cadcac")
     props.navigation.navigate('Signup');
   }
 
