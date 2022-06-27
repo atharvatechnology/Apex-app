@@ -1,0 +1,20 @@
+@use "../library" as themes;
+@import '../common';
+
+.container {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 16px;
+}
+
+.logo {
+  width: 65;
+  height: 60;
+}
+
+.heading {
+  @extend .h2;
+  color: themes.$black;
+  padding: 0px 80px 0px 8px;
+}

@@ -1,0 +1,37 @@
+@use "./library" as theme;
+// @import "./theme";
+
+
+
+.margin-top-40 {
+    margin-top: 40px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.whiteBack {
+    background-color: 'white';
+}
+
+.h1 {
+    font-size: theme.$h1;
+}
+
+.h2 {
+    font-size: theme.$h2;
+}
+
+.h3 {
+    font-size: theme.$h3;
+}
+
+.p {
+    font-size: theme.$p;
+    color: theme.$black;
+}
+
+.link {
+    color: theme.$primary;
+}

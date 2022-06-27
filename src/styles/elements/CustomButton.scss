@@ -1,0 +1,24 @@
+@use "../library" as themes;
+@import '../common';
+
+.container {
+  padding: 14px 16px;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.whiteBack {
+  background-color: themes.$white;
+}
+
+.themeBack {
+  background-color: themes.$primary;
+}
+
+.text {
+  color: black;
+}
+
+.white {
+  color: themes.$white;
+}
