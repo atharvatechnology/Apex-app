@@ -12,7 +12,7 @@ import styles from '@styles/modules/ResetPassword/NewPassword.scss';
 
 const NewPassword = props => {
   const handleNewPassChange = () => {
-    props.navigation.navigate('Reset');
+    // props.navigation.navigate('Reset');
   };
 
   return (

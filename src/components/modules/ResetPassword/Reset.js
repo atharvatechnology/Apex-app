@@ -39,8 +39,7 @@ const Reset = props => {
         <CustomButton
           type="white"
           title={'Re-send code'}
-          style={styles.signUp}
-          onPress={handleReset}
+          style={styles.signUps}
         />
 
         <CustomButton

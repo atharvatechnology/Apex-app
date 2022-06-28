@@ -2,14 +2,14 @@
 @import '../../common';
 
 .container {
+ @extend .bcr;
   height: 100%;
   padding: 16px;
-  background-color: themes.$white;
   padding-top: 96px;
 }
 
 .title {
- 
+
   @extend .h3;
   color: black;
   height:60px;
@@ -18,7 +18,7 @@
   margin: 10px 2px;
   font-size:20px;
   font-weight: 500;
-width:100%
+  width:100%
 }
 .titles{
   @extend .h3;
@@ -35,10 +35,12 @@ width:100%
 }
 
 .formContainer {
+
   padding: 16px 0px;
 }
 
 .bottomContainer {
+
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -48,4 +50,8 @@ width:100%
 .left {
   // background-color: aqua;
   padding: 8px 0px;
+}
+
+.signUps {
+  @extend .bcr;
 }

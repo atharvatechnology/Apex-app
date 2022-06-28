@@ -1,9 +1,10 @@
 // %inheritance {
 //   background-color: red;
 // }
+@import "../common"; 
 
 .container {
-  background-color: white;
+  @extend .bcr;
   height: 100%;
   width: 100%;
   justify-content: center;
