@@ -10,8 +10,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 
 import OnBoarding from '@screens/onBoarding';
+// import Reset from '@apexapp/screens/ResetPassword/Reset';
 import ResetRouter from './ResetPassword/Reset';
 import SignUpRouter from './signup';
+import SignInRouter from './signin';
 import Walkthrough from '@screens/walkthrough';
 
 export const MyStack = createNativeStackNavigator();
@@ -21,11 +23,12 @@ const MainRouter = () => {
     <NavigationContainer>
       <MyStack.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName="Reset">
+        initialRouteName="Walkthrough">
         <MyStack.Screen name="Walkthrough" component={Walkthrough} />
         <MyStack.Screen name="OnBoarding" component={OnBoarding} />
 
         {SignUpRouter()}
+        {SignInRouter()}
         {ResetRouter()}
 
         {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
