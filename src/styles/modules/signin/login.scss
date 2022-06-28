@@ -1,0 +1,64 @@
+@use "../../library" as themes;
+@import '../../common';
+
+.container {
+    background-color: themes.$white;
+    height: 100%;
+    position: relative;
+}
+
+.lastcontainer {
+
+    padding: 16px;
+    margin: 2px;
+    flex-direction: row;
+
+
+}
+
+.titleContainer {
+    flex-direction: column;
+    padding: 16px;
+}
+
+
+
+.title {
+    @extend .h2;
+    color: black;
+    font-weight: 600;
+    margin: 8px 0px
+}
+
+.link {
+    @extend .link;
+    @extend .p;
+    font-weight: 800;
+}
+
+.link1 {
+
+    @extend .link;
+    @extend .p;
+    font-weight: 400;
+}
+
+.p {
+    @extend .p;
+    flex-direction: row;
+
+
+}
+
+.formContainer {
+    padding: 16px;
+}
+
+.signIn {
+    width: 30%;
+    padding: 14px 16px;
+    margin: 16px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
