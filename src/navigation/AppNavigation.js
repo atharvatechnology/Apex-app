@@ -12,6 +12,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import OnBoarding from '@screens/onBoarding';
 import SignUpRouter from './signup';
 import Walkthrough from '@screens/walkthrough';
+import SignInRouter from './signin';
 
 
 export const MyStack = createNativeStackNavigator();
@@ -25,6 +26,7 @@ const MainRouter = () => {
         <MyStack.Screen name="OnBoarding" component={OnBoarding} />
 
         {SignUpRouter()}
+        {SignInRouter()}
 
 
         {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}

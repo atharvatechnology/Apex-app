@@ -19,6 +19,10 @@ const Register = (props) => {
     props.navigation.navigate('Verify')
   }
 
+  const handleToLoginLink = () => {
+    props.navigation.navigate('Login')
+  }
+
   return (
     <View style={styles.container}>
       <Header />
@@ -28,8 +32,11 @@ const Register = (props) => {
 
         <View style={styles.p}>
           <Text style={styles.p}>Already got an account?</Text>
-          <TouchableOpacity onPress={() => { }} >
-            <Text style={styles.link}>  Login</Text>
+          <TouchableOpacity onPress={handleToLoginLink} >
+            <Text
+              style={styles.link}
+            >  Login.</Text>
+
           </TouchableOpacity>
         </View>
 
