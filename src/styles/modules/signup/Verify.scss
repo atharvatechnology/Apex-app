@@ -2,16 +2,19 @@
 @import '../../common';
 
 .container {
+  @extend .bcr;
   height: 100%;
   padding: 16px;
-  background-color: themes.$white;
+  padding-top:96px
+
 }
 
 .title {
   @extend .h3;
   color: black;
   font-weight: 500;
-  margin: 8px 0px
+  margin: 8px 0px;
+  padding-top:30px
 }
 
 .p {
@@ -24,6 +27,7 @@
 }
 
 .bottomContainer {
+  @extend .input-bcr;
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -33,4 +37,8 @@
 .left {
   // background-color: aqua;
   padding: 8px 0px;
+}
+
+.signUps{
+  @extend .bcr;
 }

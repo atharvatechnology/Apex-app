@@ -2,7 +2,7 @@
 @import '../../common';
 
 .container {
-    background-color: themes.$white;
+@extend .bcr;
     height: 100%;
     position: relative;
 }
