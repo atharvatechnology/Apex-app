@@ -5,13 +5,28 @@
   height: 100%;
   padding: 16px;
   background-color: themes.$white;
+  padding-top: 96px;
 }
 
 .title {
+ 
   @extend .h3;
   color: black;
+  height:60px;
+  top: 16px;
+  font-weight: 152px;
+  margin: 10px 2px;
+  font-size:20px;
   font-weight: 500;
-  margin: 8px 0px
+width:100%
+}
+.titles{
+  @extend .h3;
+  font-size: 15px;
+  font-weight: 600;
+  color: black;
+  height: 30px
+
 }
 
 .p {

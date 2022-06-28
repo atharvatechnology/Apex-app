@@ -25,9 +25,9 @@ const Reset = props => {
         <Image source={require('@assets/images/leftArrow.png')} />
       </TouchableOpacity>
 
-      <Text style={styles.title}>Reset Password</Text>
+      <Text style={styles.title}>Reset password</Text>
 
-      <Text style={styles.title}>Verify yourself</Text>
+      <Text style={styles.titles}>Verify yourself</Text>
       <Text style={styles.p}>Code has been sent to your phone number</Text>
 
       <View style={styles.formContainer}>

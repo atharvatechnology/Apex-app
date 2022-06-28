@@ -22,7 +22,7 @@ const NewPassword = props => {
       </TouchableOpacity>
 
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Enter New Password</Text>
+        <Text style={styles.title}>Enter new password</Text>
       </View>
 
       <View style={styles.formContainer}>
