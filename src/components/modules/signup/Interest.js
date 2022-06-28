@@ -4,29 +4,49 @@
 * @returns {Interest}- returns a module for Interest.
 */
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 
 import styles from '@styles/modules/signup/Interests.scss';
 import CustomButton from "@elements/CustomButton";
+import CustomDropdown from "@apexapp/components/elements/CustomDropdown";
 
+let preparation = [{
+  id: 1,
+  name: "Loksewa Preparation"
+}, {
+  id: 2,
+  name: "Entrance Preparation",
+}
+]
 
 const Interest = (props) => {
-
+  const [selectedItem, setSelectedItem] = useState(null)
+  const onSelect = (item) => {
+    setSelectedItem(item)
+  }
   const handleContinue = () => {
 
   }
 
+
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Hi Kshor Ghising</Text>
+        <Text style={styles.title}>Hi Kishor Ghising</Text>
         <Text style={styles.p}>Setup your profile in just a few steps.</Text>
       </View>
 
       <View style={styles.formContainer}>
         <Text style={styles.h3}>What's your interest?</Text>
       </View>
+
+      <CustomDropdown
+        value={selectedItem}
+        data={preparation}
+        onSelect={onSelect}
+        label="Interest"
+      />
 
       <CustomButton
         type='theme'

@@ -6,18 +6,58 @@
 * @returns {CustomDropdown}- returns a Dropdown Component
 */
 
-import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { Image, Card, View, Text, TouchableOpacity } from "react-native";
 
 import styles from '@styles/elements/CustomDropdown.scss';
 
-const CustomDropdown = (props) => {
 
+
+const CustomDropdown = ({
+  data = [],
+  value = {},
+  onSelect = () => { },
+  label = ""
+}) => {
+
+  const [showOption, setShowOption] = useState(false)
+
+  const onSelectedItem = (val) => {
+    setShowOption(false)
+    onSelect(val)
+  }
   return (
-    <TouchableOpacity style={[]} onPress={props.onPress}>
+    <View style={styles.CustomDropdown}>
+      <TouchableOpacity
+        onPress={() => setShowOption(!showOption)}
+        style={styles.dropDown}>
+        <Text style={styles.dropdowntext}>{!!value ? value?.name : label}</Text>
 
-    </TouchableOpacity>
+      </TouchableOpacity>
+      {showOption && (<View style={[styles.dropdowncontainer, { elevation: 10, }]}>
+        {data.map((val, i) => {
+          return (
+            <TouchableOpacity key={String(i)}
+              onPress={() => onSelectedItem(val)}
+              style={styles.dropdownelements}
+            >
+              <Text style={styles.dropdownname}>{val.name}</Text>
+            </TouchableOpacity>
+          )
+        })}
+      </View>)}
+
+
+
+    </View>
+
+
+
+
   );
 }
+
+
+
 
 export default CustomDropdown;

@@ -1,0 +1,48 @@
+.CustomDropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+
+}
+
+.dropDown {
+    background-color: #F8F8F8;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 4px;
+    position: relative;
+    justify-content: center;
+    width: 320px;
+    height: 50px;
+    margin-top: 30px;
+
+
+}
+
+.dropdowncontainer {
+
+    border-radius: 4px;
+    width: 320px;
+    margin: 20px;
+    background-color: white;
+
+
+}
+
+.dropdowntext {
+    font-weight: 500;
+    color: #000;
+
+}
+
+.dropdownelements {
+    padding: 12px;
+
+
+}
+
+.dropdownname {
+    font-size: 15px;
+    color: black;
+}
