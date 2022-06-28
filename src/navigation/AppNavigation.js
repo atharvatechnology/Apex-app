@@ -8,11 +8,11 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
+
 import NewPassword from '@apexapp/screens/ResetPassword/NewPassword';
+import OnBoarding from '@screens/onBoarding';
 import Reset from '@apexapp/screens/ResetPassword/Reset';
 import SignUpRouter from './signup';
-import OnBoarding from '@screens/onBoarding';
-
 import Walkthrough from '@screens/walkthrough';
 
 export const MyStack = createNativeStackNavigator();

@@ -1,12 +1,13 @@
 /**
- * This is one of three screens for signup. It contains a form for filling up user's information.
+ * This is one of two screen for the Reset Password . It contains a page for filling up user's reset information.
  * @param {Object} props.navigation - contains all the propeties of react navigation.
- * @returns {NewPassword}- returns a module for Register.
+ * @returns {NewPassword}- returns a module for Reset Newpassword.
  */
+import React from 'react';
 import {Image, Text, View, TouchableOpacity} from 'react-native';
+
 import CustomButton from '@elements/CustomButton';
 import CustomTextInput from '@elements/CustomTextInput';
-import React, {useEffect} from 'react';
 import styles from '@styles/modules/ResetPassword/NewPassword.scss';
 
 const NewPassword = props => {
