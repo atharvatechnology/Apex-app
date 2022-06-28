@@ -6,18 +6,16 @@
 * @returns {CustomTextInput}- returns an Input Component
 */
 
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, Image } from "react-native";
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity, TextInput, Image} from 'react-native';
 
 import styles from '@styles/elements/CustomInput.scss';
 
-
-const CustomTextInput = (props) => {
+const CustomTextInput = props => {
   const [password, setPassword] = useState(props.hidden);
 
   return (
     <View style={styles.container}>
-
       <TextInput
         style={styles.input}
         onChangeText={props.onChange}
@@ -26,16 +24,15 @@ const CustomTextInput = (props) => {
         {...props}
       />
 
-      {props.hidden !== undefined &&
-        <TouchableOpacity onPress={() => setPassword(prevState => !prevState)} style={styles.eye}>
-          <Image
-            source={require('@assets/images/eye-invisible.png')}
-          />
+      {props.hidden !== undefined && (
+        <TouchableOpacity
+          onPress={() => setPassword(prevState => !prevState)}
+          style={styles.eye}>
+          <Image source={require('@assets/images/eye-invisible.png')} />
         </TouchableOpacity>
-      }
-
+      )}
     </View>
   );
-}
+};
 
 export default CustomTextInput;

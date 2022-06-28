@@ -1,14 +1,14 @@
-import React from "react";
-import { View } from "react-native";
+import React from 'react';
+import {View} from 'react-native';
 
-import VerifyTemplate from "@templates/verify";
+import VerifyTemplate from '@templates/verify';
 
-const Verify = (props) => {
+const Verify = props => {
   return (
     <View>
       <VerifyTemplate {...props} />
     </View>
   );
-}
+};
 
 export default Verify;
