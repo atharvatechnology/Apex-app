@@ -2,7 +2,7 @@
 @import '../../common';
 
 .container {
-  @extend .bcr;
+  background-color: themes.$white;
   height: 100%;
   position: relative;
 }
@@ -31,8 +31,6 @@
 
 .formContainer {
   padding: 16px;
-  @extend .bcr;
-
 }
 
 .signUp {

@@ -2,11 +2,10 @@
 @import '../common';
 
 .container {
- background-color: themes.$primary;
- height: 100%;
+  height: 100%;
   padding: 16px 16px 16px 16px;
   align-items: center;
-
+  background-color: themes.$primary;
 }
 
 .heading {
@@ -17,6 +16,7 @@
 
 .textContainer {
   width: 100%;
+  // background-color: green;
   position: absolute;
   bottom: 0;
   margin: 6px 0px;

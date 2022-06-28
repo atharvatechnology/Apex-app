@@ -1,14 +1,14 @@
-import React from 'react';
-import {View} from 'react-native';
+import React from "react";
+import { View } from "react-native";
 
-import RegisterTemplate from '@templates/Register';
+import RegisterTemplate from "@templates/Register";
 
-const Register = props => {
+const Register = (props) => {
   return (
     <View>
       <RegisterTemplate {...props} />
     </View>
   );
-};
+}
 
 export default Register;

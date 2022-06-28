@@ -39,7 +39,7 @@ const Verify = props => {
         <CustomButton
           type="white"
           title={'Re-send code'}
-          style={styles.signUps}
+          style={styles.signUp}
           onPress={handleVerify}
         />
 
