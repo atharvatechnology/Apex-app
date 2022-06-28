@@ -23,7 +23,7 @@ const Login = (props) => {
     }
 
     const handleResetLink = () => {
-        props.navigation.navigate('')
+        props.navigation.navigate('Reset')
     }
     const handleSigninPress = () => {
         props.navigation.navigate('Login')

@@ -5,16 +5,17 @@
 
 import React from 'react';
 
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import {createDrawerNavigator} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 
 import NewPassword from '@apexapp/screens/ResetPassword/NewPassword';
 import OnBoarding from '@screens/onBoarding';
 import Reset from '@apexapp/screens/ResetPassword/Reset';
+import ResetRouter from './ResetPassword/Reset';
 import SignUpRouter from './signup';
-import Walkthrough from '@screens/walkthrough';
 import SignInRouter from './signin';
+import Walkthrough from '@screens/walkthrough';
 
 export const MyStack = createNativeStackNavigator();
 
@@ -22,15 +23,15 @@ const MainRouter = () => {
   return (
     <NavigationContainer>
       <MyStack.Navigator
-        screenOptions={{headerShown: false}}
+        screenOptions={{ headerShown: false }}
         initialRouteName="Walkthrough">
         <MyStack.Screen name="Walkthrough" component={Walkthrough} />
         <MyStack.Screen name="OnBoarding" component={OnBoarding} />
-        <MyStack.Screen name="Reset" component={Reset} />
-        <MyStack.Screen name="NewPassword" component={NewPassword} />
 
         {SignUpRouter()}
         {SignInRouter()}
+        {ResetRouter()}
+
 
         {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
       </MyStack.Navigator>
