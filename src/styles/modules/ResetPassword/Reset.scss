@@ -1,0 +1,36 @@
+@use "../../library" as themes;
+@import '../../common';
+
+.container {
+  height: 100%;
+  padding: 16px;
+  background-color: themes.$white;
+}
+
+.title {
+  @extend .h3;
+  color: black;
+  font-weight: 500;
+  margin: 8px 0px
+}
+
+.p {
+  @extend .p;
+  flex-direction: row;
+}
+
+.formContainer {
+  padding: 16px 0px;
+}
+
+.bottomContainer {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  flex-direction: row;
+}
+
+.left {
+  // background-color: aqua;
+  padding: 8px 0px;
+}
