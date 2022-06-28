@@ -1,17 +1,17 @@
 /**
-* This is a button Component
-* @param {String} props.type - type of button
-* @param {Function} props.onPress - function to execute on pressing
-* @param {String} props.title - text to display in button
-* @returns {CustomButton}- returns a Button Component
-*/
+ * This is a button Component
+ * @param {String} props.type - type of button
+ * @param {Function} props.onPress - function to execute on pressing
+ * @param {String} props.title - text to display in button
+ * @returns {CustomButton}- returns a Button Component
+ */
 
-import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
 
 import styles from '@styles/elements/CustomButton.scss';
 
-const CustomButton = (props) => {
+const CustomButton = props => {
   let container = styles.container;
   let text = styles.text;
 
@@ -34,6 +34,6 @@ const CustomButton = (props) => {
       <Text style={text}>{props.title}</Text>
     </TouchableOpacity>
   );
-}
+};
 
 export default CustomButton;
