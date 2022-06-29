@@ -1,21 +1,17 @@
 /**
-* This is one of three screens for signup. It contains dropdowns for selecting user's interests.
-* @param {Object} props.navigation - contains all the propeties of react navigation.
-* @returns {Interest}- returns a module for Interest.
-*/
+ * This is one of three screens for signup. It contains dropdowns for selecting user's interests.
+ * @param {Object} props.navigation - contains all the propeties of react navigation.
+ * @returns {Interest}- returns a module for Interest.
+ */
 
-import React, { useEffect } from "react";
-import { Image, Text, View } from "react-native";
+import React, {useEffect} from 'react';
+import {Image, Text, View} from 'react-native';
 
 import styles from '@styles/modules/signup/Interests.scss';
-import CustomButton from "@elements/CustomButton";
+import CustomButton from '@elements/CustomButton';
 
-
-const Interest = (props) => {
-
-  const handleContinue = () => {
-
-  }
+const Interest = props => {
+  const handleContinue = () => {};
 
   return (
     <View style={styles.container}>
@@ -29,13 +25,13 @@ const Interest = (props) => {
       </View>
 
       <CustomButton
-        type='theme'
+        type="theme"
         title={'Continue'}
         style={styles.continue}
         onPress={handleContinue}
       />
     </View>
   );
-}
+};
 
 export default Interest;
