@@ -21,9 +21,9 @@ let preparation = [{
 ]
 
 const Interest = (props) => {
-  const [selectedItem, setSelectedItem] = useState(null)
+  const [selectedItem, setSelectedItem] = useState(0)
   const onSelect = (item) => {
-    setSelectedItem(item)
+    setSelectedItem(item.id)
   }
   const handleContinue = () => {
 
@@ -47,6 +47,7 @@ const Interest = (props) => {
         onSelect={onSelect}
         label="Interest"
       />
+
 
       <CustomButton
         type='theme'
