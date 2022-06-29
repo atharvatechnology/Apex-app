@@ -17,7 +17,8 @@ let preparation = [{
 }, {
   id: 2,
   name: "Entrance Preparation",
-}
+},
+
 ]
 
 const Interest = (props) => {

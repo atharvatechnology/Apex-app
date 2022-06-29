@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { Image, View, Text, TouchableOpacity } from "react-native";
 
 import styles from '@styles/elements/CustomDropdown.scss';
+import { ScrollView } from "react-native-gesture-handler";
 
 
 
@@ -50,6 +51,7 @@ const CustomDropdown = ({
               style={styles.dropdownelements}
             >
               <Text style={styles.dropdownname}>{id.name}</Text>
+
             </TouchableOpacity>
           )
         })}
