@@ -4,6 +4,7 @@
 * @param {Function} props.onChange - execute after changing value.
 
 * @returns {CustomTextInput}- returns an Input Component
+* error message is called using the {props.error} in the style of the <TextInput>
 */
 
 import React, {useState} from 'react';
