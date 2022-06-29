@@ -42,6 +42,7 @@ const Login = props => {
 
       <View style={styles.formContainer}>
         <CustomTextInput onChange={() => {}} placeholder="Phone Number" />
+
         <CustomTextInput
           onChange={() => {}}
           placeholder="Password"

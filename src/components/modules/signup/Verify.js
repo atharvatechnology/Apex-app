@@ -4,7 +4,7 @@
  * @returns {Verify}- returns a module for Verify.
  */
 
-import React, {useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 import CustomTextInput from '@elements/CustomTextInput';
@@ -30,7 +30,11 @@ const Verify = props => {
       <Text style={styles.p}>Code has been sent to your phone number</Text>
 
       <View style={styles.formContainer}>
-        <CustomTextInput onChange={() => {}} placeholder="Enter code " />
+        <CustomTextInput
+          onChange={() => {}}
+          placeholder="Enter code "
+          error={'Error message'}
+        />
       </View>
 
       <Text style={styles.p}>Code will expire in 33s</Text>

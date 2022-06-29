@@ -1,18 +1,17 @@
 /**
-* This is a Header Component
-* @param {String} props.type - type of button
-* @param {Function} props.onPress - function to execute on pressing
-* @param {String} props.title - text to display in button
-* @returns {CustomButton}- returns a Header Component
-*/
+ * This is a Header Component
+ * @param {String} props.type - type of button
+ * @param {Function} props.onPress - function to execute on pressing
+ * @param {String} props.title - text to display in button
+ * @returns {CustomButton}- returns a Header Component
+ */
 
-import React from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import React from 'react';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
 
 import styles from '@styles/elements/Header.scss';
 
-const Header = (props) => {
-
+const Header = props => {
   return (
     <View style={styles.container}>
       <Image
@@ -22,6 +21,6 @@ const Header = (props) => {
       <Text style={styles.heading}>Apex Educational Academy</Text>
     </View>
   );
-}
+};
 
 export default Header;
