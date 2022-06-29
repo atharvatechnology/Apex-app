@@ -2,9 +2,9 @@
 * This is a input Component
 * @param {String} props.value - value of the field
 * @param {Function} props.onChange - execute after changing value.
+* @param {props.error}- return an  error message in TextInput
 
 * @returns {CustomTextInput}- returns an Input Component
-* @returns {props.error}- return an  error message in TextInput
 
 */
 
