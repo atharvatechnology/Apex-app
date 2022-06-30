@@ -14,7 +14,7 @@ export const GET = (url, token) => {
   });
 };
 
-export const POST = (url, token, data) => {
+export const POST = (url, data) => {
   return fetch(apiBaseURL + url, {
     method: 'POST',
     headers: {
