@@ -124,8 +124,8 @@ export const registerForm = {
     style: { marginBottom: 4 },
     validationRules: {
       required: true,
-      isPassword: true,
-      minLength: 6,
+      // isPassword: true,
+      // minLength: 6,
       isEqualTo: true
       // regex: passwordRegex,
     }

@@ -5,7 +5,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { Image, Text, View, TouchableOpacity } from 'react-native';
+import { Image, Text, View, TouchableOpacity, SwipeableListView } from 'react-native';
 
 import Header from '@elements/Header';
 import styles from '@styles/modules/signup/Register.scss';
@@ -13,12 +13,13 @@ import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
 import { registerForm } from '@data/signup/register';
 import validate from '@apexapp/utils/validation';
+import { POST } from '@apexapp/utils/api';
 
 const Register = props => {
   const [formData, setFormData] = useState(registerForm);
 
 
-  const onChangeHandler = (key, value) => {
+  const onChangeHandler = (key, value, password) => {
     // let tempFormData = [...formData];
     // tempFormData[key].value = value;
     // setFormData(tempFormData);
@@ -29,7 +30,7 @@ const Register = props => {
         [key]: {
           ...prevState[key],
           value: value,
-          valid: validate(value, prevState[key].validationRules),
+          valid: validate(value, prevState[key].validationRules, password),
           touched: true
         }
       }
@@ -67,13 +68,34 @@ const Register = props => {
     })
   }
 
-  const handleSignupPress = () => {
+  const handleSignupPress = async () => {
+    await handleSignUp();
     props.navigation.navigate('Verify');
   };
 
   const handleToLoginLink = () => {
     props.navigation.navigate('Login');
   };
+
+
+  const handleSignUp = async () => {
+    let data = {
+      fullName: formData.fullName.value,
+      username: formData.phoneNumber.value,
+      email: formData.email.value,
+      password: formData.password.value,
+      // username: 'test',
+    }
+    console.log(data)
+    try {
+      const response = await POST('api/accounts/create/', undefined, data);
+      // console.log(response);
+      const resJson = await response.json();
+      // console.log(resJson) 
+    } catch (error) {
+      console.log("err", error);
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -91,23 +113,10 @@ const Register = props => {
       </View>
 
       <View style={styles.formContainer}>
-        {/* <CustomTextInput onChange={() => {}} placeholder="Full Name" />
-        <CustomTextInput onChange={() => {}} placeholder="Phone Number" />
-        <CustomTextInput onChange={() => {}} placeholder="Email(Optional)" />
-        <CustomTextInput
-          onChange={() => {}}
-          placeholder="Password"
-          hidden={true}
-        />
-        <CustomTextInput
-          onChange={() => {}}
-          placeholder="Confirm Password"
-          hidden={true}
-        /> */}
 
         {
           Object.values(formData).map((item, index) => <CustomTextInput
-            onChange={(value) => { onChangeHandler(item.elementConfig.name, value) }}
+            onChange={(value) => { onChangeHandler(item.elementConfig.name, value, formData.password.value) }}
             placeholder={item.elementConfig.placeholder}
             // hidden={true}
             password={item.elementConfig.type === 'password'}
