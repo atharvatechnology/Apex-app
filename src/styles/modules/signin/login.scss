@@ -46,6 +46,7 @@
 .p {
     @extend .p;
     flex-direction: row;
+    text-align:center;
 
 
 }
@@ -69,5 +70,5 @@
     padding: 16px 0px;
     margin: 2px;
     background-color: #F8A4A7;
-    text-align: centers;
+    text-align: center;
 }

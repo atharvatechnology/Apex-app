@@ -35,7 +35,7 @@ const Login = props => {
       }
     }, 2000);
     return () => clearTimeout(timeout);
-  }, [setErrorMsg]);
+  }, setErrorMsg);
 
   const handleSignupLink = () => {
     props.navigation.navigate('Register');
