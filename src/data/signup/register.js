@@ -4,8 +4,8 @@ export const registerForm = {
       type: "text",
       placeholder: "Full Name",
       name: "fullName",
-      keyboardType: 'phone-pad',
-      defaultValue: "+977",
+      keyboardType: 'alphabetical',
+      defaultValue: "",
       label: 'Full Name'
     },
     //value: '9441122040',
@@ -17,7 +17,7 @@ export const registerForm = {
     autoFocus: true,
     showError: false,
     showEmptyError: false,
-    errorMessage: "",
+    errorMessage: "Full Name is required",
     style: { marginBottom: 4 },
     validationRules: {
       required: true,
@@ -56,7 +56,7 @@ export const registerForm = {
       type: "text",
       placeholder: "Email(Optional)",
       name: "email",
-      keyboardType: '',
+      keyboardType: 'alphabetical',
       defaultValue: "",
       label: 'Email(Optional)'
     },
@@ -73,6 +73,7 @@ export const registerForm = {
     style: { marginBottom: 4 },
     validationRules: {
       required: true,
+      isEmail: true,
       // isPhone: true
       // regex: phoneNumberRegex
     },
@@ -93,7 +94,7 @@ export const registerForm = {
     autoFocus: true,
     showError: false,
     showEmptyError: false,
-    errorMessage: "Password must be atleast 6 characters long and a number",
+    errorMessage: "Password must be atleast 8 characters long and a number should be included",
     style: { marginBottom: 4 },
     validationRules: {
       required: true,
@@ -119,12 +120,13 @@ export const registerForm = {
     autoFocus: true,
     showError: false,
     showEmptyError: false,
-    errorMessage: "Password must be atleast 6 characters long and a number",
+    errorMessage: "Password must be atleast 6 characters long and a number should be included",
     style: { marginBottom: 4 },
     validationRules: {
       required: true,
       isPassword: true,
-      minLength: 6
+      minLength: 6,
+      isEqualTo: true
       // regex: passwordRegex,
     }
   },

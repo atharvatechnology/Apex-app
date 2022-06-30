@@ -8,8 +8,8 @@
 
 */
 
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, TextInput, Image} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
 
 import styles from '@styles/elements/CustomInput.scss';
 
@@ -18,16 +18,20 @@ const CustomTextInput = props => {
 
   return (
     <>
-      <View style={props.error ? styles.errorContainer : styles.container}>
+      <View style={!props.valid && props.touched ? styles.errorContainer : styles.container}>
         <TextInput
-          style={props.error ? styles.errorTexts : styles.input}
+          style={
+            // !props.valid ? styles.errorTexts : 
+            styles.input}
           onChangeText={props.onChange}
           value={props.value}
           secureTextEntry={password}
+          onBlur={props.onBlur}
+          onFocus={props.onFocus}
           {...props}
         />
 
-        {props.hidden !== undefined && (
+        {props.password && (
           <TouchableOpacity
             onPress={() => setPassword(prevState => !prevState)}
             style={styles.eye}>
@@ -35,7 +39,7 @@ const CustomTextInput = props => {
           </TouchableOpacity>
         )}
       </View>
-      {props.error && <Text style={styles.errorText}>{props.error}</Text>}
+      {!props.valid && props.touched && <Text style={styles.errorText}>{props.error}</Text>}
     </>
   );
 };
