@@ -4,8 +4,8 @@
  * @returns {Register}- returns a module for Register.
  */
 
-import React, { useEffect, useState } from 'react';
-import { Image, Text, View, TouchableOpacity, SwipeableListView } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Image, Text, View, TouchableOpacity, Animated } from 'react-native';
 
 import Header from '@elements/Header';
 import styles from '@styles/modules/signup/Register.scss';
@@ -18,6 +18,19 @@ import { POST } from '@apexapp/utils/api';
 const Register = props => {
   const [formData, setFormData] = useState(registerForm);
 
+  const [errormsg, setErrorMsg] = useState('');
+
+  var fadeAnim = useRef(new Animated.Value(1)).current;
+  const autoFadeOut = () => {
+    fadeAnim.setValue(1);
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 10000,
+      useNativeDriver: true,
+    }).start(() => {
+      // Animated.reset(fadeAnim);
+    });
+  };
 
   const onChangeHandler = (key, value, password) => {
     // let tempFormData = [...formData];
@@ -70,7 +83,7 @@ const Register = props => {
 
   const handleSignupPress = async () => {
     await handleSignUp();
-    props.navigation.navigate('Verify');
+
   };
 
   const handleToLoginLink = () => {
@@ -86,12 +99,19 @@ const Register = props => {
       password: formData.password.value,
       // username: 'test',
     }
-    console.log(data)
     try {
-      const response = await POST('api/accounts/create/', undefined, data);
-      // console.log(response);
+      const response = await POST('api/accounts/create/', data);
+      console.log(response.status);
       const resJson = await response.json();
       // console.log(resJson) 
+      if (response.status === 201) {
+        props.navigation.navigate('Verify');
+      }
+      if (response.status === 400) {
+        setErrorMsg(resJson.username[0]);
+        autoFadeOut();
+
+      }
     } catch (error) {
       console.log("err", error);
     }
@@ -136,6 +156,10 @@ const Register = props => {
           />)
         }
       </View>
+
+      {errormsg !== '' && <Animated.View style={[styles.errortext, { opacity: fadeAnim }]}>
+        <Text style={styles.p}>{errormsg}</Text>
+      </Animated.View>}
 
       <CustomButton
         type="theme"

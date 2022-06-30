@@ -43,3 +43,13 @@
   bottom: 0;
   right: 0;
 }
+
+.errortext {
+  width: 100%;
+  font-weight: 400;
+  font-size: 26px;
+  padding: 16px 0px;
+  margin: 2px;
+  background-color: themes.$errorBackground;
+  align-items: center
+}
