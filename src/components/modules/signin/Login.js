@@ -14,9 +14,7 @@ import Header from '@elements/Header';
 import styles from '@styles/modules/signin/login.scss';
 
 const Login = props => {
-  const [errormsg, setErrorMsg] = useState(
-    'Phone Number or Numbeser Incorrect',
-  );
+  const [errormsg, setErrorMsg] = useState('Phone Number or Number Incorrect');
 
   const fadeAnim = useRef(new Animated.Value(1)).current;
   const autoFadeOut = () => {
