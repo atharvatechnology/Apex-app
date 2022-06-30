@@ -10,7 +10,6 @@ import React, { useState } from "react";
 import { Image, View, Text, TouchableOpacity } from "react-native";
 
 import styles from '@styles/elements/CustomDropdown.scss';
-import { ScrollView } from "react-native-gesture-handler";
 
 
 
@@ -35,14 +34,15 @@ const CustomDropdown = ({
       <TouchableOpacity
         onPress={() => setShowOption(!showOption)}
         style={styles.dropDown}>
-        <Text style={styles.dropdowntext}>{!!value ? data.filter((el) => el.id === value)[0].name : label}</Text>
+        <Text style={styles.dropdowntext}>{!!value ? data.filter((el) => el.id === value)[0]?.name : label}</Text>
         <Image
           style={[styles.dropdownicon, {
             transform: [{ rotate: showOption ? '180deg' : '0deg' }]
           }]}
           source={require('@assets/images/down-arrow.png')} />
-
       </TouchableOpacity>
+
+
       {showOption && (<View style={[styles.dropdowncontainer, { elevation: 10, }]}>
         {data.map((id, i) => {
           return (

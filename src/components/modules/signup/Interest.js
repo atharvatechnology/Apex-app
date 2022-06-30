@@ -11,24 +11,47 @@ import styles from '@styles/modules/signup/Interests.scss';
 import CustomButton from "@elements/CustomButton";
 import CustomDropdown from "@apexapp/components/elements/CustomDropdown";
 
+
+
+
 let preparation = [{
   id: 1,
   name: "Loksewa Preparation"
 }, {
   id: 2,
   name: "Entrance Preparation",
-},
+},]
 
-]
+
+let category = [{
+  id: 1,
+  text: "Loksewa"
+}, {
+  id: 2,
+  text: "Banking"
+}, {
+  id: 3,
+  text: "Engineering"
+},]
+
 
 const Interest = (props) => {
+
+  const [selectedButton, setSelectedButton] = useState(0);
+
   const [selectedItem, setSelectedItem] = useState(0)
   const onSelect = (item) => {
     setSelectedItem(item.id)
   }
   const handleContinue = () => {
-
   }
+
+  const handleButton = (item) => {
+    setSelectedButton(item.id)
+    // selectedButton ? setSelectedButton(0) : setSelectedButton(1)
+    // console.log(selectedButton);
+  }
+
 
 
   return (
@@ -50,7 +73,32 @@ const Interest = (props) => {
       />
 
 
+      <View>
+        <Text style={styles.categorytext}>Choose sub-category</Text>
+
+        <View style={styles.allcategorybutton}>
+
+          {category.map((item, index) => {
+            return (
+
+              <CustomButton style={selectedButton === item.id ? styles.categorybuttonchange : styles.categorybutton}
+                key={index}
+                onPress={() => handleButton(item)}
+                // style={styles.categorybutton}
+                type="white"
+                title={item.text}
+              />
+
+            )
+          })}
+        </View>
+
+
+      </View>
+
+
       <CustomButton
+
         type="theme"
         title={'Continue'}
         style={styles.continue}
