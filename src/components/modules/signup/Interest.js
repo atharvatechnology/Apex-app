@@ -37,11 +37,15 @@ let category = [{
 
 const Interest = (props) => {
 
+  const [show, setShow] = useState(false)
+
   const [selectedButton, setSelectedButton] = useState(0);
 
   const [selectedItem, setSelectedItem] = useState(0)
   const onSelect = (item) => {
     setSelectedItem(item.id)
+    setShow(true)
+
   }
   const handleContinue = () => {
   }
@@ -58,7 +62,7 @@ const Interest = (props) => {
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Hi Kishor Ghising</Text>
-        <Text style={styles.p}>Setup your profile in just a few steps.</Text>
+        <Text style={styles.p}>Setup your profile. Just a few steps.</Text>
       </View>
 
       <View style={styles.formContainer}>
@@ -73,7 +77,8 @@ const Interest = (props) => {
       />
 
 
-      <View>
+
+      {show ? <View>
         <Text style={styles.categorytext}>Choose sub-category</Text>
 
         <View style={styles.allcategorybutton}>
@@ -85,8 +90,9 @@ const Interest = (props) => {
                 key={index}
                 onPress={() => handleButton(item)}
                 // style={styles.categorybutton}
-                type="white"
+                type={selectedButton === item.id ? "theme" : "white"}
                 title={item.text}
+
               />
 
             )
@@ -94,7 +100,8 @@ const Interest = (props) => {
         </View>
 
 
-      </View>
+      </View> : null}
+
 
 
       <CustomButton
