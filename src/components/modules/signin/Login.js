@@ -1,7 +1,8 @@
 /**
 * This is the screens for signin. It contains a form for logging users into dashboard containing  error autofadeout msg.
+  Fetch POST  is called using the app URL .
 * @param {Object} props.navigation - contains all the propeties of react navigation.
-* @returns {Login}- returns a module forlogin.
+* @returns {Login}- returns a module for login.
 
 */
 
@@ -56,14 +57,10 @@ const Login = props => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    // console.log(formData);
 
     try {
       const response = await POST('api/auth/login/', formData);
-      console.log(response);
-    } catch (error) {
-      // console.log('err', error);
-    }
+    } catch (error) {}
   };
 
   return (

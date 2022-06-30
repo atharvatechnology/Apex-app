@@ -1,7 +1,7 @@
 import react from 'react';
 // import axios from 'axios';
 
-export const apiBaseURL = 'http://192.168.0.29:8000/';
+export const apiBaseURL = 'http://192.168.0.33:8000/';
 
 export const GET = (url, token) => {
   return fetch(apiBaseURL + url, {
@@ -14,22 +14,16 @@ export const GET = (url, token) => {
   });
 };
 
-export const POST = async (url, data, token) => {
-  try {
-    const apo = await fetch(apiBaseURL + url, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        // Authorization: 'Bearer ' + token,
-      },
-      body: JSON.stringify(data),
-    });
-    var jso = await apo.json();
-    // console.log(jso);
-  } catch (error) {
-    // console.log('err', error);
-  }
+export const POST = (url, data) => {
+  return fetch(apiBaseURL + url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      // Authorization: 'Bearer ' + token,
+    },
+    body: JSON.stringify(data),
+  });
 };
 
 export const PATCH = (url, token, data) => {
