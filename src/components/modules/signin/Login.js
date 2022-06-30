@@ -1,12 +1,12 @@
 /**
-* This is the screens for signin. It contains a form for logging users into dashboard
+* This is the screens for signin. It contains a form for logging users into dashboard containing  error autofadeout msg.
 * @param {Object} props.navigation - contains all the propeties of react navigation.
 * @returns {Login}- returns a module forlogin.
 
 */
 
-import React from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
+import React, {useState, useRef, useEffect} from 'react';
+import {Text, View, TouchableOpacity, Animated} from 'react-native';
 
 import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
@@ -14,6 +14,29 @@ import Header from '@elements/Header';
 import styles from '@styles/modules/signin/login.scss';
 
 const Login = props => {
+  const [errormsg, setErrorMsg] = useState(
+    'Phone Number or Numbeser Incorrect',
+  );
+
+  const fadeAnim = useRef(new Animated.Value(1)).current;
+  const autoFadeOut = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (errormsg !== '') {
+        autoFadeOut();
+      } else {
+      }
+    }, 2000);
+    return () => clearTimeout(timeout);
+  }, [setErrorMsg]);
+
   const handleSignupLink = () => {
     props.navigation.navigate('Register');
   };
@@ -55,6 +78,10 @@ const Login = props => {
           <Text style={styles.link1}> Reset.</Text>
         </TouchableOpacity>
       </View>
+
+      <Animated.View style={[styles.errortext, {opacity: fadeAnim}]}>
+        <Text style={styles.p}>{errormsg}</Text>
+      </Animated.View>
 
       <CustomButton
         type="theme"
