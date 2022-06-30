@@ -2,27 +2,33 @@
 @import '../../common';
 
 .container {
-  background-color: themes.$white;
+  @extend .bcr;
+
   height: 100%;
   position: relative;
   padding: 16px;
+
 }
 
 .titleContainer {
+
+
   flex-direction: column;
   padding: 40px 0px 0px 0px;
+  margin-top: 76px;
 }
 
 .title {
   @extend .h2;
   color: black;
-  font-weight: 500;
+  font-weight: 600;
   margin: 8px 0px
 }
 
 .h3 {
   @extend .h3;
-  color: black
+  color: black;
+  font-weight: 600;
 }
 
 .p {
@@ -32,11 +38,51 @@
 
 .formContainer {
   padding: 40px 0px 0px 0px;
+
 }
 
 .continue {
   position: absolute;
   bottom: 16px;
   right: 16px;
+
+
+}
+
+.categorytext {
+  font-size: 23px;
+  color: black;
+  font-weight: 700;
+  margin-top: 45px;
+  padding-left: 2px;
+
+
+}
+
+.categorybutton {
+
+  // height: 45px;
+  // width: 95px;
+  border: .5px;
+
+  margin: 8px;
+  padding: 6px 16px;
+  background-color: themes.$white
+}
+
+.categorybuttonchange {
+
+  // width: 95px;
+  // height: 45px;
+  margin: 8px;
+  padding: 6px 16px;
+
+  background-color: themes.$selectedbutton
+}
+
+.allcategorybutton {
+  flex-direction: row;
+  margin-top: 24px;
+
 
 }
