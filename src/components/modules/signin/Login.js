@@ -12,8 +12,15 @@ import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
 import Header from '@elements/Header';
 import styles from '@styles/modules/signin/login.scss';
+import {POST} from '@apexapp/utils/api';
 
 const Login = props => {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
   const [errormsg, setErrorMsg] = useState('Phone Number or Number Incorrect');
 
   const fadeAnim = useRef(new Animated.Value(1)).current;
@@ -33,7 +40,7 @@ const Login = props => {
       }
     }, 2000);
     return () => clearTimeout(timeout);
-  }, setErrorMsg);
+  });
 
   const handleSignupLink = () => {
     props.navigation.navigate('Register');
@@ -42,8 +49,21 @@ const Login = props => {
   const handleResetLink = () => {
     props.navigation.navigate('Reset');
   };
-  const handleSigninPress = () => {
-    props.navigation.navigate('Login');
+
+  const handleChange = (key, value) => {
+    setFormData({...formData, [key]: value});
+  };
+
+  const handleSubmit = async event => {
+    event.preventDefault();
+    // console.log(formData);
+
+    try {
+      const response = await POST('api/auth/login/', formData);
+      console.log(response);
+    } catch (error) {
+      // console.log('err', error);
+    }
   };
 
   return (
@@ -62,10 +82,13 @@ const Login = props => {
       </View>
 
       <View style={styles.formContainer}>
-        <CustomTextInput onChange={() => {}} placeholder="Phone Number" />
+        <CustomTextInput
+          onChange={val => handleChange('username', val)}
+          placeholder="Phone Number"
+        />
 
         <CustomTextInput
-          onChange={() => {}}
+          onChange={val => handleChange('password', val)}
           placeholder="Password"
           hidden={true}
         />
@@ -85,7 +108,7 @@ const Login = props => {
         type="theme"
         title={'Sign in'}
         style={styles.signIn}
-        onPress={handleSigninPress}
+        onPress={handleSubmit}
       />
     </View>
   );

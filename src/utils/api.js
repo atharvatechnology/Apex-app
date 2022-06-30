@@ -14,16 +14,22 @@ export const GET = (url, token) => {
   });
 };
 
-export const POST = (url, token, data) => {
-  return fetch(apiBaseURL + url, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + token,
-    },
-    body: JSON.stringify(data),
-  });
+export const POST = async (url, data, token) => {
+  try {
+    const apo = await fetch(apiBaseURL + url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        // Authorization: 'Bearer ' + token,
+      },
+      body: JSON.stringify(data),
+    });
+    var jso = await apo.json();
+    // console.log(jso);
+  } catch (error) {
+    // console.log('err', error);
+  }
 };
 
 export const PATCH = (url, token, data) => {
