@@ -19,13 +19,15 @@ const Register = props => {
   const [formData, setFormData] = useState(registerForm);
 
   const [errormsg, setErrorMsg] = useState('');
+  const [isValid, setIsvalid] = useState(false);
 
   var fadeAnim = useRef(new Animated.Value(1)).current;
   const autoFadeOut = () => {
     fadeAnim.setValue(1);
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 10000,
+      delay: 2000,
+      duration: 2000,
       useNativeDriver: true,
     }).start(() => {
       // Animated.reset(fadeAnim);
@@ -117,6 +119,21 @@ const Register = props => {
     }
   }
 
+  useEffect(() => {
+    if (
+      formData.fullName.valid &&
+      formData.phoneNumber.valid &&
+      formData.email.valid &&
+      formData.password.valid &&
+      formData.confirmPassword.valid
+    ) {
+      setIsvalid(true);
+    }
+    else {
+      setIsvalid(false);
+    }
+  }, [formData]);
+
   return (
     <View style={styles.container}>
       <Header />
@@ -164,7 +181,7 @@ const Register = props => {
       </View>
 
       <CustomButton
-        type="theme"
+        type={isValid ? 'theme' : "disabled"}
         title={'Sign up'}
         style={styles.signUp}
         onPress={handleSignupPress}

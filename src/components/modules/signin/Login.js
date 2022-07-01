@@ -21,6 +21,7 @@ const Login = props => {
   const [formData, setFormData] = useState(loginForm);
 
   const [errormsg, setErrorMsg] = useState('');
+  const [isValid, setIsvalid] = useState(false);
 
   const fadeAnim = useRef(new Animated.Value(1)).current;
   const autoFadeOut = () => {
@@ -125,6 +126,18 @@ const Login = props => {
     }
   };
 
+  useEffect(() => {
+    if (
+      formData.phoneNumber.valid &&
+      formData.password.valid
+    ) {
+      setIsvalid(true);
+    }
+    else {
+      setIsvalid(false);
+    }
+  }, [formData]);
+
   return (
     <View style={styles.container}>
       <Header />
@@ -180,7 +193,7 @@ const Login = props => {
       </View>
 
       <CustomButton
-        type="theme"
+        type={isValid ? 'theme' : "disabled"}
         title={'Sign in'}
         style={styles.signIn}
         onPress={handleSubmit}
