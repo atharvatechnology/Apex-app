@@ -6,42 +6,42 @@
 
 */
 
-import React, {useState, useRef, useEffect} from 'react';
-import {Text, View, TouchableOpacity, Animated} from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { Text, View, TouchableOpacity, Animated } from 'react-native';
 
 import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
 import Header from '@elements/Header';
+import { loginForm } from '@data/Signin/login';
+import { POST } from '@utils/api';
 import styles from '@styles/modules/signin/login.scss';
-import {POST} from '@apexapp/utils/api';
+import validate from '@apexapp/utils/validation';
 
 const Login = props => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-  });
+  const [formData, setFormData] = useState(loginForm);
 
-  const [errormsg, setErrorMsg] = useState('Phone Number or Number Incorrect');
+  const [errormsg, setErrorMsg] = useState('');
 
   const fadeAnim = useRef(new Animated.Value(1)).current;
   const autoFadeOut = () => {
+    fadeAnim.setValue(1);
     Animated.timing(fadeAnim, {
       toValue: 0,
+      delay: 2000,
       duration: 2000,
       useNativeDriver: true,
     }).start();
   };
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (errormsg !== '') {
-        autoFadeOut();
-      } else {
-      }
-    }, 2000);
-    return () => clearTimeout(timeout);
-  });
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     if (errormsg !== '') {
+  //       autoFadeOut();
+  //     } else {
+  //     }
+  //   }, 2000);
+  //   return () => clearTimeout(timeout);
+  // });
 
   const handleSignupLink = () => {
     props.navigation.navigate('Register');
@@ -51,16 +51,78 @@ const Login = props => {
     props.navigation.navigate('Reset');
   };
 
-  const handleChange = (key, value) => {
-    setFormData({...formData, [key]: value});
+  const onChangeHandler = (key, value, password) => {
+    // let tempFormData = [...formData];
+    // tempFormData[key].value = value;
+    // setFormData(tempFormData);
+
+    setFormData(prevState => {
+      return {
+        ...prevState,
+        [key]: {
+          ...prevState[key],
+          value: value,
+          valid: validate(value, prevState[key].validationRules, password),
+          touched: true
+        }
+      }
+    })
   };
+  const blurHandler = (key) => {
+    // let tempFormData = [...formData];
+    // tempFormData[key].focus = false;
+    // setFormData(tempFormData);
+
+    setFormData(prevState => {
+      return {
+        ...prevState,
+        [key]: {
+          ...prevState[key],
+          focus: false
+        }
+      }
+    })
+  }
+  const focusHandler = (key) => {
+    // let tempFormData = [...formData];
+    // tempFormData[key].focus = true;
+    // setFormData(tempFormData);
+
+    setFormData(prevState => {
+      return {
+        ...prevState,
+        [key]: {
+          ...prevState[key],
+          focus: true,
+          touched: true,
+        }
+      }
+    })
+  }
 
   const handleSubmit = async event => {
-    event.preventDefault();
-
+    let data = {
+      username: formData.phoneNumber.value,
+      email: '',
+      password: formData.password.value,
+      // username: 'test',
+    }
     try {
-      const response = await POST('api/auth/login/', formData);
-    } catch (error) {}
+      const response = await POST('api/auth/login/', data);
+      console.log(response);
+      const resJson = await response.json();
+      console.log(resJson)
+      if (response.status === 201) {
+        props.navigation.navigate('Verify');
+      }
+      if (response.status === 400) {
+        setErrorMsg(resJson.non_field_errors[0]);
+        autoFadeOut();
+
+      }
+    } catch (error) {
+      console.log("err", error);
+    }
   };
 
   return (
@@ -79,16 +141,28 @@ const Login = props => {
       </View>
 
       <View style={styles.formContainer}>
-        <CustomTextInput
-          onChange={val => handleChange('username', val)}
-          placeholder="Phone Number"
-        />
 
-        <CustomTextInput
-          onChange={val => handleChange('password', val)}
-          placeholder="Password"
-          hidden={true}
-        />
+        {
+          Object.values(formData).map((item, index) => <CustomTextInput
+            onChange={(value) => { onChangeHandler(item.elementConfig.name, value, formData.password.value) }}
+            placeholder={item.elementConfig.placeholder}
+            // hidden={true}
+            password={item.elementConfig.type === 'password'}
+
+            key={item.elementConfig.name}
+            // id={item.elementConfig.name}
+            // type={item.elementConfig.type}
+            keyboardType={item.elementConfig.keyboardType}
+            value={item.value}
+            valid={item.valid}
+            error={item.errorMessage}
+            touched={item.touched}
+            // errorMessage={item.errorMessage}
+            onBlur={() => blurHandler(item.elementConfig.name)}
+            onFocus={() => focusHandler(item.elementConfig.name)}
+          // focus={item.focus}
+          />)
+        }
       </View>
       <View style={styles.lastcontainer}>
         <Text style={styles.p}>Forget password?</Text>
@@ -97,9 +171,13 @@ const Login = props => {
         </TouchableOpacity>
       </View>
 
-      <Animated.View style={[styles.errortext, {opacity: fadeAnim}]}>
-        <Text style={styles.p}>{errormsg}</Text>
-      </Animated.View>
+      <View style={styles.errorContainer}>
+
+        {errormsg !== '' && <Animated.View style={[styles.errortext, { opacity: fadeAnim }]}>
+          <Text style={styles.p}>{errormsg}</Text>
+        </Animated.View>}
+
+      </View>
 
       <CustomButton
         type="theme"

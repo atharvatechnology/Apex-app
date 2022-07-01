@@ -157,9 +157,11 @@ const Register = props => {
         }
       </View>
 
-      {errormsg !== '' && <Animated.View style={[styles.errortext, { opacity: fadeAnim }]}>
-        <Text style={styles.p}>{errormsg}</Text>
-      </Animated.View>}
+      <View style={styles.errorContainer}>
+        {errormsg !== '' && <Animated.View style={[styles.errortext, { opacity: fadeAnim }]}>
+          <Text style={styles.p}>{errormsg}</Text>
+        </Animated.View>}
+      </View>
 
       <CustomButton
         type="theme"
