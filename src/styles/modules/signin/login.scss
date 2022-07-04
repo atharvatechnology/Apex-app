@@ -8,20 +8,15 @@
 }
 
 .lastcontainer {
-
     padding: 16px;
     margin: 2px;
     flex-direction: row;
-
-
 }
 
 .titleContainer {
     flex-direction: column;
     padding: 16px;
 }
-
-
 
 .title {
     @extend .h2;
@@ -33,7 +28,7 @@
 .link {
     @extend .link;
     @extend .p;
-    font-weight: 800;
+    font-weight: 400;
 }
 
 .link1 {
@@ -47,8 +42,6 @@
     @extend .p;
     flex-direction: row;
     text-align:center;
-
-
 }
 
 .formContainer {
@@ -69,6 +62,10 @@
     font-size:26px;
     padding: 16px 0px;
     margin: 2px;
+    border-radius: 5px;
     background-color: #F8A4A7;
     text-align: center;
+}
+.errorContainer{
+    padding: 0px 32px;
 }

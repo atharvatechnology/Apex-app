@@ -20,6 +20,7 @@
       "@navigation/*": ["src/navigation/*"],
       "@screens/*": ["src/screens/*"],
       "@assets/*": ["src/assets/*"],
+      "@data/*": ["src/data/*"],
     },
     "noEmit": true,
     "resolveJsonModule": true,

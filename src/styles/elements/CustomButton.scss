@@ -15,6 +15,10 @@
   background-color: themes.$primary;
 }
 
+.disabledBack{
+  background-color: themes.$disabled;
+}
+
 .text {
   color: black;
 }
