@@ -4,16 +4,16 @@
  * @returns {Register}- returns a module for Register.
  */
 
-import React, { useEffect, useRef, useState } from 'react';
-import { Image, Text, View, TouchableOpacity, Animated } from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {Image, Text, View, TouchableOpacity, Animated} from 'react-native';
 
 import Header from '@elements/Header';
 import styles from '@styles/modules/signup/Register.scss';
 import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
-import { registerForm } from '@data/signup/register';
+import {registerForm} from '@data/signup/register';
 import validate from '@apexapp/utils/validation';
-import { POST } from '@apexapp/utils/api';
+import {POST} from '@apexapp/utils/api';
 
 const Register = props => {
   const [formData, setFormData] = useState(registerForm);
@@ -46,12 +46,12 @@ const Register = props => {
           ...prevState[key],
           value: value,
           valid: validate(value, prevState[key].validationRules, password),
-          touched: true
-        }
-      }
-    })
+          touched: true,
+        },
+      };
+    });
   };
-  const blurHandler = (key) => {
+  const blurHandler = key => {
     // let tempFormData = [...formData];
     // tempFormData[key].focus = false;
     // setFormData(tempFormData);
@@ -61,12 +61,12 @@ const Register = props => {
         ...prevState,
         [key]: {
           ...prevState[key],
-          focus: false
-        }
-      }
-    })
-  }
-  const focusHandler = (key) => {
+          focus: false,
+        },
+      };
+    });
+  };
+  const focusHandler = key => {
     // let tempFormData = [...formData];
     // tempFormData[key].focus = true;
     // setFormData(tempFormData);
@@ -78,20 +78,18 @@ const Register = props => {
           ...prevState[key],
           focus: true,
           touched: true,
-        }
-      }
-    })
-  }
+        },
+      };
+    });
+  };
 
   const handleSignupPress = async () => {
     await handleSignUp();
-
   };
 
   const handleToLoginLink = () => {
     props.navigation.navigate('Login');
   };
-
 
   const handleSignUp = async () => {
     let data = {
@@ -100,24 +98,23 @@ const Register = props => {
       email: formData.email.value,
       password: formData.password.value,
       // username: 'test',
-    }
+    };
     try {
       const response = await POST('api/accounts/create/', data);
       console.log(response.status);
       const resJson = await response.json();
-      // console.log(resJson) 
+      // console.log(resJson)
       if (response.status === 201) {
         props.navigation.navigate('Verify');
       }
       if (response.status === 400) {
         setErrorMsg(resJson.username[0]);
         autoFadeOut();
-
       }
     } catch (error) {
-      console.log("err", error);
+      console.log('err', error);
     }
-  }
+  };
 
   useEffect(() => {
     if (
@@ -128,8 +125,7 @@ const Register = props => {
       formData.confirmPassword.valid
     ) {
       setIsvalid(true);
-    }
-    else {
+    } else {
       setIsvalid(false);
     }
   }, [formData]);
@@ -150,14 +146,18 @@ const Register = props => {
       </View>
 
       <View style={styles.formContainer}>
-
-        {
-          Object.values(formData).map((item, index) => <CustomTextInput
-            onChange={(value) => { onChangeHandler(item.elementConfig.name, value, formData.password.value) }}
+        {Object.values(formData).map((item, index) => (
+          <CustomTextInput
+            onChange={value => {
+              onChangeHandler(
+                item.elementConfig.name,
+                value,
+                formData.password.value,
+              );
+            }}
             placeholder={item.elementConfig.placeholder}
             // hidden={true}
             password={item.elementConfig.type === 'password'}
-
             key={item.elementConfig.name}
             // id={item.elementConfig.name}
             // type={item.elementConfig.type}
@@ -169,19 +169,21 @@ const Register = props => {
             // errorMessage={item.errorMessage}
             onBlur={() => blurHandler(item.elementConfig.name)}
             onFocus={() => focusHandler(item.elementConfig.name)}
-          // focus={item.focus}
-          />)
-        }
+            // focus={item.focus}
+          />
+        ))}
       </View>
 
       <View style={styles.errorContainer}>
-        {errormsg !== '' && <Animated.View style={[styles.errortext, { opacity: fadeAnim }]}>
-          <Text style={styles.p}>{errormsg}</Text>
-        </Animated.View>}
+        {errormsg !== '' && (
+          <Animated.View style={[styles.errortext, {opacity: fadeAnim}]}>
+            <Text style={styles.p}>{errormsg}</Text>
+          </Animated.View>
+        )}
       </View>
 
       <CustomButton
-        type={isValid ? 'theme' : "disabled"}
+        type={isValid ? 'theme' : 'disabled'}
         title={'Sign up'}
         style={styles.signUp}
         onPress={handleSignupPress}

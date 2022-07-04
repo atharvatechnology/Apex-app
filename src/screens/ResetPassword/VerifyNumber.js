@@ -1,14 +1,14 @@
 import React from 'react';
 import {View} from 'react-native';
 
-import VerifyNumber from '@apexapp/components/modules/ResetPassword/VerifyNumber';
+import Number from '@apexapp/components/templates/VerifyNumber';
 
-const Number = props => {
+const verifyNumber = props => {
   return (
     <View>
-      <VerifyNumber {...props} />
+      <Number {...props} />
     </View>
   );
 };
 
-export default Number;
+export default verifyNumber;
