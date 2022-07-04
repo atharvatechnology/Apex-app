@@ -1,11 +1,12 @@
 /**
- * This is one of two screens for Verify number. It contains an input field for entering the number.
+ * This is one of  the screens for Verify number. It contains an input field for entering the number.
  * @param {Object} props.navigation - contains all the propeties of react navigation.
  * @returns {VerifyNumber}- returns a module for Verify number.
  */
 
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
+
 import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
 import styles from '@styles/modules/ResetPassword/Reset.scss';
