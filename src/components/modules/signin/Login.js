@@ -3,19 +3,20 @@
   Fetch POST  is called using the app URL .
 * @param {Object} props.navigation - contains all the propeties of react navigation.
 * @returns {Login}- returns a module for login.
-
 */
 
-import React, {useState, useRef, useEffect} from 'react';
-import {Text, View, TouchableOpacity, Animated} from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { Text, View, TouchableOpacity, Animated } from 'react-native';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
 import Header from '@elements/Header';
-import {loginForm} from '@data/Signin/login';
-import {POST} from '@utils/api';
+import { loginForm } from '@data/Signin/login';
 import styles from '@styles/modules/signin/login.scss';
 import validate from '@apexapp/utils/validation';
+import { loginRequest } from '@apexapp/store/actions/auth';
 
 const Login = props => {
   const [formData, setFormData] = useState(loginForm);
@@ -24,6 +25,9 @@ const Login = props => {
   const [isValid, setIsvalid] = useState(false);
 
   const fadeAnim = useRef(new Animated.Value(1)).current;
+
+  const dispatch = useDispatch();
+
   const autoFadeOut = () => {
     fadeAnim.setValue(1);
     Animated.timing(fadeAnim, {
@@ -34,15 +38,7 @@ const Login = props => {
     }).start();
   };
 
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     if (errormsg !== '') {
-  //       autoFadeOut();
-  //     } else {
-  //     }
-  //   }, 2000);
-  //   return () => clearTimeout(timeout);
-  // });
+
 
   const handleSignupLink = () => {
     props.navigation.navigate('Register');
@@ -101,28 +97,14 @@ const Login = props => {
     });
   };
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     let data = {
       username: formData.phoneNumber.value,
       email: '',
       password: formData.password.value,
       // username: 'test',
     };
-    try {
-      const response = await POST('api/auth/login/', data);
-      console.log(response);
-      const resJson = await response.json();
-      console.log(resJson);
-      if (response.status === 201) {
-        props.navigation.navigate('Verify');
-      }
-      if (response.status === 400) {
-        setErrorMsg(resJson.non_field_errors[0]);
-        autoFadeOut();
-      }
-    } catch (error) {
-      console.log('err', error);
-    }
+    dispatch(loginRequest(data, autoFadeOut, props.navigation.navigate));
   };
 
   useEffect(() => {
@@ -172,7 +154,7 @@ const Login = props => {
             // errorMessage={item.errorMessage}
             onBlur={() => blurHandler(item.elementConfig.name)}
             onFocus={() => focusHandler(item.elementConfig.name)}
-            // focus={item.focus}
+          // focus={item.focus}
           />
         ))}
       </View>
@@ -185,7 +167,7 @@ const Login = props => {
 
       <View style={styles.errorContainer}>
         {errormsg !== '' && (
-          <Animated.View style={[styles.errortext, {opacity: fadeAnim}]}>
+          <Animated.View style={[styles.errortext, { opacity: fadeAnim }]}>
             <Text style={styles.p}>{errormsg}</Text>
           </Animated.View>
         )}

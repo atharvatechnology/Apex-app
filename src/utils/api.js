@@ -1,7 +1,7 @@
 import react from 'react';
 // import axios from 'axios';
 
-export const apiBaseURL = 'http://192.168.0.33:8000/';
+export const apiBaseURL = 'http://192.168.0.2:8000/';
 // export const apiBaseURL = 'http://cc94-27-34-10-124.ngrok.io/';
 
 export const GET = (url, token) => {
@@ -47,6 +47,6 @@ export const DELETE = (url, token, data) => {
       'Context-Type': 'application/json',
       Authorization: 'Beared ' + token,
     },
-    body: JSON.stringify({data}),
+    body: JSON.stringify({ data }),
   });
 };
