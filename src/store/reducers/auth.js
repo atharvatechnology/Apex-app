@@ -13,12 +13,17 @@ const initialState = {
     pk: 0,
     username: '',
   },
+
+  usernameForVerify: '',
 }
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SET_TOKENS:
       return { ...action.payload };
+
+    case types.SET_REGISTER_NAME:
+      return { ...state, usernameForVerify: action.payload };
 
     default:
       return state;

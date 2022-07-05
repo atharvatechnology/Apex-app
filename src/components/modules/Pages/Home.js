@@ -4,15 +4,15 @@
  * @returns {Home}- returns a module for Home
  */
 
-import React, {useState, useRef} from 'react';
-import {Text, View} from 'react-native';
+import React, { useState, useRef } from 'react';
+import { Text, View } from 'react-native';
 
-import Carousel, {Pagination} from 'react-native-snap-carousel';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import NavBar from '@apexapp/components/elements/Navbar/Navbar';
 import styles from '@styles/modules/Pages/Home.scss';
-import {WIDTH} from '@apexapp/utils/constants';
+import { WIDTH } from '@apexapp/utils/constants';
 
 const data = [
   {
@@ -40,7 +40,7 @@ const Home = props => {
 
   const CarouselRef = useRef(null);
 
-  const _renderItemWithParallax = ({item, index}, parallaxProps) => {
+  const _renderItemWithParallax = ({ item, index }, parallaxProps) => {
     return (
       <>
         <View style={styles.card}>

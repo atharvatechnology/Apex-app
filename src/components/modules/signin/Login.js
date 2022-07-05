@@ -104,7 +104,7 @@ const Login = props => {
       password: formData.password.value,
       // username: 'test',
     };
-    dispatch(loginRequest(data, autoFadeOut, props.navigation.navigate));
+    dispatch(loginRequest(data, autoFadeOut, props.navigation.navigate, setErrorMsg));
   };
 
   useEffect(() => {
