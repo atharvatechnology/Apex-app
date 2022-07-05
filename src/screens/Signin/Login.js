@@ -1,14 +1,14 @@
-import React from "react";
-import { View } from "react-native";
+import React from 'react';
+import {View} from 'react-native';
 
-import LoginTemplate from "@templates/Login";
+import LoginTemplate from '@templates/Login';
 
-const Login = (props) => {
-    return (
-        <View>
-            <LoginTemplate {...props} />
-        </View>
-    );
-}
+const Login = props => {
+  return (
+    <View>
+      <LoginTemplate {...props} />
+    </View>
+  );
+};
 
 export default Login;

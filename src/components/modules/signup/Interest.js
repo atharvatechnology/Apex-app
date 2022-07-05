@@ -4,59 +4,56 @@
  * @returns {Interest}- returns a module for Interest.
  */
 
-import React, { useEffect, useState } from "react";
-import { Image, Text, View } from "react-native";
+import React, {useEffect, useState} from 'react';
+import {Image, Text, View} from 'react-native';
 
+import CustomButton from '@elements/CustomButton';
+import CustomDropdown from '@apexapp/components/elements/CustomDropdown';
 import styles from '@styles/modules/signup/Interests.scss';
-import CustomButton from "@elements/CustomButton";
-import CustomDropdown from "@apexapp/components/elements/CustomDropdown";
 
+let preparation = [
+  {
+    id: 1,
+    name: 'Loksewa Preparation',
+  },
+  {
+    id: 2,
+    name: 'Entrance Preparation',
+  },
+];
 
+let category = [
+  {
+    id: 1,
+    text: 'Loksewa',
+  },
+  {
+    id: 2,
+    text: 'Banking',
+  },
+  {
+    id: 3,
+    text: 'Engineering',
+  },
+];
 
-
-let preparation = [{
-  id: 1,
-  name: "Loksewa Preparation"
-}, {
-  id: 2,
-  name: "Entrance Preparation",
-},]
-
-
-let category = [{
-  id: 1,
-  text: "Loksewa"
-}, {
-  id: 2,
-  text: "Banking"
-}, {
-  id: 3,
-  text: "Engineering"
-},]
-
-
-const Interest = (props) => {
-
-  const [show, setShow] = useState(false)
+const Interest = props => {
+  const [show, setShow] = useState(false);
 
   const [selectedButton, setSelectedButton] = useState(0);
 
-  const [selectedItem, setSelectedItem] = useState(0)
-  const onSelect = (item) => {
-    setSelectedItem(item.id)
-    setShow(true)
+  const [selectedItem, setSelectedItem] = useState(0);
+  const onSelect = item => {
+    setSelectedItem(item.id);
+    setShow(true);
+  };
+  const handleContinue = () => {};
 
-  }
-  const handleContinue = () => {
-  }
-
-  const handleButton = (item) => {
-    setSelectedButton(item.id)
+  const handleButton = item => {
+    setSelectedButton(item.id);
     // selectedButton ? setSelectedButton(0) : setSelectedButton(1)
     // console.log(selectedButton);
-  }
-
-
+  };
 
   return (
     <View style={styles.container}>
@@ -76,36 +73,32 @@ const Interest = (props) => {
         label="Interest"
       />
 
+      {show ? (
+        <View>
+          <Text style={styles.categorytext}>Choose sub-category</Text>
 
-
-      {show ? <View>
-        <Text style={styles.categorytext}>Choose sub-category</Text>
-
-        <View style={styles.allcategorybutton}>
-
-          {category.map((item, index) => {
-            return (
-
-              <CustomButton style={selectedButton === item.id ? styles.categorybuttonchange : styles.categorybutton}
-                key={index}
-                onPress={() => handleButton(item)}
-                // style={styles.categorybutton}
-                type={selectedButton === item.id ? "theme" : "white"}
-                title={item.text}
-
-              />
-
-            )
-          })}
+          <View style={styles.allcategorybutton}>
+            {category.map((item, index) => {
+              return (
+                <CustomButton
+                  style={
+                    selectedButton === item.id
+                      ? styles.categorybuttonchange
+                      : styles.categorybutton
+                  }
+                  key={index}
+                  onPress={() => handleButton(item)}
+                  // style={styles.categorybutton}
+                  type={selectedButton === item.id ? 'theme' : 'white'}
+                  title={item.text}
+                />
+              );
+            })}
+          </View>
         </View>
-
-
-      </View> : null}
-
-
+      ) : null}
 
       <CustomButton
-
         type="theme"
         title={'Continue'}
         style={styles.continue}
