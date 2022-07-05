@@ -9,14 +9,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 
+// import Home from '@apexapp/screens/Pages/Home';
 import OnBoarding from '@screens/onBoarding';
 // import Reset from '@apexapp/screens/ResetPassword/Reset';
 import ResetRouter from './ResetPassword/Reset';
 import SignUpRouter from './signup';
 import SignInRouter from './signin';
 import Walkthrough from '@screens/walkthrough';
-
-import Home from '@apexapp/screens/Pages/Home';
+import HomeRouter from './Home/Home';
 
 export const MyStack = createNativeStackNavigator();
 
@@ -32,7 +32,7 @@ const MainRouter = () => {
         {SignInRouter()}
         {SignUpRouter()}
         {ResetRouter()}
-        {Home}
+        {HomeRouter()}
         {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
       </MyStack.Navigator>
     </NavigationContainer>
