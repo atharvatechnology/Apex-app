@@ -4,8 +4,8 @@
  * @returns {Walkthrough}- returns a module for walkthrough
  */
 
-import React, {useEffect} from 'react';
-import {Image, Text, View, Animated} from 'react-native';
+import React, { useEffect } from 'react';
+import { Image, Text, View, Animated } from 'react-native';
 
 // import Animated, { FadeIn } from 'react-native-reanimated';
 
@@ -13,19 +13,44 @@ import styles from '@styles/modules/walkthrough.scss';
 
 const Walkthrough = props => {
   const startValue = new Animated.Value(1);
-  const endValue = 1.5;
+  const endValue = 1.2;
 
   useEffect(() => {
-    Animated.loop(
+    Animated.timing(startValue, {
+      toValue: 1.2,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start(() => {
+      // startValue.setValue(1.2);
       Animated.timing(startValue, {
-        toValue: endValue,
+        toValue: 1,
         duration: 2000,
-        // friction: 1,
         useNativeDriver: true,
-      }),
-      // { iterations: 1000 },
-    ).start();
-  }, [startValue, endValue]);
+      }).start()
+    })
+
+    const test = setInterval(() => {
+      Animated.timing(startValue, {
+        toValue: 1.2,
+        duration: 2000,
+        useNativeDriver: true,
+      }).start(() => {
+        // startValue.setValue(1.2);
+        Animated.timing(startValue, {
+          toValue: 1,
+          duration: 2000,
+          useNativeDriver: true,
+        }).start()
+      })
+    }, 4000);
+
+
+    const unsubscribe = props.navigation.addListener('blur', () => {
+      clearInterval(test);
+    });
+
+    return unsubscribe;
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
