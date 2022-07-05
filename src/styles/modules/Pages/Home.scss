@@ -1,23 +1,50 @@
+@use "../../library" as themes;
+ @import "../../common";
+ .text{
+    padding-left:16px ;
+    width: 80%;
+    height: 33px;
+    padding-top: 8px;
+   
 
-// @import "../../common";
 
-// .container {
- 
-//   display: flex;
-//   flex-direction: row;
-// justify-content:space-between ;
-// align-items: flex-start;
-// padding: 16px;
-// }
+ }
+ .p{
+    font-family: Open sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+ }
+ .card {
+   display: flex;
+   flex-direction: row;
+    justify-content:flex-start ;
+align-items: flex-start;
+padding: 16px;
 
-// .CustomDropDown {
-//   display: flex;
-//   width: 80%;
-//   // flex:2;
-//   // background-color: green;
-// }
-// .image{
-//   // flex:1;
-//    height: 48;
-//   width: 50;
-// }
+}.title{
+   padding:10px;
+   padding-right: 16px;
+padding-left:20px;
+   @extend .title-bcr;
+}
+.title1{
+   @extend .title1-bcr;
+   padding:10px;
+   padding-right: 16px;
+padding-left:20px;
+}
+
+.text{
+   font-family: 'Open Sans-serif';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 19px;
+}
+.amount {
+   align-items: flex-end;
+   padding-right: 16px;
+   padding-left:20px;
+}

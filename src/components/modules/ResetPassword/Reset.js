@@ -6,6 +6,7 @@
 
 import React, {useEffect} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
+
 import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
 import styles from '@styles/modules/ResetPassword/Reset.scss';

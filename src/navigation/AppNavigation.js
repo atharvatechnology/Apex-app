@@ -25,14 +25,14 @@ const MainRouter = () => {
     <NavigationContainer>
       <MyStack.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName="Home">
+        initialRouteName="Walkthrough">
         <MyStack.Screen name="Walkthrough" component={Walkthrough} />
         <MyStack.Screen name="OnBoarding" component={OnBoarding} />
-        <MyStack.Screen name="Home" component={Home} />
-        {Home}
-        {SignInRouter()}
-        {ResetRouter()}
 
+        {SignInRouter()}
+        {SignUpRouter()}
+        {ResetRouter()}
+        {Home}
         {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
       </MyStack.Navigator>
     </NavigationContainer>
