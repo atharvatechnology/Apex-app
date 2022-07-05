@@ -6,14 +6,14 @@
 
 */
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Text, View, TouchableOpacity, Animated } from 'react-native';
+import React, {useState, useRef, useEffect} from 'react';
+import {Text, View, TouchableOpacity, Animated} from 'react-native';
 
 import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
 import Header from '@elements/Header';
-import { loginForm } from '@data/Signin/login';
-import { POST } from '@utils/api';
+import {loginForm} from '@data/Signin/login';
+import {POST} from '@utils/api';
 import styles from '@styles/modules/signin/login.scss';
 import validate from '@apexapp/utils/validation';
 
@@ -49,7 +49,7 @@ const Login = props => {
   };
 
   const handleResetLink = () => {
-    props.navigation.navigate('Reset');
+    props.navigation.navigate('VerifyNumber');
   };
 
   const onChangeHandler = (key, value, password) => {
@@ -64,12 +64,12 @@ const Login = props => {
           ...prevState[key],
           value: value,
           valid: validate(value, prevState[key].validationRules, password),
-          touched: true
-        }
-      }
-    })
+          touched: true,
+        },
+      };
+    });
   };
-  const blurHandler = (key) => {
+  const blurHandler = key => {
     // let tempFormData = [...formData];
     // tempFormData[key].focus = false;
     // setFormData(tempFormData);
@@ -79,12 +79,12 @@ const Login = props => {
         ...prevState,
         [key]: {
           ...prevState[key],
-          focus: false
-        }
-      }
-    })
-  }
-  const focusHandler = (key) => {
+          focus: false,
+        },
+      };
+    });
+  };
+  const focusHandler = key => {
     // let tempFormData = [...formData];
     // tempFormData[key].focus = true;
     // setFormData(tempFormData);
@@ -96,10 +96,10 @@ const Login = props => {
           ...prevState[key],
           focus: true,
           touched: true,
-        }
-      }
-    })
-  }
+        },
+      };
+    });
+  };
 
   const handleSubmit = async event => {
     let data = {
@@ -107,33 +107,28 @@ const Login = props => {
       email: '',
       password: formData.password.value,
       // username: 'test',
-    }
+    };
     try {
       const response = await POST('api/auth/login/', data);
       console.log(response);
       const resJson = await response.json();
-      console.log(resJson)
+      console.log(resJson);
       if (response.status === 201) {
         props.navigation.navigate('Verify');
       }
       if (response.status === 400) {
         setErrorMsg(resJson.non_field_errors[0]);
         autoFadeOut();
-
       }
     } catch (error) {
-      console.log("err", error);
+      console.log('err', error);
     }
   };
 
   useEffect(() => {
-    if (
-      formData.phoneNumber.valid &&
-      formData.password.valid
-    ) {
+    if (formData.phoneNumber.valid && formData.password.valid) {
       setIsvalid(true);
-    }
-    else {
+    } else {
       setIsvalid(false);
     }
   }, [formData]);
@@ -154,14 +149,18 @@ const Login = props => {
       </View>
 
       <View style={styles.formContainer}>
-
-        {
-          Object.values(formData).map((item, index) => <CustomTextInput
-            onChange={(value) => { onChangeHandler(item.elementConfig.name, value, formData.password.value) }}
+        {Object.values(formData).map((item, index) => (
+          <CustomTextInput
+            onChange={value => {
+              onChangeHandler(
+                item.elementConfig.name,
+                value,
+                formData.password.value,
+              );
+            }}
             placeholder={item.elementConfig.placeholder}
             // hidden={true}
             password={item.elementConfig.type === 'password'}
-
             key={item.elementConfig.name}
             // id={item.elementConfig.name}
             // type={item.elementConfig.type}
@@ -173,9 +172,9 @@ const Login = props => {
             // errorMessage={item.errorMessage}
             onBlur={() => blurHandler(item.elementConfig.name)}
             onFocus={() => focusHandler(item.elementConfig.name)}
-          // focus={item.focus}
-          />)
-        }
+            // focus={item.focus}
+          />
+        ))}
       </View>
       <View style={styles.lastcontainer}>
         <Text style={styles.p}>Forget password?</Text>
@@ -185,15 +184,15 @@ const Login = props => {
       </View>
 
       <View style={styles.errorContainer}>
-
-        {errormsg !== '' && <Animated.View style={[styles.errortext, { opacity: fadeAnim }]}>
-          <Text style={styles.p}>{errormsg}</Text>
-        </Animated.View>}
-
+        {errormsg !== '' && (
+          <Animated.View style={[styles.errortext, {opacity: fadeAnim}]}>
+            <Text style={styles.p}>{errormsg}</Text>
+          </Animated.View>
+        )}
       </View>
 
       <CustomButton
-        type={isValid ? 'theme' : "disabled"}
+        type={isValid ? 'theme' : 'disabled'}
         title={'Sign in'}
         style={styles.signIn}
         onPress={handleSubmit}

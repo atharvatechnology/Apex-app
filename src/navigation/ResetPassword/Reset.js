@@ -6,12 +6,14 @@ import {MyStack} from '../AppNavigation';
 
 import NewPassword from '@screens/ResetPassword/NewPassword';
 import Reset from '@screens/ResetPassword/Reset';
+import VerifyNumber from '@apexapp/components/modules/ResetPassword/VerifyNumber';
 
 const ResetRouter = () => {
   return (
     <Fragment>
       <MyStack.Screen name="Reset" component={Reset} />
       <MyStack.Screen name="NewPassword" component={NewPassword} />
+      <MyStack.Screen name="VerifyNumber" component={VerifyNumber} />
     </Fragment>
   );
 };
