@@ -30,8 +30,9 @@
 .paginationContainer {
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0px 0px 16px 0px;
+  width:100%;
 }
 
 .paginationDot {

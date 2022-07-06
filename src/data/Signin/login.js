@@ -18,7 +18,7 @@ export const loginForm = {
     showError: false,
     showEmptyError: false,
     errorMessage: 'Phone number should start with 98/97 ',
-    style: {marginBottom: 4},
+    style: { marginBottom: 4 },
     validationRules: {
       required: true,
       isPhone: true,
@@ -44,11 +44,11 @@ export const loginForm = {
     showEmptyError: false,
     errorMessage:
       'Password must be atleast 8 characters long and a number should be included',
-    style: {marginBottom: 4},
+    style: { marginBottom: 4 },
     validationRules: {
       required: true,
-      isPassword: true,
-      minLength: 6,
+      // isPassword: true,
+      // minLength: 6,
       // regex: passwordRegex,
     },
   },

@@ -18,7 +18,7 @@ const CustomTextInput = props => {
 
   return (
     <>
-      <View style={!props.valid && props.touched ? styles.errorContainer : styles.container}>
+      <View style={!props.valid && props.touched ? styles.errorContainer : [styles.container, props.style]}>
         <TextInput
           style={
             // !props.valid ? styles.errorTexts : 
