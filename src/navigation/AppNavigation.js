@@ -13,6 +13,7 @@ import { Provider } from 'react-redux';
 // import Home from '@apexapp/screens/Pages/Home';
 import HomeRouter from './Home/Home';
 import ExamRouter from './Home/Exam';
+import ExamDetailRouter from './Home/ExamDetail';
 import OnBoarding from '@screens/onBoarding';
 // import Reset from '@apexapp/screens/ResetPassword/Reset';
 import ResetRouter from './ResetPassword/Reset';
@@ -30,7 +31,7 @@ const MainRouter = () => {
       <NavigationContainer>
         <MyStack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="Walkthrough">
+          initialRouteName="ExamDetail">
           <MyStack.Screen name="Walkthrough" component={Walkthrough} />
           <MyStack.Screen name="OnBoarding" component={OnBoarding} />
 
@@ -39,6 +40,9 @@ const MainRouter = () => {
           {ResetRouter()}
           {HomeRouter()}
           {ExamRouter()}
+          {ExamDetailRouter()}
+
+
           {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
         </MyStack.Navigator>
       </NavigationContainer>
