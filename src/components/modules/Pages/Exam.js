@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { View, Image, TouchableOpacity, Text, Dimensions } from 'react-native'
 import styles from '@styles/modules/Pages/Exam'
-import CustomDropdown from '@apexapp/components/elements/CustomDropdown'
+// import CustomDropdown from '@apexapp/components/elements/CustomDropdown'
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import { ScrollView } from 'react-native-gesture-handler';
+import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
+import { onChange } from 'react-native-reanimated';
 
 
 
@@ -37,21 +39,21 @@ const data = [
         title: 'LIVE',
         title1: 'RBB',
         text: 'Loksewa Mock Test - 1',
-        amount: `Rs.500   \u25CF 60 min`,
+        amount: `Rs.500     \u25CF 60 min`,
     },
     {
         icon: "",
         title: 'LIVE',
         title1: 'RBB',
         text: 'Loksewa Mock Test - 1',
-        amount: `Rs.500   \u25CF 60 min`,
+        amount: `Rs.500     \u25CF 60 min`,
     },
     {
         icon: "",
         title: 'LIVE',
         title1: 'RBB',
         text: 'Loksewa Mock Test - 1',
-        amount: `Rs.500   \u25CF 60 min`,
+        amount: `Rs.500     \u25CF 60 min`,
     },
 
 
@@ -61,7 +63,7 @@ const data = [
 const Exam = (props) => {
     const [show, setShow] = useState(false);
     const [selectedItem, setSelectedItem] = useState(0);
-    const onSelect = item => {
+    const onChange = item => {
         setSelectedItem(item.id);
         setShow(true);
     };
@@ -75,7 +77,7 @@ const Exam = (props) => {
 
     return (
 
-        <>
+        <View style={styles.maincontainer}>
             <TouchableOpacity onPress={handleArrow} style={styles.left}>
 
                 <Image source={require('@assets/images/leftArrow.png')} />
@@ -83,19 +85,27 @@ const Exam = (props) => {
             </TouchableOpacity>
 
             <View style={styles.searchandfilter}>
-
-                <CustomDropdown
-                    style={styles.CustomDropDown}
+                <TouchableOpacity style={styles.search}>
+                    <Image style={styles.searchicon}
+                        source={require('@assets/images/search-interface-symbol.png')} />
+                </TouchableOpacity>
+                <CustomTextInput
+                    style={styles.CustomTextInput}
                     value={selectedItem}
                     data={preparation}
-                    onSelect={onSelect}
-                    label="Search here"
+                    onChange={onChange}
+                    placeholder="Search here"
+                    color="#000000"
                 />
+
                 <TouchableOpacity onPress={handleFilter}  >
                     <Image style={styles.filter}
                         source={require('@assets/images/filter.png')} />
                 </TouchableOpacity>
             </View>
+
+            <View style={styles.line}></View>
+
             <ScrollView nestedScrollEnabled={true}>
                 <View >
                     {data.map((item, index) => {
@@ -128,7 +138,8 @@ const Exam = (props) => {
                 </View>
                 <View style={{ height: Dimensions.get("window").height }}></View>
             </ScrollView>
-        </>
+
+        </View>
 
     )
 }
