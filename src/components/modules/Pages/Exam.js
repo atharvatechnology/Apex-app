@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
-import { View, Image, TouchableOpacity, Text, Dimensions } from 'react-native'
-import styles from '@styles/modules/Pages/Exam'
-// import CustomDropdown from '@apexapp/components/elements/CustomDropdown'
-import CustomButton from '@apexapp/components/elements/CustomButton';
-import { ScrollView } from 'react-native-gesture-handler';
-import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
-import { onChange } from 'react-native-reanimated';
+/**
+ * This is  page containing the Exam and other components of the organization.
+ * @param {Object} props.navigation - contains all the propeties of react navigation
+ * @returns {Exam}- returns a module for Exam
+ */
 
+import React, { useState } from 'react'
+
+import { View, Image, TouchableOpacity, Text, Dimensions } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler';
+
+import CustomButton from '@apexapp/components/elements/CustomButton';
+import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
+import styles from '@styles/modules/Pages/Exam'
 
 
 

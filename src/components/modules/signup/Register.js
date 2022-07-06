@@ -4,22 +4,26 @@
  * @returns {Register}- returns a module for Register.
  */
 
-import React, {useEffect, useRef, useState} from 'react';
-import {Image, Text, View, TouchableOpacity, Animated} from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Image, Text, View, TouchableOpacity, Animated } from 'react-native';
 
 import Header from '@elements/Header';
 import styles from '@styles/modules/signup/Register.scss';
 import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
-import {registerForm} from '@data/signup/register';
+import { registerForm } from '@data/signup/register';
 import validate from '@apexapp/utils/validation';
-import {POST} from '@apexapp/utils/api';
+import { POST } from '@apexapp/utils/api';
+import { useDispatch } from 'react-redux';
+import { login } from '@apexapp/store/actions/auth';
 
 const Register = props => {
   const [formData, setFormData] = useState(registerForm);
 
   const [errormsg, setErrorMsg] = useState('');
   const [isValid, setIsvalid] = useState(false);
+
+  const dispatch = useDispatch();
 
   var fadeAnim = useRef(new Animated.Value(1)).current;
   const autoFadeOut = () => {
@@ -99,18 +103,25 @@ const Register = props => {
       password: formData.password.value,
       // username: 'test',
     };
+    // dispatch(data, props.navigation.navigate, { username: data.username }, autoFadeOut, setErrorMsg)
     try {
       const response = await POST('api/accounts/create/', data);
-      console.log(response.status);
+      console.log(response);
       const resJson = await response.json();
-      // console.log(resJson)
+      console.log(resJson)
       if (response.status === 201) {
-        props.navigation.navigate('Verify');
+        // dispatch(login(resJson));
+        props.navigation.navigate('Verify', { username: data.username });
       }
       if (response.status === 400) {
-        setErrorMsg(resJson.username[0]);
+        let msg = '';
+        Object.values(resJson).forEach(element => {
+          msg = msg + element[0];
+        });
+        setErrorMsg(msg);
         autoFadeOut();
       }
+
     } catch (error) {
       console.log('err', error);
     }
@@ -169,14 +180,14 @@ const Register = props => {
             // errorMessage={item.errorMessage}
             onBlur={() => blurHandler(item.elementConfig.name)}
             onFocus={() => focusHandler(item.elementConfig.name)}
-            // focus={item.focus}
+          // focus={item.focus}
           />
         ))}
       </View>
 
       <View style={styles.errorContainer}>
         {errormsg !== '' && (
-          <Animated.View style={[styles.errortext, {opacity: fadeAnim}]}>
+          <Animated.View style={[styles.errortext, { opacity: fadeAnim }]}>
             <Text style={styles.p}>{errormsg}</Text>
           </Animated.View>
         )}

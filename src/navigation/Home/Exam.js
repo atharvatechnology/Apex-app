@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 
 import { MyStack } from '../AppNavigation';
 
-
 import Exam from '@apexapp/screens/Pages/Exam';
 
 const ExamRouter = () => {
