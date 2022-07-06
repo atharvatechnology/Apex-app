@@ -1,0 +1,61 @@
+@use "../../library" as themes;
+@import "../../common";
+
+
+
+.maincontainer {
+    background-color: white;
+
+}
+.left {
+    // background-color: aqua;
+    padding: 15px 14px;
+    margin-top: 40px;
+    flex-direction: row;
+
+}
+.p {
+    font-family: Open sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 25px;
+    margin-left: 10px;
+}
+.gap{
+  
+    height: 15px;
+    @extend .card-bcr;
+  
+}
+.baseText {
+    font-Weight:600;
+    font-size:20px;
+    margin-left:16px;
+    color: black;
+  }
+  .Text{
+    font-weight:400;
+    font-size:14px;
+    margin-left:16px;
+    margin-bottom: 24px;
+  }
+  .price{
+    font-Weight:700;
+    font-size:24px;
+    margin-left:16px;
+    color: #2E3192;
+  }
+.Texts{
+    margin-left:16px;
+
+}
+
+
+  .text{
+    margin-top:8px;
+    margin-bottom:16px;
+  }
+  .gaps{
+    margin-bottom: 306px;
+  }
