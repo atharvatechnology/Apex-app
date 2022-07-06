@@ -1,7 +1,7 @@
 import react from 'react';
 // import axios from 'axios';
 
-export const apiBaseURL = 'http://192.168.0.33:8000/';
+export const apiBaseURL = 'http://192.168.0.65:8000/';
 // export const apiBaseURL = 'http://cc94-27-34-10-124.ngrok.io/';
 
 const getHeaders = () => {
