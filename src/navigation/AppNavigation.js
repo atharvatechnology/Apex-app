@@ -10,8 +10,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 
-import HomeRouter from './Home/Home';
 import ExamRouter from './Home/Exam';
+import HomeRouter from './Home/Home';
 import OnBoarding from '@screens/onBoarding';
 import ResetRouter from './ResetPassword/Reset';
 import SignUpRouter from './signup';
@@ -27,15 +27,15 @@ const MainRouter = () => {
       <NavigationContainer>
         <MyStack.Navigator
           screenOptions={{headerShown: false}}
-          initialRouteName="Walkthrough">
+          initialRouteName="Home">
           <MyStack.Screen name="Walkthrough" component={Walkthrough} />
           <MyStack.Screen name="OnBoarding" component={OnBoarding} />
 
-          {SignInRouter()}
+          {/* {SignInRouter()}
           {SignUpRouter()}
-          {ResetRouter()}
+          {ResetRouter()} */}
           {HomeRouter()}
-          {ExamRouter()}
+          {/* {ExamRouter()} */}
           {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
         </MyStack.Navigator>
       </NavigationContainer>
