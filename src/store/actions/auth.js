@@ -83,7 +83,7 @@ export const verifyRequest = (data,) => {
           msg = msg + element[0];
         });
         // setErrorMsg(msg);
-        callback();
+        // callback();
       }
     } catch (error) {
       console.log('err', error);
