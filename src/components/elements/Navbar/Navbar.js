@@ -5,8 +5,8 @@
  */
 import CustomDropdown from '@apexapp/components/elements/CustomDropdown';
 
-import React, {useState} from 'react';
-import {Image, Text, View} from 'react-native';
+import React, { useState } from 'react';
+import { Image, Text, View } from 'react-native';
 
 import styles from '@styles/elements/NavBar/Navbar.scss';
 
@@ -39,6 +39,7 @@ const NavBar = props => {
           data={preparation}
           onSelect={onSelect}
           label="Search here"
+
         />
       </View>
     </>
