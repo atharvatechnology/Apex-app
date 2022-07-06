@@ -1,0 +1,166 @@
+@use "../../library" as themes;
+@import "../../common";
+
+
+
+.maincontainer {
+    background-color: white;
+
+}
+
+.main {
+    background-color: #F8F8F8;
+
+    margin-top: 10px;
+    margin-left: 18px;
+    margin-right: 18px;
+    border-radius: 5px;
+}
+
+.left {
+    // background-color: aqua;
+    padding: 15px 14px;
+    margin-top: 40px;
+    flex-direction: row;
+
+}
+
+.line {
+    width: 100%;
+    height: 10px;
+    background-color: #F8F8F8;
+}
+
+
+
+
+
+.button {
+    @extend .button-bcr;
+    border: solid;
+    padding: 15px;
+    margin-left: 18px;
+    width: 90%;
+    margin-top: 30px;
+}
+
+
+
+
+.p {
+    font-family: Open sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 25px;
+    margin-left: 10px;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    margin-left: 2px;
+    margin-top: 3px;
+    border-radius: 10px;
+    border-color: black;
+
+
+
+}
+
+.title {
+    padding: 10px;
+    padding-right: 16px;
+    padding-left: 15px;
+    margin-left: 8px;
+    border-radius: 4px;
+    color: black;
+    @extend .title-bcr;
+    font-weight: 700
+}
+
+.title1 {
+    @extend .title1-bcr;
+    padding: 10px;
+    padding-right: 16px;
+    padding-left: 15px;
+    margin-left: 7px;
+    border-radius: 4px;
+    color: black;
+    font-weight: 700;
+
+}
+
+.text {
+    font-family: 'Open Sans-serif';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 19px;
+    color: black;
+    padding-left: 80px;
+
+}
+
+.amount {
+    align-items: flex-end;
+    padding-right: 16px;
+    padding-left: 80px;
+    color: black;
+    margin-top: 6px;
+    margin-bottom: 15px;
+
+
+}
+
+.icon {
+    height: 38px;
+    width: 42px;
+    background-color: yellow;
+    border-radius: 4px;
+    margin-right: 6px;
+}
+
+.searchandfilter {
+    flex-direction: row;
+    padding: 16px;
+}
+
+.filter {
+    margin-left: 15px;
+    margin-top: 15px;
+    height: 35px;
+    width: 35px;
+
+
+}
+
+.search {
+    height: 55px;
+    width: 50px;
+    background-color: #F8F8F8;
+    margin-top: 4px;
+    padding-left: 30px;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.searchicon {
+    height: 20px;
+    width: 20px;
+    margin-top: 18px;
+}
+
+.CustomTextInput {
+    width: 65%;
+    height: 55px;
+    padding-left: 6px;
+    color: black;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
