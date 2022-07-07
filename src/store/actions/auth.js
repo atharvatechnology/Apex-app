@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-community/async-storage';
+
 import { PATCH, POST } from "@utils/api";
 import * as types from "../actionTypes";
 
@@ -16,6 +18,7 @@ export const loginRequest = (data, callback = () => { }, navigate, setErrorMsg =
       console.log(resJson, response);
       if (response.status === 200) {
         dispatch(login(resJson));
+        await AsyncStorage.setItem('apex-tokens', JSON.stringify(resJson));
         navigate('Home');
       }
       if (response.status === 400) {
@@ -81,7 +84,7 @@ export const verifyRequest = (data,) => {
           msg = msg + element[0];
         });
         // setErrorMsg(msg);
-        callback();
+        // callback();
       }
     } catch (error) {
       console.log('err', error);

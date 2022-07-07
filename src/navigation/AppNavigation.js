@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 
+import ExamPaymentRouter from './Home/ExamPayment';
 import ExamRouter from './Home/Exam';
 import ExamDetailRouter from './Home/ExamDetail';
 import HomeRouter from './Home/Home';
@@ -19,6 +20,7 @@ import SignUpRouter from './signup';
 import SignInRouter from './signin';
 import { store } from '@apexapp/store/store';
 import Walkthrough from '@screens/walkthrough';
+import BottomTabs from './BottomTabs/BottomTabs';
 
 export const MyStack = createNativeStackNavigator();
 
@@ -28,19 +30,21 @@ const MainRouter = () => {
       <NavigationContainer>
         <MyStack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="Exam">
+          initialRouteName="Walkthrough">
           <MyStack.Screen name="Walkthrough" component={Walkthrough} />
           <MyStack.Screen name="OnBoarding" component={OnBoarding} />
-
           {SignInRouter()}
           {SignUpRouter()}
           {ResetRouter()}
-          {HomeRouter()}
+          {/* {HomeRouter()} */}
           {ExamRouter()}
           {ExamDetailRouter()}
 
 
+          {ExamPaymentRouter()}
           {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
+
+          <MyStack.Screen name="BottomTabs" component={BottomTabs} />
         </MyStack.Navigator>
       </NavigationContainer>
     </Provider>

@@ -74,7 +74,6 @@ const Verify = props => {
 
   return (
     <View style={styles.container}>
-      {console.log("verify screen", props.route.params, auth)}
       <TouchableOpacity onPress={handleBack} style={styles.left}>
         <Image source={require('@assets/images/leftArrow.png')} />
       </TouchableOpacity>
