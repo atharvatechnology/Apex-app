@@ -10,8 +10,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 
-import HomeRouter from './Home/Home';
 import ExamRouter from './Home/Exam';
+import HomeRouter from './Home/Home';
 import OnBoarding from '@screens/onBoarding';
 import ResetRouter from './ResetPassword/Reset';
 import SignUpRouter from './signup';
