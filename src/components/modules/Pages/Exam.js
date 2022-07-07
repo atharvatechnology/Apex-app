@@ -158,10 +158,10 @@ const Exam = props => {
 
         <View>
           <CustomButton
-            type="theme"
+            type="white"
             title={'Load More'}
             style={styles.button}
-            color="#000000"
+
           />
         </View>
         <View style={{ height: Dimensions.get('window').height }}></View>
