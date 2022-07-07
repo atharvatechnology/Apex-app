@@ -4,14 +4,16 @@
  * @returns {Exam}- returns a module for Exam
  */
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import {View, Image, TouchableOpacity, Text, Dimensions} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import { View, Image, TouchableOpacity, Text, Dimensions, Modal } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
+import CustomButtonPopup from '@apexapp/components/elements/CustomButtonPopup';
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
 import styles from '@styles/modules/Pages/Exam';
+
 
 let preparation = [
   {
@@ -61,6 +63,13 @@ const data = [
 ];
 
 const Exam = props => {
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const changeModalVisible = (bool) => {
+    setIsModalVisible(bool)
+  }
+
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
   const onChange = item => {
@@ -72,7 +81,7 @@ const Exam = props => {
   };
 
   const handleFilter = () => {
-    props.navigation.navigate('');
+    changeModalVisible(true)
   };
 
   return (
@@ -89,6 +98,7 @@ const Exam = props => {
             source={require('@assets/images/search-interface-symbol.png')}
           />
         </TouchableOpacity>
+
         <CustomTextInput
           style={styles.CustomTextInput}
           value={selectedItem}
@@ -98,12 +108,29 @@ const Exam = props => {
           color="#000000"
         />
 
+
+
         <TouchableOpacity onPress={handleFilter}>
           <Image
             style={styles.filter}
-            source={require('@assets/images/filter.png')}
+            source={require('@assets/images/Filter.png')}
           />
         </TouchableOpacity>
+        <Modal
+          transparent={true}
+          animationType='slide'
+          visible={isModalVisible}
+          nRequestClose={() => changeModalVisible(false)}
+        >
+          <CustomButtonPopup
+            changeModalVisible={changeModalVisible}
+
+          />
+        </Modal>
+
+
+
+
       </View>
 
       <View style={styles.line}></View>
@@ -137,7 +164,7 @@ const Exam = props => {
             color="#000000"
           />
         </View>
-        <View style={{height: Dimensions.get('window').height}}></View>
+        <View style={{ height: Dimensions.get('window').height }}></View>
       </ScrollView>
     </View>
   );

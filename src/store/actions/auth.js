@@ -13,6 +13,7 @@ export const loginRequest = (data, callback = () => { }, navigate, setErrorMsg =
     try {
       const response = await POST('api/auth/login/', data);
       const resJson = await response.json();
+      console.log(resJson, response);
       if (response.status === 200) {
         dispatch(login(resJson));
         navigate('Home');

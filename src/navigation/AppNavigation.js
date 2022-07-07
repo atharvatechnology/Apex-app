@@ -28,7 +28,7 @@ const MainRouter = () => {
       <NavigationContainer>
         <MyStack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="ExamDetail">
+          initialRouteName="Exam">
           <MyStack.Screen name="Walkthrough" component={Walkthrough} />
           <MyStack.Screen name="OnBoarding" component={OnBoarding} />
 
