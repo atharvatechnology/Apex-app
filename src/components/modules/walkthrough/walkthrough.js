@@ -61,7 +61,7 @@ const Walkthrough = props => {
       const tokens = await AsyncStorage.getItem('apex-tokens');
       // console.log(value);
       if (tokens) {
-        props.navigation.navigate('Home');
+        props.navigation.navigate('BottomTabs');
         let data = await JSON.parse(tokens);
         dispatch(login(data));
       } else {
