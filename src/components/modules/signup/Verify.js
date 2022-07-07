@@ -4,8 +4,8 @@
  * @returns {Verify}- returns a module for Verify.
  */
 
-import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { View, Text, Image, TouchableOpacity, Animated } from 'react-native';
 
 import CustomTextInput from '@elements/CustomTextInput';
 import CustomButton from '@elements/CustomButton';
@@ -18,7 +18,18 @@ import { PATCH } from '@apexapp/utils/api';
 
 const Verify = props => {
   const [formData, setFormData] = useState(verifyForm);
-  const [errormsg, setErrorMsg] = useState('');
+  const [errormsg, setErrorMsg] = useState(' ');
+
+  const fadeAnim = useRef(new Animated.Value(1)).current;
+  const autoFadeOut = () => {
+    fadeAnim.setValue(1);
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      delay: 2000,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start();
+  };
 
   const dispatch = useDispatch();
   const auth = useSelector(state => state.authReducer);
@@ -65,7 +76,7 @@ const Verify = props => {
       username: props.route.params.username,
       otp: formData.otp.value,
     }
-    dispatch(verifyRequest(data));
+    dispatch(verifyRequest(data, autoFadeOut, props.navigation.navigate, setErrorMsg));
   };
 
   const handleBack = () => {
@@ -117,6 +128,14 @@ const Verify = props => {
       </View>
 
       <Text style={styles.p}>Code will expire in 33s</Text>
+
+      <View style={styles.errorContainer}>
+        {errormsg !== '' && (
+          <Animated.View style={[styles.errortext, { opacity: fadeAnim }]}>
+            <Text style={styles.p}>{errormsg}</Text>
+          </Animated.View>
+        )}
+      </View>
 
       <View style={styles.bottomContainer}>
         <CustomButton
