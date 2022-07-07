@@ -19,7 +19,6 @@ import SignUpRouter from './signup';
 import SignInRouter from './signin';
 import {store} from '@apexapp/store/store';
 import Walkthrough from '@screens/walkthrough';
-import ExamPayment from '@apexapp/screens/Pages/ExamPayment';
 
 export const MyStack = createNativeStackNavigator();
 
@@ -29,15 +28,14 @@ const MainRouter = () => {
       <NavigationContainer>
         <MyStack.Navigator
           screenOptions={{headerShown: false}}
-          initialRouteName="ExamPayment">
+          initialRouteName="Walkthrough">
           <MyStack.Screen name="Walkthrough" component={Walkthrough} />
           <MyStack.Screen name="OnBoarding" component={OnBoarding} />
-
-          {/* {SignInRouter()}
+          {SignInRouter()}
           {SignUpRouter()}
           {ResetRouter()}
           {HomeRouter()}
-          // {ExamRouter()} */}
+          {ExamRouter()}
           {ExamPaymentRouter()}
           {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
         </MyStack.Navigator>
