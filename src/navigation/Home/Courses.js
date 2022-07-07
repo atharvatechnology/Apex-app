@@ -4,16 +4,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {MyStack} from '../AppNavigation';
 
-import Home from '@screens/Pages/Home';
-import Exam from '@screens/Pages/Exam';
+import Courses from '@apexapp/screens/Pages/Courses';
 
-const HomeRouter = () => {
+const CoursesRouter = () => {
   return (
     <MyStack.Navigator screenOptions={{headerShown: false}}>
-      <MyStack.Screen name="Home" component={Home} />
-      <MyStack.Screen name="Exam" component={Exam} />
+      <MyStack.Screen name="Courses" component={Courses} />
     </MyStack.Navigator>
   );
 };
 
-export default HomeRouter;
+export default CoursesRouter;
