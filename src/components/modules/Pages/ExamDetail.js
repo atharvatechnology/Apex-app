@@ -10,7 +10,6 @@ import { View, Image, TouchableOpacity, Text, Dimensions } from 'react-native'
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import styles from '@styles/modules/Pages/ExamDetail';
-import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -54,11 +53,14 @@ const ExamDetail = (props) => {
 
 
             <View style={styles.main1}>
-
-                <View style={styles.texthead}>
-                    <Text style={styles.text}>PRACTICE EXAM</Text>
+                <View style={styles.head}>
+                    <View style={styles.texthead}>
+                        <Text style={styles.text}>PRACTICE EXAM</Text>
+                    </View>
+                    <View style={styles.texthead1}>
+                        <Text style={styles.text1}>LIVE</Text>
+                    </View>
                 </View>
-
                 <View>
                     <Text style={styles.p1}>Test Exam 1</Text>
                 </View>
@@ -69,27 +71,45 @@ const ExamDetail = (props) => {
                         <View style={styles.flex2} >
                             <Text style={styles.icon}> </Text>
                             <View >
-                                <Text style={styles.duration}>Duration</Text>
-                                <Text style={styles.duration1}> 120 min</Text>
+                                <Text style={styles.duration}>Date</Text>
+                                <Text style={styles.duration1}>29 Jan,2022</Text>
                             </View>
                         </View>
 
                         <View style={styles.fullmark}>
                             <Text style={styles.icon}> </Text>
                             <View>
-                                <Text style={styles.fullmarks}>Full marks</Text>
-                                <Text style={styles.fullmarks1}>100</Text>
+                                <Text style={styles.fullmarks}>Duration</Text>
+                                <Text style={styles.fullmarks1}>120 min</Text>
                             </View>
                         </View>
                     </View>
+                    <View style={styles.flex3}>
+                        <View style={styles.passmark}>
+                            <Text style={styles.icon}> </Text>
+                            <View>
+                                <Text style={styles.passmarks}>Time</Text>
+                                <Text style={styles.passmarks1}>Multiple session</Text>
+                            </View>
+                        </View>
 
-                    <View style={styles.passmark}>
+                        <View style={styles.mark}>
+                            <Text style={styles.icon}> </Text>
+                            <View>
+                                <Text style={styles.marks}>Full marks</Text>
+                                <Text style={styles.marks1}>100</Text>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={styles.pass}>
                         <Text style={styles.icon}> </Text>
                         <View>
                             <Text style={styles.passmarks}>Pass marks</Text>
                             <Text style={styles.passmarks1}>60</Text>
                         </View>
                     </View>
+
+
                 </View>
             </View>
 

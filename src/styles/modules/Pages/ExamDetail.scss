@@ -50,10 +50,23 @@
     background-color: #F8F8F8;
 }
 
+.head {
+    flex-direction: row;
+}
+
 .texthead {
     margin-top: 6px;
     padding-left: 16px;
+
 }
+
+.texthead1 {
+    margin-top: 6px;
+    padding-left: 16px;
+
+}
+
+
 
 .text {
     padding: 2px;
@@ -61,13 +74,25 @@
     color: black;
     margin-top: 15px;
     background-color: #F8F8F8;
-    width: 30%;
+    width: 100%;
     height: 18px;
     font-size: 15px;
-
     border-radius: 2px;
 }
 
+.text1 {
+    padding: 2px;
+    font-weight: 700;
+    color: black;
+    margin-top: 16px;
+    margin-left: 5px;
+    padding-left: 7px;
+    background-color: #F4777C;
+    width: 100%;
+    height: 18px;
+    font-size: 15px;
+    border-radius: 3px;
+}
 
 .p1 {
     font-family: Open sans-serif;
@@ -111,7 +136,7 @@
 }
 
 .fullmark {
-    margin-left: 80px;
+    margin-left: 60px;
     flex-direction: row;
 }
 
@@ -150,10 +175,37 @@
     color: black;
 }
 
+
+.mark {
+    flex-direction: row;
+    margin-top: 24px;
+    margin-left: 45px;
+
+}
+
+.marks {
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+
+.marks1 {
+    margin-top: 5px;
+    margin-left: 15px;
+    color: black;
+}
+
 .flex1 {
     display: flex;
     flex-direction: row;
     margin-top: 20px;
+}
+
+.pass {
+    flex-direction: row;
+    margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 
@@ -220,5 +272,9 @@
 
 .flex2 {
 
+    flex-direction: row;
+}
+
+.flex3 {
     flex-direction: row;
 }

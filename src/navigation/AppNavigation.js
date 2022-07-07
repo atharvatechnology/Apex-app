@@ -10,18 +10,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 
-// import Home from '@apexapp/screens/Pages/Home';
-import HomeRouter from './Home/Home';
 import ExamRouter from './Home/Exam';
 import ExamDetailRouter from './Home/ExamDetail';
+import HomeRouter from './Home/Home';
 import OnBoarding from '@screens/onBoarding';
-// import Reset from '@apexapp/screens/ResetPassword/Reset';
 import ResetRouter from './ResetPassword/Reset';
 import SignUpRouter from './signup';
 import SignInRouter from './signin';
 import { store } from '@apexapp/store/store';
 import Walkthrough from '@screens/walkthrough';
-
 
 export const MyStack = createNativeStackNavigator();
 
