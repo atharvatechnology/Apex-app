@@ -7,13 +7,17 @@
 import React, { useEffect } from 'react';
 import { Image, Text, View, Animated } from 'react-native';
 
-// import Animated, { FadeIn } from 'react-native-reanimated';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import styles from '@styles/modules/walkthrough.scss';
+import { useDispatch } from 'react-redux';
+import { login } from '@apexapp/store/actions/auth';
 
 const Walkthrough = props => {
   const startValue = new Animated.Value(1);
   const endValue = 1.2;
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     Animated.timing(startValue, {
@@ -53,8 +57,16 @@ const Walkthrough = props => {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      props.navigation.navigate('OnBoarding');
+    setTimeout(async () => {
+      const tokens = await AsyncStorage.getItem('apex-tokens');
+      // console.log(value);
+      if (tokens) {
+        props.navigation.navigate('BottomTabs');
+        let data = await JSON.parse(tokens);
+        dispatch(login(data));
+      } else {
+        props.navigation.navigate('OnBoarding');
+      }
     }, 4000);
   }, []);
 

@@ -1,16 +1,18 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
-import {MyStack} from '../AppNavigation';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { MyStack } from '../AppNavigation';
 
-import Home from '@apexapp/screens/Pages/Home';
+import Home from '@screens/Pages/Home';
+import Exam from '@screens/Pages/Exam';
 
 const HomeRouter = () => {
   return (
-    <Fragment>
+    <MyStack.Navigator screenOptions={{ headerShown: false }}>
       <MyStack.Screen name="Home" component={Home} />
-    </Fragment>
+      <MyStack.Screen name="Exam" component={Exam} />
+    </MyStack.Navigator>
   );
 };
 
