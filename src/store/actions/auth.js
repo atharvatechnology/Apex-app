@@ -18,7 +18,7 @@ export const loginRequest = (data, callback = () => { }, navigate, setErrorMsg =
       if (response.status === 200) {
         dispatch(login(resJson));
         await AsyncStorage.setItem('apex-tokens', JSON.stringify(resJson));
-        navigate('Home');
+        navigate('BottomTabs');
       }
       if (response.status === 400) {
         setErrorMsg(resJson.non_field_errors[0]);

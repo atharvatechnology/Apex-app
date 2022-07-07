@@ -4,7 +4,7 @@
  * @returns {Verify}- returns a module for Verify.
  */
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, Image, TouchableOpacity, Animated } from 'react-native';
 
 import CustomTextInput from '@elements/CustomTextInput';
@@ -18,7 +18,8 @@ import { PATCH } from '@apexapp/utils/api';
 
 const Verify = props => {
   const [formData, setFormData] = useState(verifyForm);
-  const [errormsg, setErrorMsg] = useState(' ');
+  const [errormsg, setErrorMsg] = useState('');
+  const [timeRemaining, setTimeRemaining] = useState(120);
 
   const fadeAnim = useRef(new Animated.Value(1)).current;
   const autoFadeOut = () => {
@@ -33,6 +34,21 @@ const Verify = props => {
 
   const dispatch = useDispatch();
   const auth = useSelector(state => state.authReducer);
+
+  // useEffect(() => {
+  //   var timer;
+  //   const subscribe = props.navigation.addListener('focus', () => {
+  //     timer = setInterval(() => {
+  //       setTimeRemaining(timeRemaining - 1);
+  //       if (timeRemaining <= 0) {
+  //         console.log("hhhh")
+  //         clearInterval(timer);
+  //       }
+  //     }, 1000);
+  //   });
+
+  //   return subscribe;
+  // }, []);
 
   const onChangeHandler = (key, value, password) => {
     setFormData(prevState => {
@@ -127,7 +143,7 @@ const Verify = props => {
         ))}
       </View>
 
-      <Text style={styles.p}>Code will expire in 33s</Text>
+      <Text style={styles.p}>Code will expire in {timeRemaining}s</Text>
 
       <View style={styles.errorContainer}>
         {errormsg !== '' && (
