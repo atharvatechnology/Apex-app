@@ -77,7 +77,7 @@ const Exam = props => {
     setShow(true);
   };
   const handleArrow = () => {
-    props.navigation.navigate('');
+    props.navigation.navigate('Home');
   };
 
   const handleFilter = () => {

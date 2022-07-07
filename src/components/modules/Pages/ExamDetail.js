@@ -1,7 +1,7 @@
 /**
- * This is  page containing the Exam and other components of the organization.
+ * This is  page containing the ExamDetails and other components of the organization.
  * @param {Object} props.navigation - contains all the propeties of react navigation
- * @returns {Exam}- returns a module for Exam
+ * @returns {ExamDetails}- returns a module for ExamDetails
  */
 
 import React from 'react'
