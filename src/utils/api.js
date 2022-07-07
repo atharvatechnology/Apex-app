@@ -37,6 +37,6 @@ export const DELETE = (url, data) => {
   return fetch(apiBaseURL + url, {
     method: 'DELETE',
     headers: getHeaders(),
-    body: JSON.stringify({data}),
+    body: JSON.stringify({ data }),
   });
 };

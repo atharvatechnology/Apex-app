@@ -20,6 +20,7 @@ export const loginRequest = (
     try {
       const response = await POST('api/auth/login/', data);
       const resJson = await response.json();
+      console.log(resJson, response);
       if (response.status === 200) {
         dispatch(login(resJson));
         await AsyncStorage.setItem('apex-tokens', JSON.stringify(resJson));
@@ -77,20 +78,29 @@ export const verify = data => {
   };
 };
 
-export const verifyRequest = data => {
+export const verifyRequest = (
+  data,
+  autoFadeOut = () => {},
+  navigate,
+  setErrorMsg = () => {},
+) => {
   return async dispatch => {
     try {
       const response = await PATCH('api/accounts/create/verify/', data);
       const resJson = await response.json();
+      console.log(resJson);
       if (response.status === 200) {
+        navigate('Login');
       }
       if (response.status === 400) {
-        let msg = '';
-        Object.values(resJson).forEach(element => {
-          msg = msg + element[0];
-        });
-        // setErrorMsg(msg);
-        // callback();
+        // let msg = '';
+        // Object.values(resJson).forEach(element => {
+        //   msg = msg + element[0][0];
+        // });
+        console.log('msg', resJson?.otp[0]);
+
+        setErrorMsg(resJson.otp[0]);
+        autoFadeOut();
       }
     } catch (error) {
       console.log('err', error);
