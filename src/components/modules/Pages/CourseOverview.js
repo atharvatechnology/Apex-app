@@ -5,18 +5,25 @@
  */
 
 import React from 'react';
-import {View, Image, ScrollView, TouchableOpacity, Text} from 'react-native';
+import { View, Image, ScrollView, TouchableOpacity, Text } from 'react-native';
+
+import { CommonActions } from '@react-navigation/native';
 
 import CustomButton from '@components/elements/CustomButton';
 import styles from '@styles/modules/Pages/CourseOverview';
 
 const CourseOverview = props => {
+
+  const handleBack = () => {
+    props.navigation.dispatch(CommonActions.goBack());
+  }
+
   return (
     <>
       {/* <View style={styles.div}> */}
       <ScrollView style={styles.mainContainer}>
         <View style={styles.main}>
-          <TouchableOpacity style={styles.left}>
+          <TouchableOpacity onPress={handleBack} style={styles.left}>
             <Image source={require('@assets/images/leftArrow.png')} />
             <Text style={styles.p}>Course details</Text>
           </TouchableOpacity>
@@ -85,7 +92,7 @@ const CourseOverview = props => {
             </Text>
           </View>
         </View>
-        <View style={{height: 100}}></View>
+        <View style={{ height: 100 }}></View>
       </ScrollView>
       <View style={styles.gap} />
       <View style={styles.footer}>

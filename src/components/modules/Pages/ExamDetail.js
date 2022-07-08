@@ -5,8 +5,9 @@
  */
 
 import React, { useState } from 'react'
+import { View, Image, TouchableOpacity, Text, Modal, Dimensions } from 'react-native';
 
-import { View, Image, TouchableOpacity, Text, Modal, Dimensions } from 'react-native'
+import { CommonActions } from '@react-navigation/native';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import styles from '@styles/modules/Pages/ExamDetail';
@@ -38,7 +39,7 @@ const ExamDetail = (props) => {
   }
 
   const handleArrow = () => {
-    props.navigation.navigate('')
+    props.navigation.dispatch(CommonActions.goBack());
   }
 
 
