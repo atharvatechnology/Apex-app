@@ -4,10 +4,17 @@
  * @returns {Home}- returns a module for Home
  */
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Dimensions, Text, View, ScrollView, Image, TouchableOpacity } from 'react-native';
+import React, {useState, useRef, useEffect} from 'react';
+import {
+  Dimensions,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 
-import Carousel, { Pagination } from 'react-native-snap-carousel';
+import Carousel, {Pagination} from 'react-native-snap-carousel';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import {
@@ -17,8 +24,8 @@ import {
 } from '@apexapp/store/actions/home';
 import NavBar from '@apexapp/components/elements/Navbar/Navbar';
 import styles from '@styles/modules/Pages/Home.scss';
-import { WIDTH } from '@apexapp/utils/constants';
-import { useDispatch, useSelector } from 'react-redux';
+import {WIDTH} from '@apexapp/utils/constants';
+import {useDispatch, useSelector} from 'react-redux';
 
 const data2 = [
   {
@@ -134,9 +141,9 @@ const Home = props => {
 
   const handleExamDetailsLink = () => {
     props.navigation.navigate('ExamDetail');
-  }
+  };
 
-  const _renderItemWithParallax = ({ item, index }, parallaxProps) => {
+  const _renderItemWithParallax = ({item, index}, parallaxProps) => {
     return (
       <>
         <TouchableOpacity onPress={handleExamDetailsLink} style={styles.cards}>
@@ -159,7 +166,7 @@ const Home = props => {
       </>
     );
   };
-  const _renderItemWithParallax1 = ({ item, index }, parallaxProps) => {
+  const _renderItemWithParallax1 = ({item, index}, parallaxProps) => {
     return (
       <>
         <TouchableOpacity onPress={handleExamDetailsLink} style={styles.cards}>
@@ -181,7 +188,7 @@ const Home = props => {
       </>
     );
   };
-  const _renderItemWithParallax2 = ({ item, index }, parallaxProps) => {
+  const _renderItemWithParallax2 = ({item, index}, parallaxProps) => {
     return (
       <>
         <View style={styles.cards}>
@@ -243,14 +250,14 @@ const Home = props => {
                     dotColor={'#2E3192'}
                     dotStyle={[
                       styles.pagiDot,
-                      { width: WIDTH / examsLiveList.count - 20 },
+                      {width: WIDTH / examsLiveList.count - 20},
                     ]}
                     inactiveDotColor={'#EAEAEA'}
                     inactiveDotOpacity={0.4}
                     inactiveDotScale={1}
                     inactiveDotStyle={[
                       styles.inactDotStyle,
-                      { width: WIDTH / examsLiveList.count - 20 },
+                      {width: WIDTH / examsLiveList.count - 20},
                     ]}
                     carouselRef={CarouselRef}
                     tappableDots={!!CarouselRef}
@@ -292,14 +299,14 @@ const Home = props => {
                     dotColor={'#2E3192'}
                     dotStyle={[
                       styles.pagiDot,
-                      { width: WIDTH / examsPracticeList.count - 20 },
+                      {width: WIDTH / examsPracticeList.count - 20},
                     ]}
                     inactiveDotColor={'#EAEAEA'}
                     inactiveDotOpacity={0.4}
                     inactiveDotScale={1}
                     inactiveDotStyle={[
                       styles.inactDotStyle,
-                      { width: WIDTH / examsPracticeList.count - 20 },
+                      {width: WIDTH / examsPracticeList.count - 20},
                     ]}
                     carouselRef={CarouselReff}
                     tappableDots={!!CarouselReff}
