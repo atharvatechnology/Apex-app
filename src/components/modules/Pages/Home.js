@@ -4,18 +4,28 @@
  * @returns {Home}- returns a module for Home
  */
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Dimensions, Text, View, ScrollView, Image } from 'react-native';
+import React, {useState, useRef, useEffect} from 'react';
+import {
+  Dimensions,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 
-import Carousel, { Pagination } from 'react-native-snap-carousel';
+import Carousel, {Pagination} from 'react-native-snap-carousel';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
-import { coursesEntranceRequest, examLiveRequest, examPracticeRequest } from '@apexapp/store/actions/home';
+import {
+  coursesEntranceRequest,
+  examLiveRequest,
+  examPracticeRequest,
+} from '@apexapp/store/actions/home';
 import NavBar from '@apexapp/components/elements/Navbar/Navbar';
 import styles from '@styles/modules/Pages/Home.scss';
-import { WIDTH } from '@apexapp/utils/constants';
-import { useDispatch, useSelector } from 'react-redux';
-
+import {WIDTH} from '@apexapp/utils/constants';
+import {useDispatch, useSelector} from 'react-redux';
 
 const data2 = [
   {
@@ -69,51 +79,51 @@ const Home = props => {
 
   const [activeSlidesss, setActiveSlidesss] = useState(0);
 
-
   const [data, setData] = useState([
     {
       file: '',
       title: 'Live',
       title1: 'RBB',
       text: 'Loksewa Mock Test - 1',
-      amount: `Rs.500 \u25CF 60 min`,
+      amount: `Rs.500 \u2022   60 min`,
     },
     {
       file: '',
       title: 'Live',
       title1: 'RBB',
       text: 'Loksewa Mock Test - 1',
-      amount: `Rs.500 \u25CF 60 min`,
+      amount: `Rs.500 \u2022  60 min`,
     },
     {
       file: '',
       title: 'Live',
       title1: 'RBB',
       text: 'Loksewa Mock Test - 1',
-      amount: `Rs.500 \u25CF 60 min`,
+      amount: `Rs.500 \u2022 60 min`,
     },
     {
       file: '',
       title: 'Live',
       title1: 'RBB',
       text: 'Loksewa Mock Test - 1',
-      amount: `Rs.500 \u25CF 60 min`,
+      amount: `Rs.500 \u2022  60 min`,
     },
     {
       file: '',
       title: 'Live',
       title1: 'RBB',
       text: 'Loksewa Mock Test - 1',
-      amount: `Rs.500 \u25CF 60 min`,
+      amount: `Rs.500 \u2022 60 min`,
     },
   ]);
 
   const dispatch = useDispatch();
   const examsLiveList = useSelector(state => state.homeReducer.examsLiveList);
-  const examsPracticeList = useSelector(state => state.homeReducer.examsPracticeList);
+  const examsPracticeList = useSelector(
+    state => state.homeReducer.examsPracticeList,
+  );
   const coursesList = useSelector(state => state.homeReducer.coursesList);
-  console.log("component", coursesList);
-
+  console.log('component', coursesList);
 
   const CarouselRef = useRef(null);
 
@@ -129,10 +139,14 @@ const Home = props => {
     dispatch(coursesEntranceRequest());
   }, []);
 
-  const _renderItemWithParallax = ({ item, index }, parallaxProps) => {
+  const handleExamDetailsLink = () => {
+    props.navigation.navigate('ExamDetail');
+  };
+
+  const _renderItemWithParallax = ({item, index}, parallaxProps) => {
     return (
       <>
-        <View style={styles.cards}>
+        <TouchableOpacity onPress={handleExamDetailsLink} style={styles.cards}>
           <View style={styles.card}>
             <View style={styles.file}></View>
             <Text style={styles.title}>LIVE</Text>
@@ -142,16 +156,20 @@ const Home = props => {
           <View>
             <Text style={styles.text}>{item.name}</Text>
 
-            <Text style={styles.amount}>Rs. {item.price} {'\u25CF'} {item.template.duration}</Text>
+            <Text style={styles.amount}>
+              Rs.{item.price}
+              {' \u2022 '}
+              {item.template.duration}
+            </Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </>
     );
   };
-  const _renderItemWithParallax1 = ({ item, index }, parallaxProps) => {
+  const _renderItemWithParallax1 = ({item, index}, parallaxProps) => {
     return (
       <>
-        <View style={styles.cards}>
+        <TouchableOpacity onPress={handleExamDetailsLink} style={styles.cards}>
           <View style={styles.card}>
             <View style={styles.file}></View>
 
@@ -161,13 +179,16 @@ const Home = props => {
           <View>
             <Text style={styles.text}>{item.name}</Text>
 
-            <Text style={styles.amount}>Rs. {item.price} {'\u25CF'} {item.template.duration}</Text>
+            <Text style={styles.amount}>
+              Rs. {item.price}
+              {' \u2022'} {item.template.duration}
+            </Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </>
     );
   };
-  const _renderItemWithParallax2 = ({ item, index }, parallaxProps) => {
+  const _renderItemWithParallax2 = ({item, index}, parallaxProps) => {
     return (
       <>
         <View style={styles.cards}>
@@ -227,11 +248,17 @@ const Home = props => {
                     activeDotIndex={activeSlide}
                     containerStyle={styles.pagiStyle}
                     dotColor={'#2E3192'}
-                    dotStyle={[styles.pagiDot, { width: WIDTH / (examsLiveList.count) - 20 }]}
+                    dotStyle={[
+                      styles.pagiDot,
+                      {width: WIDTH / examsLiveList.count - 20},
+                    ]}
                     inactiveDotColor={'#EAEAEA'}
                     inactiveDotOpacity={0.4}
                     inactiveDotScale={1}
-                    inactiveDotStyle={[styles.inactDotStyle, { width: WIDTH / (examsLiveList.count) - 20 }]}
+                    inactiveDotStyle={[
+                      styles.inactDotStyle,
+                      {width: WIDTH / examsLiveList.count - 20},
+                    ]}
                     carouselRef={CarouselRef}
                     tappableDots={!!CarouselRef}
                   />
@@ -270,13 +297,16 @@ const Home = props => {
                     activeDotIndex={activeSlides}
                     containerStyle={[styles.pagiStyle]}
                     dotColor={'#2E3192'}
-                    dotStyle={[styles.pagiDot, { width: WIDTH / (examsPracticeList.count) - 20 }]}
+                    dotStyle={[
+                      styles.pagiDot,
+                      {width: WIDTH / examsPracticeList.count - 20},
+                    ]}
                     inactiveDotColor={'#EAEAEA'}
                     inactiveDotOpacity={0.4}
                     inactiveDotScale={1}
                     inactiveDotStyle={[
                       styles.inactDotStyle,
-                      { width: WIDTH / (examsPracticeList.count) - 20 },
+                      {width: WIDTH / examsPracticeList.count - 20},
                     ]}
                     carouselRef={CarouselReff}
                     tappableDots={!!CarouselReff}
@@ -284,6 +314,9 @@ const Home = props => {
                 </View>
                 <CustomButton
                   type="white"
+                  onPress={() => {
+                    props.navigation.navigate('Exam');
+                  }}
                   title={'Explore all'}
                   style={styles.button}
                   color="#000000"

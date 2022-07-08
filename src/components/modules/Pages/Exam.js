@@ -85,6 +85,10 @@ const Exam = props => {
     changeModalVisible(true)
   };
 
+  const handleToDetail = () => {
+    props.navigation.navigate('ExamDetail');
+  }
+
   return (
     <View style={styles.maincontainer}>
       <TouchableOpacity onPress={handleArrow} style={styles.left}>
@@ -140,7 +144,7 @@ const Exam = props => {
         <View>
           {data.map((item, index) => {
             return (
-              <View style={styles.main}>
+              <TouchableOpacity onPress={handleToDetail} style={styles.main}>
                 <View style={styles.card}>
                   <Text style={styles.icon}>{item.icon}</Text>
                   <Text style={styles.title}>{item.title}</Text>
@@ -152,7 +156,7 @@ const Exam = props => {
 
                   <Text style={styles.amount}>{item.amount}</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           })}
         </View>
