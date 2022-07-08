@@ -5,11 +5,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {MyStack} from '../AppNavigation';
 
 import Courses from '@apexapp/screens/Pages/Courses';
+import CourseOverview from '@apexapp/screens/Pages/CourseOverview';
 
 const CoursesRouter = () => {
   return (
     <MyStack.Navigator screenOptions={{headerShown: false}}>
       <MyStack.Screen name="Courses" component={Courses} />
+      <MyStack.Screen name="CourseOverview" component={CourseOverview} />
     </MyStack.Navigator>
   );
 };
