@@ -16,6 +16,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Home from '@apexapp/screens/Pages/Home';
 import HomePage from '@screens/Pages/Home';
 import HomeRouter from '../Home/Home';
+import CoursesRouter from '../Home/Courses';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -53,7 +54,7 @@ const BottomTabs = props => {
       />
       <Tab.Screen
         name="Courses"
-        component={TabTest}
+        component={CoursesRouter}
         options={{
           tabBarLabel: 'MY COURSES',
           tabBarIcon: ({color, focused}) =>

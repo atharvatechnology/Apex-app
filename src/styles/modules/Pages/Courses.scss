@@ -1,0 +1,146 @@
+@use "../../library" as themes;
+@import "../../common";
+
+
+.mainContainer {
+  background-color: white
+
+}
+
+.searchandfilter {
+  flex-direction: row;
+  padding: 8px;
+ 
+}
+.search {
+  height: 55px;
+  width: 45px;
+  background-color: #F8F8F8;
+  margin-top: 0px;
+  padding-left: 23px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  margin-left:7px;
+}
+.searchicon {
+  height: 18px;
+  width: 18px;
+  margin-top: 18px;
+  // margin-left:16px;
+
+}
+
+.left {
+
+  padding: 15px 14px;
+  margin-top: 40px;
+  flex-direction: row;
+  margin-left: 12px;
+}
+
+.p {
+  font-family: Open sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 25px;
+  margin-left: 18px;
+}
+.CustomTextInput {
+  width: 80%;
+  height: 55px;
+  color: black;
+margin-top: 0;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.cards{
+  @extend .card-bcr;
+  margin-top:8px; 
+  margin-right:16px;
+  margin-left:16px;
+  
+  
+}
+.img{
+  width:100%;
+}
+.image{
+   width:100%;
+   border-top-right-radius: 5px;
+   border-top-left-radius: 5px;
+}
+.card {
+  padding: 16px;
+flex-direction: row;
+margin-left: 16px;
+ 
+}
+.info{
+
+}
+.main{
+  @extend .title1-bcr;
+  padding:8px;
+color:black;
+border-radius: 5px;
+margin-top: 18px;
+
+
+}
+.main1{
+  @extend .title-bcr;
+  padding:8px;
+  color:black;
+  border-radius: 5px;
+  margin-top: 18px;
+ margin-left:12px;
+
+}
+.infos{
+
+   color:black;
+   margin-left:32px;
+   margin-top: 8px;
+   margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 20px;
+ 
+
+
+}
+.date{
+  align-items: flex-end;
+  padding-right: 16px;
+  padding-left:20px;
+ color:black;
+ margin-left:38px;
+ font-size:16px;
+
+
+}
+.data{
+  align-items: flex-end;
+  padding-right: 16px;
+  padding-left:16.75px;
+ color:black;
+ margin-left:38px;
+ font-size:16px;
+ margin-top: 8px;
+margin-bottom: 16px;
+
+}
+.gap{
+  
+  height: 8px;
+  @extend .card-bcr;
+
+}
+.txt{
+  margin-top: 1px;
+}
+.text{
+  margin-top:16px;
+}

@@ -4,15 +4,15 @@
  * @returns {Home}- returns a module for Home
  */
 
-import React, { useState, useRef } from 'react';
-import { Dimensions, Text, View, ScrollView, Image } from 'react-native';
+import React, {useState, useRef} from 'react';
+import {Dimensions, Text, View, ScrollView, Image} from 'react-native';
 
-import Carousel, { Pagination } from 'react-native-snap-carousel';
+import Carousel, {Pagination} from 'react-native-snap-carousel';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import NavBar from '@apexapp/components/elements/Navbar/Navbar';
 import styles from '@styles/modules/Pages/Home.scss';
-import { WIDTH } from '@apexapp/utils/constants';
+import {WIDTH} from '@apexapp/utils/constants';
 
 const data1 = [
   {
@@ -144,7 +144,7 @@ const Home = props => {
 
   const CarouselReffff = useRef(null);
 
-  const _renderItemWithParallax = ({ item, index }, parallaxProps) => {
+  const _renderItemWithParallax = ({item, index}, parallaxProps) => {
     return (
       <>
         <View style={styles.cards}>
@@ -163,7 +163,7 @@ const Home = props => {
       </>
     );
   };
-  const _renderItemWithParallax1 = ({ item, index }, parallaxProps) => {
+  const _renderItemWithParallax1 = ({item, index}, parallaxProps) => {
     return (
       <>
         <View style={styles.cards}>
@@ -182,7 +182,7 @@ const Home = props => {
       </>
     );
   };
-  const _renderItemWithParallax2 = ({ item, index }, parallaxProps) => {
+  const _renderItemWithParallax2 = ({item, index}, parallaxProps) => {
     return (
       <>
         <View style={styles.cards}>
@@ -253,7 +253,9 @@ const Home = props => {
                 </View>
                 <CustomButton
                   type="white"
-                  onPress={() => { props.navigation.navigate('Exam') }}
+                  onPress={() => {
+                    props.navigation.navigate('Exam');
+                  }}
                   title={'Explore all'}
                   style={styles.button}
                   color="#000000"
@@ -289,7 +291,7 @@ const Home = props => {
                     inactiveDotScale={1}
                     inactiveDotStyle={[
                       styles.inactDotStyle,
-                      { width: Dimensions.get('window').width * 0.15 },
+                      {width: Dimensions.get('window').width * 0.15},
                     ]}
                     carouselRef={CarouselReff}
                     tappableDots={!!CarouselReff}
