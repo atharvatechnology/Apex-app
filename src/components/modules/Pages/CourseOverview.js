@@ -5,14 +5,7 @@
  */
 
 import React from 'react';
-import {
-  View,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-  Text,
-  Dimensions,
-} from 'react-native';
+import {View, Image, ScrollView, TouchableOpacity, Text} from 'react-native';
 
 import CustomButton from '@components/elements/CustomButton';
 import styles from '@styles/modules/Pages/CourseOverview';
