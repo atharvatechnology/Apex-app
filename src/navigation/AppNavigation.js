@@ -30,7 +30,7 @@ const MainRouter = () => {
       <NavigationContainer>
         <MyStack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="Walkthrough">
+          initialRouteName="ExamDetail">
           <MyStack.Screen name="Walkthrough" component={Walkthrough} />
           <MyStack.Screen name="OnBoarding" component={OnBoarding} />
           {SignInRouter()}

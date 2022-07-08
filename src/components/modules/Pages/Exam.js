@@ -76,6 +76,7 @@ const Exam = props => {
     setSelectedItem(item.id);
     setShow(true);
   };
+
   const handleArrow = () => {
     props.navigation.navigate('Home');
   };

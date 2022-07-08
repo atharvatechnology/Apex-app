@@ -4,14 +4,13 @@
  * @returns {ExamDetails}- returns a module for ExamDetails
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 
-import { View, Image, TouchableOpacity, Text, Dimensions } from 'react-native'
+import { View, Image, TouchableOpacity, Text, Modal, Dimensions } from 'react-native'
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import styles from '@styles/modules/Pages/ExamDetail';
-
-
+import CustomSessionPopup from '@apexapp/components/elements/CustomSessionPopup';
 
 const data = [
     {
@@ -31,10 +30,16 @@ const data = [
 
 const ExamDetail = (props) => {
 
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const changeModalVisible = (bool) => {
+        setIsModalVisible(bool)
+    }
 
     const handleEnroll = () => {
-        props.navigation.navigate('')
+        changeModalVisible(true)
     }
+
     const handleArrow = () => {
         props.navigation.navigate('')
     }
@@ -118,8 +123,11 @@ const ExamDetail = (props) => {
                 {data.map((item, index) => {
                     return (
 
-                        <View>
+                        <View
+                            key={index}
+                        >
                             <Text style={styles.instruction1}>{item.id}. {item.title}</Text>
+
                         </View>
 
                     )
@@ -134,14 +142,24 @@ const ExamDetail = (props) => {
                     <Text style={styles.enroll2}>On clicking Enroll now leads you exam session page</Text>
                 </View>
                 <View>
-                    <CustomButton
+
+                    <CustomButton onPress={handleEnroll}
                         style={styles.CustomButton}
                         type="theme"
                         title={'Enroll now'}
-                        onPress={handleEnroll}
                         color="#ffffff"
-
                     />
+
+                    <Modal
+                        transparent={true}
+                        animationType='slide'
+                        visible={isModalVisible}
+                        nRequestClose={() => changeModalVisible(false)}
+                    >
+                        <CustomSessionPopup
+                            changeModalVisible={changeModalVisible}
+                        />
+                    </Modal>
                 </View>
             </View>
 

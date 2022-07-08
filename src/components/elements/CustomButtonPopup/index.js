@@ -1,27 +1,21 @@
+/**
+ * This is a filterpopup Component
+ 
+ * @param {Function} props.onPress - function to execute on pressing
+
+ * @returns {CustomButtonPopup}- returns a popup Component
+ */
+
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity, Dimensions } from 'react-native'
-import styles from '@styles/elements/CustomButtonPopup.scss';
+
 import CustomButton from '../CustomButton';
+import styles from '@styles/elements/CustomButtonPopup.scss';
+
+import { View, Text, TouchableOpacity, } from 'react-native'
 import { RadioButton } from 'react-native-paper';
-import { bool } from 'prop-types';
 
-
-var hobbies = [
-    {
-        label: "hi", value: 0
-    },
-    {
-        label: "hi", value: 1
-    },
-    {
-        label: "hi", value: 2
-    }
-]
 
 const CustomButtonPopup = (props) => {
-
-
-
 
 
     const [checked, setChecked] = useState('first')
