@@ -14,7 +14,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import CustomButton from '@apexapp/components/elements/CustomButton';
+import CustomButton from '@components/elements/CustomButton';
 import styles from '@styles/modules/Pages/CourseOverview';
 
 const CourseOverview = props => {
