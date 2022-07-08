@@ -1,0 +1,280 @@
+@use "../../library" as themes;
+@import "../../common";
+
+
+
+.maincontainer {
+    background-color: #F8F8F8;
+    height: 100%;
+
+}
+
+.main {
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.main1 {
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.main2 {
+    background-color: white;
+    margin-bottom: 10px;
+    height: 16%;
+}
+
+
+
+.left {
+    // background-color: aqua;
+    padding: 15px 14px;
+    margin-top: 40px;
+    flex-direction: row;
+
+}
+
+.p {
+    font-family: Open sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 25px;
+    margin-left: 10px;
+}
+
+.line {
+    width: 100%;
+    height: 10px;
+    background-color: #F8F8F8;
+}
+
+.head {
+    flex-direction: row;
+}
+
+.texthead {
+    margin-top: 6px;
+    padding-left: 16px;
+
+}
+
+.texthead1 {
+    margin-top: 6px;
+    padding-left: 16px;
+
+}
+
+
+
+.text {
+    padding: 2px;
+    font-weight: 700;
+    color: black;
+    margin-top: 15px;
+    background-color: #F8F8F8;
+    width: 100%;
+    height: 18px;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+.text1 {
+    padding: 2px;
+    font-weight: 700;
+    color: black;
+    margin-top: 16px;
+    margin-left: 5px;
+    padding-left: 7px;
+    background-color: #F4777C;
+    width: 100%;
+    height: 18px;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+.p1 {
+    font-family: Open sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+    margin-left: 16px;
+    margin-top: 30px;
+    color: black;
+}
+
+
+.icon {
+    height: 38px;
+    width: 42px;
+    background-color: yellow;
+    border-radius: 4px;
+    margin-right: 6px;
+
+
+}
+
+.examDetail {
+    margin-top: 6px;
+    padding-left: 18px;
+
+}
+
+.duration {
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+
+.duration1 {
+    margin-top: 5px;
+    margin-left: 12px;
+    color: black;
+}
+
+.fullmark {
+    margin-left: 60px;
+    flex-direction: row;
+}
+
+.fullmarks {
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+
+.fullmarks1 {
+    margin-top: 5px;
+    margin-left: 15px;
+    color: black;
+
+}
+
+.passmark {
+    margin-top: 20px;
+    flex-direction: row;
+    margin-bottom: 15px;
+
+}
+
+.passmarks {
+    margin-top: 4px;
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+
+.passmarks1 {
+    margin-top: 5px;
+    margin-left: 15px;
+    color: black;
+}
+
+
+.mark {
+    flex-direction: row;
+    margin-top: 24px;
+    margin-left: 45px;
+
+}
+
+.marks {
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+
+.marks1 {
+    margin-top: 5px;
+    margin-left: 15px;
+    color: black;
+}
+
+.flex1 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.pass {
+    flex-direction: row;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+.instruction {
+
+    font-weight: 700;
+    color: black;
+    margin-top: 16px;
+    font-size: 24px;
+    padding-left: 18px;
+    padding-top: 2px;
+
+
+}
+
+.instruction1 {
+    color: black;
+    padding-left: 19px;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.enroll {
+
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-left: 16px;
+    height: 90px;
+    background-color: white;
+
+
+}
+
+.enroll0 {
+    margin-top: 12px;
+    width: 70%;
+    height: 60px;
+}
+
+.enroll1 {
+
+    color: black;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.enroll2 {
+    color: black;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+
+.CustomButton {
+    margin-top: 18px;
+}
+
+.flex2 {
+
+    flex-direction: row;
+}
+
+.flex3 {
+    flex-direction: row;
+}

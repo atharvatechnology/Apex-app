@@ -238,7 +238,9 @@ const Home = props => {
                 </View>
                 <CustomButton
                   type="white"
-                  onPress={() => { props.navigation.navigate('Exam') }}
+                  onPress={() => {
+                    props.navigation.navigate('Exam');
+                  }}
                   title={'Explore all'}
                   style={styles.button}
                   color="#000000"

@@ -12,6 +12,8 @@ import {Provider} from 'react-redux';
 
 import ExamPaymentRouter from './Home/ExamPayment';
 import ExamRouter from './Home/Exam';
+import ExamDetailRouter from './Home/ExamDetail';
+import HomeRouter from './Home/Home';
 import OnBoarding from '@screens/onBoarding';
 import ResetRouter from './ResetPassword/Reset';
 import SignUpRouter from './signup';
@@ -36,6 +38,7 @@ const MainRouter = () => {
           {ResetRouter()}
           {/* {HomeRouter()} */}
           {ExamRouter()}
+          {ExamDetailRouter()}
           {ExamPaymentRouter()}
           {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
 
