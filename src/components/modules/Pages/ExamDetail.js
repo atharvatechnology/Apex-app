@@ -4,12 +4,13 @@
  * @returns {ExamDetails}- returns a module for ExamDetails
  */
 
-import React from 'react';
+import React, { useState } from 'react'
 
-import {View, Image, TouchableOpacity, Text, Dimensions} from 'react-native';
+import { View, Image, TouchableOpacity, Text, Modal, Dimensions } from 'react-native'
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import styles from '@styles/modules/Pages/ExamDetail';
+import CustomSessionPopup from '@apexapp/components/elements/CustomSessionPopup';
 
 const data = [
   {
@@ -22,36 +23,34 @@ const data = [
   },
 ];
 
-const ExamDetail = props => {
+
+
+const ExamDetail = (props) => {
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const changeModalVisible = (bool) => {
+    setIsModalVisible(bool)
+  }
+
   const handleEnroll = () => {
-    props.navigation.navigate('');
-  };
+    changeModalVisible(true)
+  }
+
   const handleArrow = () => {
-    props.navigation.navigate('');
-  };
+    props.navigation.navigate('')
+  }
+
 
   return (
+
     <View style={styles.maincontainer}>
       <View style={styles.main}>
         <TouchableOpacity onPress={handleArrow} style={styles.left}>
+
           <Image source={require('@assets/images/leftArrow.png')} />
           <Text style={styles.p}> Exam Details</Text>
         </TouchableOpacity>
-      </View>
-
-      <View style={styles.main1}>
-        <View style={styles.head}>
-          <View style={styles.texthead}>
-            <Text style={styles.text}>PRACTICE EXAM</Text>
-          </View>
-          <View style={styles.texthead1}>
-            <Text style={styles.text1}>LIVE</Text>
-          </View>
-        </View>
-        <View>
-          <Text style={styles.p1}>Test Exam 1</Text>
-        </View>
-
         <View style={styles.examDetail}>
           <View style={styles.flex1}>
             <View style={styles.flex2}>
@@ -78,7 +77,6 @@ const ExamDetail = props => {
                 <Text style={styles.passmarks1}>Multiple session</Text>
               </View>
             </View>
-
             <View style={styles.mark}>
               <Text style={styles.icon}> </Text>
               <View>
@@ -101,31 +99,47 @@ const ExamDetail = props => {
         <Text style={styles.instruction}>Instructions</Text>
         {data.map((item, index) => {
           return (
-            <View>
-              <Text style={styles.instruction1}>
-                {item.id}. {item.title}
-              </Text>
+
+            <View
+              key={index}
+            >
+              <Text style={styles.instruction1}>{item.id}. {item.title}</Text>
+
             </View>
-          );
+
+          )
         })}
+
+
       </View>
 
       <View style={styles.enroll}>
         <View style={styles.enroll0}>
           <Text style={styles.enroll1}>Get enrollment</Text>
-          <Text style={styles.enroll2}>
-            On clicking Enroll now leads you exam session page
-          </Text>
+          <Text style={styles.enroll2}>On clicking Enroll now leads you exam session page</Text>
         </View>
         <View>
-          <CustomButton
+
+          <CustomButton onPress={handleEnroll}
             style={styles.CustomButton}
             type="theme"
             title={'Enroll now'}
-            onPress={handleEnroll}
             color="#ffffff"
           />
+
+          <Modal
+            transparent={true}
+            animationType='slide'
+            visible={isModalVisible}
+            nRequestClose={() => changeModalVisible(false)}
+          >
+            <CustomSessionPopup
+              changeModalVisible={changeModalVisible}
+            />
+          </Modal>
         </View>
+
+
       </View>
     </View>
   );

@@ -24,6 +24,10 @@
     bottom: 16;
 }
 
+.flex3 {
+    flex-direction: row;
+}
+
 .CustomButton1 {
     border: 1px;
     width: 46%;
@@ -66,8 +70,8 @@
 }
 
 .type1 {
-    margin-left: 20px;
-    padding: 34px;
+
+    padding: 24px;
 
 
 }
@@ -75,20 +79,21 @@
 .type2 {
     color: black;
     font-size: 16px;
-
+    margin-top: 10px;
     margin-bottom: 15px;
 }
 
 .type3 {
     color: black;
     font-size: 16px;
+    margin-top: 10px;
     margin-bottom: 15px;
 }
 
 .type4 {
     color: black;
     font-size: 16px;
-
+    margin-top: 10px;
 }
 
 .category {
@@ -100,20 +105,22 @@
 }
 
 .category1 {
-    margin-left: 20px;
-    padding: 34px;
+
+    padding: 24px;
 
 }
 
 .category2 {
     color: black;
     font-size: 16px;
-
+    margin-top: 10px;
     margin-bottom: 15px;
 }
 
 .category3 {
     color: black;
     font-size: 16px;
-
+    margin-top: 10px;
 }
+
+.radi01 {}
