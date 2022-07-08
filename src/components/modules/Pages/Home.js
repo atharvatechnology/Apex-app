@@ -78,35 +78,35 @@ const Home = props => {
       title: 'Live',
       title1: 'RBB',
       text: 'Loksewa Mock Test - 1',
-      amount: `Rs.500 \u25CF 60 min`,
+      amount: `Rs.500 \u2022   60 min`,
     },
     {
       file: '',
       title: 'Live',
       title1: 'RBB',
       text: 'Loksewa Mock Test - 1',
-      amount: `Rs.500 \u25CF 60 min`,
+      amount: `Rs.500 \u2022  60 min`,
     },
     {
       file: '',
       title: 'Live',
       title1: 'RBB',
       text: 'Loksewa Mock Test - 1',
-      amount: `Rs.500 \u25CF 60 min`,
+      amount: `Rs.500 \u2022 60 min`,
     },
     {
       file: '',
       title: 'Live',
       title1: 'RBB',
       text: 'Loksewa Mock Test - 1',
-      amount: `Rs.500 \u25CF 60 min`,
+      amount: `Rs.500 \u2022  60 min`,
     },
     {
       file: '',
       title: 'Live',
       title1: 'RBB',
       text: 'Loksewa Mock Test - 1',
-      amount: `Rs.500 \u25CF 60 min`,
+      amount: `Rs.500 \u2022 60 min`,
     },
   ]);
 
@@ -150,7 +150,9 @@ const Home = props => {
             <Text style={styles.text}>{item.name}</Text>
 
             <Text style={styles.amount}>
-              Rs. {item.price} {'\u25CF'} {item.template.duration}
+              Rs.{item.price}
+              {' \u2022 '}
+              {item.template.duration}
             </Text>
           </View>
         </TouchableOpacity>
@@ -171,7 +173,8 @@ const Home = props => {
             <Text style={styles.text}>{item.name}</Text>
 
             <Text style={styles.amount}>
-              Rs. {item.price} {'\u25CF'} {item.template.duration}
+              Rs. {item.price}
+              {' \u2022'} {item.template.duration}
             </Text>
           </View>
         </TouchableOpacity>
