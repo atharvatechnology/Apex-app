@@ -71,7 +71,7 @@ padding-top: 16px;
 .amount {
    align-items: flex-end;
    padding-right: 16px;
-   padding-left:20px;
+   padding-left:18px;
   color:black;
   margin-left:53px;
   font-size:16px;
@@ -79,14 +79,9 @@ padding-top: 16px;
 
 }
 .price{
-   font-family: 'Open Sans-serif';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 16px;
-color:black;
+   
+   margin-right:4ssspx;}
 
-}
 .button {
  @extend .button-bcr;
  border: solid;
