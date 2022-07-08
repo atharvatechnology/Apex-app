@@ -4,86 +4,19 @@
  * @returns {Home}- returns a module for Home
  */
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Dimensions, Text, View, ScrollView, Image } from 'react-native';
 
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
+import { coursesEntranceRequest, examLiveRequest, examPracticeRequest } from '@apexapp/store/actions/home';
 import NavBar from '@apexapp/components/elements/Navbar/Navbar';
 import styles from '@styles/modules/Pages/Home.scss';
 import { WIDTH } from '@apexapp/utils/constants';
+import { useDispatch, useSelector } from 'react-redux';
 
-const data1 = [
-  {
-    file: '',
-    title1: 'PRACTICE ',
-    text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500 \u25CF 60 min`,
-  },
-  {
-    file: '',
-    title1: 'PRACTICE ',
-    text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500 \u25CF 60 min`,
-  },
-  {
-    file: '',
-    title1: 'PRACTICE ',
-    text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500 \u25CF 60 min`,
-  },
-  {
-    file: '',
-    title1: 'PRACTICE ',
-    text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500 \u25CF 60 min`,
-  },
-  {
-    file: '',
-    title1: 'PRACTICE ',
-    text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500 \u25CF 60 min`,
-  },
-];
 
-const data = [
-  {
-    file: '',
-    title: 'Live',
-    title1: 'RBB',
-    text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500 \u25CF 60 min`,
-  },
-  {
-    file: '',
-    title: 'Live',
-    title1: 'RBB',
-    text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500 \u25CF 60 min`,
-  },
-  {
-    file: '',
-    title: 'Live',
-    title1: 'RBB',
-    text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500 \u25CF 60 min`,
-  },
-  {
-    file: '',
-    title: 'Live',
-    title1: 'RBB',
-    text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500 \u25CF 60 min`,
-  },
-  {
-    file: '',
-    title: 'Live',
-    title1: 'RBB',
-    text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500 \u25CF 60 min`,
-  },
-];
 const data2 = [
   {
     image: '',
@@ -136,6 +69,52 @@ const Home = props => {
 
   const [activeSlidesss, setActiveSlidesss] = useState(0);
 
+
+  const [data, setData] = useState([
+    {
+      file: '',
+      title: 'Live',
+      title1: 'RBB',
+      text: 'Loksewa Mock Test - 1',
+      amount: `Rs.500 \u25CF 60 min`,
+    },
+    {
+      file: '',
+      title: 'Live',
+      title1: 'RBB',
+      text: 'Loksewa Mock Test - 1',
+      amount: `Rs.500 \u25CF 60 min`,
+    },
+    {
+      file: '',
+      title: 'Live',
+      title1: 'RBB',
+      text: 'Loksewa Mock Test - 1',
+      amount: `Rs.500 \u25CF 60 min`,
+    },
+    {
+      file: '',
+      title: 'Live',
+      title1: 'RBB',
+      text: 'Loksewa Mock Test - 1',
+      amount: `Rs.500 \u25CF 60 min`,
+    },
+    {
+      file: '',
+      title: 'Live',
+      title1: 'RBB',
+      text: 'Loksewa Mock Test - 1',
+      amount: `Rs.500 \u25CF 60 min`,
+    },
+  ]);
+
+  const dispatch = useDispatch();
+  const examsLiveList = useSelector(state => state.homeReducer.examsLiveList);
+  const examsPracticeList = useSelector(state => state.homeReducer.examsPracticeList);
+  const coursesList = useSelector(state => state.homeReducer.coursesList);
+  console.log("component", coursesList);
+
+
   const CarouselRef = useRef(null);
 
   const CarouselReff = useRef(null);
@@ -144,20 +123,26 @@ const Home = props => {
 
   const CarouselReffff = useRef(null);
 
+  useEffect(() => {
+    dispatch(examLiveRequest());
+    dispatch(examPracticeRequest());
+    dispatch(coursesEntranceRequest());
+  }, []);
+
   const _renderItemWithParallax = ({ item, index }, parallaxProps) => {
     return (
       <>
         <View style={styles.cards}>
           <View style={styles.card}>
             <View style={styles.file}></View>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.title1}>{item.title1}</Text>
+            <Text style={styles.title}>LIVE</Text>
+            <Text style={styles.title1}>RBB </Text>
           </View>
 
           <View>
-            <Text style={styles.text}>{item.text}</Text>
+            <Text style={styles.text}>{item.name}</Text>
 
-            <Text style={styles.amount}>{item.amount}</Text>
+            <Text style={styles.amount}>Rs. {item.price} {'\u25CF'} {item.template.duration}</Text>
           </View>
         </View>
       </>
@@ -170,13 +155,13 @@ const Home = props => {
           <View style={styles.card}>
             <View style={styles.file}></View>
 
-            <Text style={styles.title1}>{item.title1}</Text>
+            <Text style={styles.title1}>Practice</Text>
           </View>
 
           <View>
-            <Text style={styles.text}>{item.text}</Text>
+            <Text style={styles.text}>{item.name}</Text>
 
-            <Text style={styles.amount}>{item.amount}</Text>
+            <Text style={styles.amount}>Rs. {item.price} {'\u25CF'} {item.template.duration}</Text>
           </View>
         </View>
       </>
@@ -194,14 +179,14 @@ const Home = props => {
           </View>
 
           <View style={styles.card}>
-            <Text style={styles.main}>{item.main}</Text>
+            <Text style={styles.main}>IOM</Text>
 
-            <Text style={styles.main1}>{item.main1}</Text>
+            <Text style={styles.main1}>Multiple Session</Text>
           </View>
 
           <View>
             <View>
-              <Text style={styles.info}>{item.info}</Text>
+              <Text style={styles.info}>{item.name}</Text>
             </View>
 
             <Text style={styles.date}>{item.date}</Text>
@@ -229,7 +214,7 @@ const Home = props => {
               <View style={styles.textContainer}>
                 <Carousel
                   ref={CarouselRef}
-                  data={data}
+                  data={examsLiveList.results}
                   renderItem={_renderItemWithParallax}
                   sliderWidth={WIDTH}
                   itemWidth={WIDTH}
@@ -238,15 +223,15 @@ const Home = props => {
 
                 <View style={styles.paginationContainers}>
                   <Pagination
-                    dotsLength={data.length}
+                    dotsLength={examsLiveList.count}
                     activeDotIndex={activeSlide}
                     containerStyle={styles.pagiStyle}
                     dotColor={'#2E3192'}
-                    dotStyle={styles.pagiDot}
+                    dotStyle={[styles.pagiDot, { width: WIDTH / (examsLiveList.count) - 20 }]}
                     inactiveDotColor={'#EAEAEA'}
                     inactiveDotOpacity={0.4}
                     inactiveDotScale={1}
-                    inactiveDotStyle={styles.inactDotStyle}
+                    inactiveDotStyle={[styles.inactDotStyle, { width: WIDTH / (examsLiveList.count) - 20 }]}
                     carouselRef={CarouselRef}
                     tappableDots={!!CarouselRef}
                   />
@@ -271,7 +256,7 @@ const Home = props => {
               <View style={styles.textContainer}>
                 <Carousel
                   ref={CarouselReff}
-                  data={data1}
+                  data={examsPracticeList.results}
                   renderItem={_renderItemWithParallax1}
                   sliderWidth={WIDTH}
                   itemWidth={WIDTH}
@@ -279,17 +264,17 @@ const Home = props => {
                 />
                 <View style={styles.paginationContainers}>
                   <Pagination
-                    dotsLength={data.length}
+                    dotsLength={examsPracticeList.count}
                     activeDotIndex={activeSlides}
-                    containerStyle={styles.pagiStyle}
+                    containerStyle={[styles.pagiStyle]}
                     dotColor={'#2E3192'}
-                    dotStyle={styles.pagiDot}
+                    dotStyle={[styles.pagiDot, { width: WIDTH / (examsPracticeList.count) - 20 }]}
                     inactiveDotColor={'#EAEAEA'}
                     inactiveDotOpacity={0.4}
                     inactiveDotScale={1}
                     inactiveDotStyle={[
                       styles.inactDotStyle,
-                      { width: Dimensions.get('window').width * 0.15 },
+                      { width: WIDTH / (examsPracticeList.count) - 20 },
                     ]}
                     carouselRef={CarouselReff}
                     tappableDots={!!CarouselReff}
@@ -316,7 +301,7 @@ const Home = props => {
                 <View style={styles.textContainer}>
                   <Carousel
                     ref={CarouselRefff}
-                    data={data2}
+                    data={coursesList.results}
                     renderItem={_renderItemWithParallax2}
                     sliderWidth={WIDTH}
                     itemWidth={WIDTH}
@@ -324,7 +309,7 @@ const Home = props => {
                   />
                   <View style={styles.paginationContainez}>
                     <Pagination
-                      dotsLength={data.length}
+                      dotsLength={coursesList.count}
                       activeDotIndex={activeSlidess}
                       containerStyle={styles.pagiStyle}
                       dotColor={'#2E3192'}
