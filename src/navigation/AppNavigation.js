@@ -39,7 +39,6 @@ const MainRouter = () => {
           {/* {HomeRouter()} */}
           {ExamRouter()}
           {ExamDetailRouter()}
-
           {ExamPaymentRouter()}
           {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
 
