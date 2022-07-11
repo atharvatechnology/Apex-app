@@ -1,0 +1,149 @@
+@use "../../library" as themes;
+@import "../../common";
+
+.mainContainer{
+    @extend .input-bcr;
+    height:100%;
+  position: relative;
+
+}
+
+.head{
+    font-weight: 600;
+    font-size: 20px;
+    margin-top:32px;
+    line-height: 27.24px;
+    margin-bottom: 8px;
+    margin-left: 16px;
+    font-family: Open sans-serif;
+    font-style: normal;
+    color:black;
+}
+
+.gap{
+    height: 8px;
+    @extend .card-bcr;
+  
+}
+
+.img{
+    padding: 16px;
+    flex-direction: row;
+    margin-bottom: 16px;
+    @extend .input-bcr;
+    margin-top:16px;
+}
+
+.name{
+font-family: 'Open Sans';
+font-style: normal;
+margin-left: 16px;
+font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color:black;
+}
+
+.number{
+margin-left: 16px;
+font-weight: 400;
+font-family: 'Open Sans';
+font-style: normal;
+margin-top: 8px;
+color:black;
+font-size: 12px;
+line-height: 16px;
+}
+
+.gmail{
+margin-left: 16px;
+margin-top: 4px;
+font-weight: 400;
+font-family: 'Open Sans';
+font-style: normal;
+font-size: 12px;
+line-height: 16px;
+color:black;
+}
+
+.div{
+    margin-top: 16px;
+}
+
+.p{
+    font-family: 'Open Sans';
+font-style: normal;
+margin-left: 16px;
+
+font-weight: 600;
+    font-size: 16px;
+    line-height: 21.79px;
+    color:black;
+}
+.title1{
+    @extend .title1-bcr;
+    padding:8px 8px 8px;
+ color:black;
+ border-radius: 5px;
+ flex-direction: row;
+font-weight: 500;
+line-height: 16.79px;
+}
+.title2{
+    @extend .title1-bcr;
+    padding:8px 8px 8px;
+ color:black;
+ border-radius: 5px;
+ flex-direction: row;
+font-weight: 500;
+line-height: 16.79px;
+display: flex;
+flex-direction: row;
+margin-left: 16px;
+}
+ 
+ .card {
+   display: flex;
+   flex-direction: row;
+   justify-content:flex-start;
+   align-items: flex-start;
+   margin-left:16px;
+   margin-top:20px;
+   margin-bottom: 20px;
+  
+}
+
+.file{
+   padding: 18px;
+  border-radius: 5px;
+  padding-right: 16px;
+  background: #FFCB05;
+  margin-right: 20px;
+  padding-left: 16px;
+  padding-top: 18px;
+}
+
+
+.button {
+    @extend .card-bcr;
+    padding: 15px ; 
+   margin-left: 20px;
+    width: 90%;
+    font-weight: 600;
+    // margin-bottom: 20px;
+    margin-top:24px;
+   
+   }
+   .buttons{
+    @extend .button-bcr;
+   margin-bottom: 16px;
+ 
+   }
+   .footer{
+    
+  position:absolute;
+  bottom: 0%;
+  width: 100%;
+  padding-top: 250px;
+  @extend .card-bcr;
+   }
