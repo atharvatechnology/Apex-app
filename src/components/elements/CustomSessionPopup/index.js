@@ -6,9 +6,9 @@
  * @returns {CustomSessionPopup}- returns a popup Component
  */
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { View, Image, Text, TouchableOpacity } from 'react-native'
+import { View, Image, Text, TouchableOpacity, AppState } from 'react-native'
 
 import CustomButton from '../CustomButton';
 import styles from '@styles/elements/CustomSessionPopup';
@@ -42,10 +42,16 @@ const CustomSessionPopup = (props) => {
     const closeModal = (bool) => {
         props.changeModalVisible(bool);
     }
+
+
+
+
+
     return (
 
         <TouchableOpacity
             disabled={true}
+
             style={styles.container}
         >
             <View style={styles.modal}>

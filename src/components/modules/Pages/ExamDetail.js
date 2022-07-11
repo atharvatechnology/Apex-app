@@ -43,9 +43,13 @@ const ExamDetail = (props) => {
   }
 
 
+
   return (
 
-    <View style={styles.maincontainer}>
+    <View
+
+
+      style={styles.maincontainer}>
       <View style={styles.main}>
         <TouchableOpacity onPress={handleArrow} style={styles.left}>
 
@@ -127,22 +131,26 @@ const ExamDetail = (props) => {
             title={'Enroll now'}
             color="#ffffff"
           />
+          <TouchableOpacity>
+            <Modal
+              transparent={true}
+              animationType='slide'
+              visible={isModalVisible}
 
-          <Modal
-            transparent={true}
-            animationType='slide'
-            visible={isModalVisible}
-            nRequestClose={() => changeModalVisible(false)}
-          >
-            <CustomSessionPopup
-              changeModalVisible={changeModalVisible}
-            />
-          </Modal>
+              nRequestClose={() => changeModalVisible(true)}
+            >
+              <CustomSessionPopup
+                changeModalVisible={changeModalVisible}
+              />
+
+            </Modal>
+          </TouchableOpacity>
         </View>
 
 
       </View>
-    </View>
+    </View >
+
   );
 };
 
