@@ -4,16 +4,22 @@
  * @returns {Exam}- returns a module for Exam
  */
 
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
-import { View, Image, TouchableOpacity, Text, Dimensions, Modal } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import {
+  View,
+  Image,
+  TouchableOpacity,
+  Text,
+  Dimensions,
+  Modal,
+} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import CustomButtonPopup from '@apexapp/components/elements/CustomButtonPopup';
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
 import styles from '@styles/modules/Pages/Exam';
-
 
 let preparation = [
   {
@@ -28,7 +34,7 @@ const data = [
     title: 'LIVE',
     title1: 'RBB',
     text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500   \u25CF 60 min`,
+    amount: `Rs.500 \u2022 60 min`,
   },
 
   {
@@ -36,7 +42,7 @@ const data = [
     title: 'LIVE',
     title1: 'RBB',
     text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500    \u25CF 60 min`,
+    amount: `Rs.500 \u2022 60 min`,
   },
 
   {
@@ -44,31 +50,30 @@ const data = [
     title: 'LIVE',
     title1: 'RBB',
     text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500     \u25CF 60 min`,
+    amount: `Rs.500 \u2022 60 min`,
   },
   {
     icon: '',
     title: 'LIVE',
     title1: 'RBB',
     text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500     \u25CF 60 min`,
+    amount: `Rs.500 \u2022 60 min`,
   },
   {
     icon: '',
     title: 'LIVE',
     title1: 'RBB',
     text: 'Loksewa Mock Test - 1',
-    amount: `Rs.500     \u25CF 60 min`,
+    amount: `Rs.500 \u2022 60 min`,
   },
 ];
 
 const Exam = props => {
-
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const changeModalVisible = (bool) => {
-    setIsModalVisible(bool)
-  }
+  const changeModalVisible = bool => {
+    setIsModalVisible(bool);
+  };
 
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
@@ -82,19 +87,27 @@ const Exam = props => {
   };
 
   const handleFilter = () => {
-    changeModalVisible(true)
+    changeModalVisible(true);
   };
 
   const handleToDetail = () => {
     props.navigation.navigate('ExamDetail');
-  }
+  };
 
   return (
     <View style={styles.maincontainer}>
-      <TouchableOpacity onPress={handleArrow} style={styles.left}>
-        <Image source={require('@assets/images/leftArrow.png')} />
-        <Text style={styles.p}>Exams</Text>
-      </TouchableOpacity>
+      <View style={styles.filterDiv}>
+        <TouchableOpacity onPress={handleArrow} style={styles.left}>
+          <Image source={require('@assets/images/leftArrow.png')} />
+          <Text style={styles.p}>Exams</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleFilter}>
+          <Image
+            style={styles.filter}
+            source={require('@assets/images/Filter.png')}
+          />
+        </TouchableOpacity>
+      </View>
 
       <View style={styles.searchandfilter}>
         <TouchableOpacity style={styles.search}>
@@ -112,30 +125,13 @@ const Exam = props => {
           placeholder="Search here"
           color="#000000"
         />
-
-
-
-        <TouchableOpacity onPress={handleFilter}>
-          <Image
-            style={styles.filter}
-            source={require('@assets/images/Filter.png')}
-          />
-        </TouchableOpacity>
         <Modal
           transparent={true}
-          animationType='slide'
+          animationType="slide"
           visible={isModalVisible}
-          nRequestClose={() => changeModalVisible(false)}
-        >
-          <CustomButtonPopup
-            changeModalVisible={changeModalVisible}
-
-          />
+          nRequestClose={() => changeModalVisible(false)}>
+          <CustomButtonPopup changeModalVisible={changeModalVisible} />
         </Modal>
-
-
-
-
       </View>
 
       <View style={styles.line}></View>
@@ -166,10 +162,9 @@ const Exam = props => {
             type="white"
             title={'Load More'}
             style={styles.button}
-
           />
         </View>
-        <View style={{ height: Dimensions.get('window').height }}></View>
+        <View style={{height: Dimensions.get('window').height}}></View>
       </ScrollView>
     </View>
   );
