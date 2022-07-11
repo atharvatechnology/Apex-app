@@ -51,10 +51,22 @@ const Courses = props => {
     <>
       <ScrollView style={styles.scrollView}>
         <View style={styles.mainContainer}>
-          <TouchableOpacity style={styles.left}>
+          {/* <TouchableOpacity style={styles.left}>
             <Image source={require('@assets/images/leftArrow.png')} />
             <Text style={styles.p}>Courses</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <View style={styles.filterDiv}>
+            <TouchableOpacity style={styles.left}>
+              <Image source={require('@assets/images/leftArrow.png')} />
+              <Text style={styles.p}>Courses</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image
+                style={styles.filter}
+                source={require('@assets/images/Filter.png')}
+              />
+            </TouchableOpacity>
+          </View>
           <View style={styles.searchandfilter}>
             <TouchableOpacity style={styles.search}>
               <Image
