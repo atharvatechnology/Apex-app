@@ -76,7 +76,7 @@ const CustomSessionPopup1 = (props) => {
                                     <View style={styles.flex3}>
                                         <View style={styles.iconback}>
                                             <Image style={styles.clockicon}
-                                                source={require('@assets/images/Vector.png')} />
+                                                source={require('@assets/images/Vecto.png')} />
                                         </View>
                                         <View>
                                             <Text style={styles.title2}>{item.date}</Text>
