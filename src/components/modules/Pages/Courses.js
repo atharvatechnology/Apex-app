@@ -37,11 +37,6 @@ const data = [
 ];
 
 const Courses = props => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const changeModalVisible = bool => {
-    setIsModalVisible(bool);
-  };
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
   const onChange = item => {
@@ -50,9 +45,6 @@ const Courses = props => {
   };
   const handleArrow = id => {
     props.navigation.navigate('CourseOverview', {test: id});
-  };
-  const handleFilter = () => {
-    changeModalVisible(true);
   };
 
   return (
@@ -64,11 +56,11 @@ const Courses = props => {
             <Text style={styles.p}>Courses</Text>
           </TouchableOpacity> */}
           <View style={styles.filterDiv}>
-            <TouchableOpacity onPress={handleArrow} style={styles.left}>
+            <TouchableOpacity style={styles.left}>
               <Image source={require('@assets/images/leftArrow.png')} />
               <Text style={styles.p}>Courses</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleFilter}>
+            <TouchableOpacity>
               <Image
                 style={styles.filter}
                 source={require('@assets/images/Filter.png')}
