@@ -1,0 +1,137 @@
+@use "../../library" as themes;
+@import "../../common";
+
+
+
+.maincontainer {
+  @extend .card-bcr;
+  height:100%;
+  position: relative;
+ 
+
+}
+.left {
+ 
+    padding: 16px;
+    flex-direction: row;
+    padding-top: 40px;
+    padding-bottom: 16px;
+  @extend .input-bcr;
+
+
+}
+.p {
+    font-family: Open sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 25px;
+    margin-left: 10px;
+}
+.gap{
+  
+    height: 8px;
+    @extend .card-bcr;
+  
+}
+.baseText {
+    font-Weight:600;
+    font-size:20px;
+    margin-left:16px;
+    color: black;
+    margin-bottom: 8px;
+    line-height: 27px;
+  }
+  .Text{
+    font-weight:400;
+    font-size:16px;
+    margin-left:16px;
+    margin-right: 16px;
+    margin-bottom: 24px;
+    line-height: 24px;
+  }
+  .price{
+    font-Weight:700;
+    font-size:24px;
+    margin-left:16px;
+    color: #2E3192;
+    margin-bottom: 16px;
+
+  }
+.Texts{
+    margin-left:16px;
+
+}
+
+
+  .text{
+  
+    @extend .input-bcr;
+    
+  
+  }
+  
+  .title{
+    margin-top:16px;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 18px;
+    height: 24;
+    color:black;
+    width:100px;
+    
+  }
+  .header1{
+    margin-left: 16px;
+
+    font-weight: 400;
+    font-size: 18px;
+ 
+  }
+
+  .header2{
+    margin-left: 16px;
+
+    font-weight: 400;
+    font-size: 18px;
+    padding-bottom: 16px;
+  }
+  .gaps{
+
+    height: 306px;
+    @extend .card-bcr;
+  }
+
+.button{
+
+    @extend .footer-bcr;
+    margin-left: 78px;
+    margin-top:16px;
+
+  
+}
+.footer{
+  justify-content: space-between;
+  flex-direction: row;
+  position:absolute;
+  bottom: 0%;
+  width: 100%;
+  padding:16px;
+  @extend .input-bcr;
+}
+.image{
+  height:25px;
+  width: 25px;
+margin-top: 25.5px;
+margin-left:24px;
+
+}
+.fottertext{
+ 
+  margin-top:25.5px;
+  margin-bottom:25.5px;
+  color:black;
+  margin-right: 25px;;
+
+}
