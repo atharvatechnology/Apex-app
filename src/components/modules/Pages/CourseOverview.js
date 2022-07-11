@@ -4,16 +4,28 @@
  * @returns {CourseOverview}- returns a module for course overviews
  */
 
-import React from 'react';
-import { View, Image, ScrollView, TouchableOpacity, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, Image, ScrollView, Modal, TouchableOpacity, Text } from 'react-native';
 
 import { CommonActions } from '@react-navigation/native';
 
 import CustomButton from '@components/elements/CustomButton';
 import styles from '@styles/modules/Pages/CourseOverview';
 
+import CustomSessionPopup1 from '@apexapp/components/elements/CustomSessionPopup/index1';
+
 const CourseOverview = props => {
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+
+  const changeModalVisible = (bool) => {
+    setIsModalVisible(bool)
+  }
+
+  const handleEnroll = () => {
+    changeModalVisible(true)
+  }
   const handleBack = () => {
     props.navigation.dispatch(CommonActions.goBack());
   }
@@ -101,12 +113,24 @@ const CourseOverview = props => {
           <Text style={styles.p4}>Enrolls leads you to payment.</Text>
         </View>
         <View>
-          <CustomButton
+          <CustomButton onPress={handleEnroll}
             type="theme"
             title={'Enroll now'}
             style={styles.button}
             color="white"
           />
+          <Modal
+            transparent={true}
+            animationType='slide'
+            visible={isModalVisible}
+            nRequestClose={() => changeModalVisible(true)}
+          >
+            <CustomSessionPopup1
+              changeModalVisible={changeModalVisible}
+            />
+          </Modal>
+
+
         </View>
       </View>
       {/* </View> */}
