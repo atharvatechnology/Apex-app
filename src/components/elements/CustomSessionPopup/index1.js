@@ -8,11 +8,12 @@
 
 import React from 'react'
 
-import { View, Image, Text, TouchableOpacity, AppState } from 'react-native'
+
+
+import { View, Image, Text, TouchableOpacity, AppState, ScrollView } from 'react-native'
 
 import CustomButton from '../CustomButton';
 import styles from '@styles/elements/CustomSessionPopup1';
-
 
 const data = [
     {
@@ -37,10 +38,6 @@ const CustomSessionPopup1 = (props) => {
         props.changeModalVisible(bool);
     }
 
-
-
-
-
     return (
 
         <TouchableOpacity
@@ -57,49 +54,53 @@ const CustomSessionPopup1 = (props) => {
                         <Text style={styles.close}>Close</Text>
                     </TouchableOpacity>
                 </View>
+
+
                 <Text style={styles.line}></Text>
-                <View>
-                    <Text style={styles.topic}>Choose course session</Text>
-                    <Text style={styles.p}>Choosing session will let you to particular session exam enrollment</Text>
-                </View>
 
-                <View style={styles.flex2}>
-                    {data.map((item, index) => {
-                        return (
+                <ScrollView>
+                    <View>
+                        <Text style={styles.topic}>Choose course session</Text>
+                        <Text style={styles.p}>Choosing session will let you to particular session exam enrollment</Text>
+                    </View>
+
+                    <View style={styles.flex2}>
+                        {data.map((item, index) => {
+                            return (
 
 
-                            <View style={styles.data}
-                                key={index}>
+                                <View style={styles.data}
+                                    key={index}>
 
-                                <View >
-                                    <Text style={styles.title1}>{item.title1}</Text>
-                                    <View style={styles.flex3}>
-                                        <View style={styles.iconback}>
-                                            <Image style={styles.clockicon}
-                                                source={require('@assets/images/Vecto.png')} />
-                                        </View>
-                                        <View>
-                                            <Text style={styles.title2}>{item.date}</Text>
-                                            <Text style={styles.time}>{item.time} pm</Text>
+                                    <View >
+                                        <Text style={styles.title1}>{item.title1}</Text>
+                                        <View style={styles.flex3}>
+                                            <View style={styles.iconback}>
+                                                <Image style={styles.clockicon}
+                                                    source={require('@assets/images/Vecto.png')} />
+                                            </View>
+                                            <View>
+                                                <Text style={styles.title2}>{item.date}</Text>
+                                                <Text style={styles.time}>{item.time} pm</Text>
+                                            </View>
                                         </View>
                                     </View>
+
+                                    <CustomButton
+                                        onPress={handleEnroll}
+                                        style={styles.CustomButton}
+                                        type="theme"
+                                        title={'Enroll now'}
+                                        color="#ffffff"
+                                    />
                                 </View>
 
-                                <CustomButton
-                                    onPress={handleEnroll}
-                                    style={styles.CustomButton}
-                                    type="theme"
-                                    title={'Enroll now'}
-                                    color="#ffffff"
-                                />
-                            </View>
 
+                            )
+                        })}
 
-                        )
-                    })}
-
-                </View>
-
+                    </View>
+                </ScrollView>
 
             </View>
         </TouchableOpacity>

@@ -2,6 +2,7 @@
 @import "../../common";
 
 
+
 .mainContainer {
   background-color: white
 
@@ -33,10 +34,25 @@
 
 .left {
 
-  padding: 15px 14px;
-  margin-top: 40px;
+   padding: 15px 14px;
+    margin-top: 40px;
+    flex-direction: row;
+
+}
+.filter {
+  margin-left: 160px;
+  margin-right: 17px;
+  margin-top: 42px;
+  height: 35px;
+  width: 35px;
+
+
+}
+
+.filterDiv{
   flex-direction: row;
-  margin-left: 12px;
+
+
 }
 
 .p {

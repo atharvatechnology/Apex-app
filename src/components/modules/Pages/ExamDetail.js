@@ -4,8 +4,15 @@
  * @returns {ExamDetails}- returns a module for ExamDetails
  */
 
-import React, { useState } from 'react'
-import { View, Image, TouchableOpacity, Text, Modal, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Image,
+  TouchableOpacity,
+  Text,
+  Modal,
+  Dimensions,
+} from 'react-native';
 
 import { CommonActions } from '@react-navigation/native';
 
@@ -24,24 +31,20 @@ const data = [
   },
 ];
 
-
-
-const ExamDetail = (props) => {
-
+const ExamDetail = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const changeModalVisible = (bool) => {
-    setIsModalVisible(bool)
-  }
+  const changeModalVisible = bool => {
+    setIsModalVisible(bool);
+  };
 
   const handleEnroll = () => {
-    changeModalVisible(true)
-  }
+    changeModalVisible(true);
+  };
 
   const handleArrow = () => {
     props.navigation.dispatch(CommonActions.goBack());
-  }
-
+  };
 
 
   return (
@@ -52,7 +55,6 @@ const ExamDetail = (props) => {
       style={styles.maincontainer}>
       <View style={styles.main}>
         <TouchableOpacity onPress={handleArrow} style={styles.left}>
-
           <Image source={require('@assets/images/leftArrow.png')} />
           <Text style={styles.p}> Exam Details</Text>
         </TouchableOpacity>
@@ -104,50 +106,42 @@ const ExamDetail = (props) => {
         <Text style={styles.instruction}>Instructions</Text>
         {data.map((item, index) => {
           return (
-
-            <View
-              key={index}
-            >
-              <Text style={styles.instruction1}>{item.id}. {item.title}</Text>
-
+            <View key={index}>
+              <Text style={styles.instruction1}>
+                {item.id}. {item.title}
+              </Text>
             </View>
-
-          )
+          );
         })}
-
-
       </View>
 
       <View style={styles.enroll}>
         <View style={styles.enroll0}>
           <Text style={styles.enroll1}>Get enrollment</Text>
-          <Text style={styles.enroll2}>On clicking Enroll now leads you exam session page</Text>
+          <Text style={styles.enroll2}>
+            On clicking Enroll now leads you exam session page
+          </Text>
         </View>
         <View>
-
-          <CustomButton onPress={handleEnroll}
+          <CustomButton
+            onPress={handleEnroll}
             style={styles.CustomButton}
             type="theme"
             title={'Enroll now'}
             color="#ffffff"
           />
-          <TouchableOpacity>
-            <Modal
-              transparent={true}
-              animationType='slide'
-              visible={isModalVisible}
 
-              nRequestClose={() => changeModalVisible(true)}
-            >
-              <CustomSessionPopup
-                changeModalVisible={changeModalVisible}
-              />
-
-            </Modal>
-          </TouchableOpacity>
+          <Modal
+            transparent={true}
+            animationType='slide'
+            visible={isModalVisible}
+            nRequestClose={() => changeModalVisible(true)}
+          >
+            <CustomSessionPopup
+              changeModalVisible={changeModalVisible}
+            />
+          </Modal>
         </View>
-
-
       </View>
     </View >
 
