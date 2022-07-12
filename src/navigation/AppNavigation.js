@@ -22,10 +22,6 @@ import SignInRouter from './signin';
 import {store} from '@apexapp/store/store';
 import Walkthrough from '@screens/walkthrough';
 import BottomTabs from './BottomTabs/BottomTabs';
-// import Profile from './Profile/Profile';
-// import Profile from '@apexapp/screens/Profile/Profile';
-
-// import CoursePayment from '@screens/Pages/CoursePayment';
 
 export const MyStack = createNativeStackNavigator();
 

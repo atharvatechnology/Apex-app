@@ -7,7 +7,8 @@
  */
 
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+
+import {View, Text, TouchableOpacity} from 'react-native';
 
 import styles from '@styles/elements/CustomButton.scss';
 
@@ -37,7 +38,7 @@ const CustomButton = props => {
   return (
     <TouchableOpacity
       style={[container, props.style]}
-      onPress={props.type === 'disabled' ? () => { } : props.onPress}>
+      onPress={props.type === 'disabled' ? () => {} : props.onPress}>
       <Text style={[text]}> {props.title}</Text>
     </TouchableOpacity>
   );
