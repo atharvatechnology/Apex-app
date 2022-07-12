@@ -6,7 +6,7 @@
  * @returns {CustomSessionPopup1}- returns another popup Component
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 
 
 
@@ -30,6 +30,8 @@ const data = [
 ]
 const CustomSessionPopup1 = (props) => {
 
+
+
     const handleEnroll = () => {
 
     }
@@ -49,6 +51,7 @@ const CustomSessionPopup1 = (props) => {
                 <View style={styles.flex1}>
                     <Text style={styles.head}>Session</Text>
                     <TouchableOpacity
+
                         onPress={() => closeModal(false, 'Cancel')}
                     >
                         <Text style={styles.close}>Close</Text>

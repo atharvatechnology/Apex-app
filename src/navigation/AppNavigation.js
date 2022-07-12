@@ -32,7 +32,7 @@ const MainRouter = () => {
       <NavigationContainer>
         <MyStack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="CourseOverview">
+          initialRouteName="Walkthrough">
           <MyStack.Screen name="Walkthrough" component={Walkthrough} />
           <MyStack.Screen name="OnBoarding" component={OnBoarding} />
 

@@ -16,6 +16,8 @@ import CustomSessionPopup1 from '@apexapp/components/elements/CustomSessionPopup
 
 const CourseOverview = props => {
 
+
+
   const [isModalVisible, setIsModalVisible] = useState(false);
 
 
@@ -34,7 +36,7 @@ const CourseOverview = props => {
     <>
       {/* <View style={styles.div}> */}
       <ScrollView style={styles.mainContainer}>
-        <View style={styles.main}>
+        <View style={[styles.main]}>
           <TouchableOpacity onPress={handleBack} style={styles.left}>
             <Image source={require('@assets/images/leftArrow.png')} />
             <Text style={styles.p}>Course details</Text>
@@ -117,16 +119,19 @@ const CourseOverview = props => {
             type="theme"
             title={'Enroll now'}
             style={styles.button}
+
             color="white"
           />
           <Modal
             transparent={true}
             animationType='slide'
             visible={isModalVisible}
+
             nRequestClose={() => changeModalVisible(true)}
           >
             <CustomSessionPopup1
               changeModalVisible={changeModalVisible}
+
             />
           </Modal>
 
