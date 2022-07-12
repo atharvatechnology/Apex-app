@@ -17,7 +17,7 @@ const CustomTextInput = props => {
   const [password, setPassword] = useState(props.hidden);
 
   return (
-    <>
+    <View style={styles.mainContainer}>
       <View style={!props.valid && props.touched ? styles.errorContainer : [styles.container, props.style]}>
         <TextInput
           style={
@@ -40,7 +40,7 @@ const CustomTextInput = props => {
         )}
       </View>
       {!props.valid && props.touched && <Text style={styles.errorText}>{props.error}</Text>}
-    </>
+    </View>
   );
 };
 
