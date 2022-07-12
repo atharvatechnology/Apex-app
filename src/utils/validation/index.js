@@ -31,6 +31,7 @@ const validate = (val, rules, connectedValue = null) => {
 };
 
 const emailValidator = val => {
+  if (val === '') return true;
   return new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/).test(
     val
   );
