@@ -1,10 +1,18 @@
+/**
+ * This is another profilepopup Component
+
+ * @param {Function} props.onPress - function to execute on pressing
+
+ * @returns {CustomProfilePopup1}- returns a reset popup Component
+ */
 
 
 import React from 'react';
 
 import { View, Image, Text, TouchableOpacity, AppState } from 'react-native';
-import styles from '@styles/elements/CustomProfilePopup';
+
 import CustomButton from '../CustomButton';
+import styles from '@styles/elements/CustomProfilePopup';
 
 
 const CustomProfilePopup1 = props => {

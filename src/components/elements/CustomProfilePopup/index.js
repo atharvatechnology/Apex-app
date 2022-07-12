@@ -1,10 +1,18 @@
+/**
+ * This is a profilepopup Component
 
+ * @param {Function} props.onPress - function to execute on pressing
+
+ * @returns {CustomProfilePopup}- returns a logout popup Component
+ */
 
 import React from 'react';
 
 import { View, Image, Text, TouchableOpacity, AppState } from 'react-native';
-import styles from '@styles/elements/CustomProfilePopup';
+
 import CustomButton from '../CustomButton';
+import styles from '@styles/elements/CustomProfilePopup';
+
 
 
 const CustomProfilePopup = props => {

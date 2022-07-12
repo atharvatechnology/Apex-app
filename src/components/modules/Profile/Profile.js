@@ -8,9 +8,10 @@ import React, { useState } from 'react';
 import { View, Image, TouchableOpacity, Modal, Text } from 'react-native';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
-import styles from '@styles/modules/Profile/Profile';
 import CustomProfilePopup from '@apexapp/components/elements/CustomProfilePopup';
 import CustomProfilePopup1 from '@apexapp/components/elements/CustomProfilePopup/index1';
+import styles from '@styles/modules/Profile/Profile';
+
 
 const Profile = (props) => {
 
