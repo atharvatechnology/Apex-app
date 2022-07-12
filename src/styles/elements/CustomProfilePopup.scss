@@ -1,0 +1,65 @@
+.container {
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.modal {
+    height: 30%;
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.flex1 {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 8px;
+    margin-left: 18px;
+    margin-right: 18px;
+
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 600;
+    color: black;
+}
+
+.close {
+    font-size: 16px;
+    color: black;
+}
+
+.line {
+    margin-top: 10px;
+    height: 3px;
+    width: 100%;
+    background-color: #f8f8f8;
+}
+
+.head {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-left: 16px;
+    color: black;
+
+}
+
+.subhead {
+    font-size: 16px;
+    margin-left: 16px;
+    margin-top: 6px;
+    color: black;
+}
+
+.CustomButton {
+    width: 90%;
+    position: absolute;
+    margin-left: 16px;
+    bottom: 8;
+    align-items: center;
+
+}
