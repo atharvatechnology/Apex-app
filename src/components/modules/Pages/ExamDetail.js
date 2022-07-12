@@ -4,7 +4,7 @@
  * @returns {ExamDetails}- returns a module for ExamDetails
  */
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Image,
@@ -14,7 +14,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import {CommonActions} from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import styles from '@styles/modules/Pages/ExamDetail';
@@ -46,8 +46,13 @@ const ExamDetail = props => {
     props.navigation.dispatch(CommonActions.goBack());
   };
 
+
   return (
-    <View style={styles.maincontainer}>
+
+    <View
+
+
+      style={styles.maincontainer}>
       <View style={styles.main}>
         <TouchableOpacity onPress={handleArrow} style={styles.left}>
           <Image source={require('@assets/images/leftArrow.png')} />
@@ -128,14 +133,18 @@ const ExamDetail = props => {
 
           <Modal
             transparent={true}
-            animationType="slide"
+            animationType='slide'
             visible={isModalVisible}
-            nRequestClose={() => changeModalVisible(false)}>
-            <CustomSessionPopup changeModalVisible={changeModalVisible} />
+            nRequestClose={() => changeModalVisible(true)}
+          >
+            <CustomSessionPopup
+              changeModalVisible={changeModalVisible}
+            />
           </Modal>
         </View>
       </View>
-    </View>
+    </View >
+
   );
 };
 

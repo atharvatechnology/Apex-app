@@ -4,11 +4,12 @@
  * @returns {Course}- returns a module for Course page
  */
 
-import React, {useState} from 'react';
-import {View, ScrollView, TouchableOpacity, Image, Text} from 'react-native';
+import React, { useState } from 'react';
+import { View, ScrollView, Modal, TouchableOpacity, Image, Text } from 'react-native';
 
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
 import styles from '@styles/modules/Pages/Courses';
+import CustomButtonPopup1 from '@apexapp/components/elements/CustomButtonPopup/index1'
 
 let information = [
   {
@@ -37,6 +38,16 @@ const data = [
 ];
 
 const Courses = props => {
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const changeModalVisible = (bool) => {
+    setIsModalVisible(bool);
+  }
+  const handlefilter = () => {
+    changeModalVisible(true)
+  }
+
+
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
   const onChange = item => {
@@ -44,7 +55,7 @@ const Courses = props => {
     setShow(true);
   };
   const handleArrow = id => {
-    props.navigation.navigate('CourseOverview', {test: id});
+    props.navigation.navigate('CourseOverview', { test: id });
   };
 
   return (
@@ -60,12 +71,28 @@ const Courses = props => {
               <Image source={require('@assets/images/leftArrow.png')} />
               <Text style={styles.p}>Courses</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+
+
+            <TouchableOpacity onPress={handlefilter}
+
+            >
               <Image
                 style={styles.filter}
                 source={require('@assets/images/Filter.png')}
               />
             </TouchableOpacity>
+
+            <Modal
+              animationType='slide'
+              transparent={true}
+              visible={isModalVisible}
+              nRequestClose={() => { changeModalVisible(false) }}
+            >
+              <CustomButtonPopup1
+                changeModalVisible={changeModalVisible} />
+            </Modal>
+
+
           </View>
           <View style={styles.searchandfilter}>
             <TouchableOpacity style={styles.search}>

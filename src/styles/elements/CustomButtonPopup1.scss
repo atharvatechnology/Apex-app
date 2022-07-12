@@ -1,0 +1,89 @@
+.container {
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.modal {
+    height: 80%;
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.flex1 {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex2 {
+    flex-direction: row;
+    position: absolute;
+    margin-left: 20px;
+    bottom: 16;
+}
+
+.flex3 {
+    flex-direction: row;
+}
+
+.CustomButton1 {
+    border: 1px;
+    width: 46%;
+}
+
+.CustomButton2 {
+    border: 1px;
+    margin-left: 15px;
+    width: 46%;
+}
+
+.title {
+    color: black;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-left: 16px;
+}
+
+.close {
+    color: black;
+    margin-right: 26px;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.line {
+    margin-top: 10px;
+    width: 100%;
+    height: 3px;
+    background-color: #f8f8f8;
+}
+
+
+
+.category {
+    font-size: 20px;
+    color: black;
+    font-weight: 600;
+    margin: 16px;
+    margin-left: 16px;
+}
+
+.category1 {
+    margin-left: 16px;
+}
+
+.category2 {
+    color: black;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.category3 {
+    color: black;
+    font-size: 16px;
+    margin-top: 10px;
+}
