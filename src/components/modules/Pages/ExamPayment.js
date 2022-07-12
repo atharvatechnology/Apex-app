@@ -64,7 +64,7 @@ const ExamPaymentPage = () => {
           </View>
           <View>
             <CustomButton
-              // type="theme"
+              type="theme"
               title={'pay now'}
               style={styles.button}
               color="white"
