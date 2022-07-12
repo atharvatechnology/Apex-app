@@ -6,7 +6,7 @@
 }
 
 .modal {
-    height: 85%;
+    height: 65%;
     padding-top: 10px;
     background-color: white;
     border-radius: 10px;
@@ -55,15 +55,17 @@
 }
 
 .data {
-    margin: 16px;
+
 
     border-radius: 5px;
     background-color: #f8f8f8;
     flex-direction: row;
-    margin: 16px;
-    padding: 16px;
+    margin: 8px;
+    margin-left: 14px;
+    padding: 17px;
+    margin-right: 14px;
     justify-content: space-between;
-    align-items: center;
+
 
 }
 

@@ -1,7 +1,17 @@
-import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import styles from '@styles/elements/CustomSessionPopup';
+/**
+ * This is a Session popup Component
+ 
+ * @param {Function} props.onPress - function to execute on pressing
+
+ * @returns {CustomSessionPopup}- returns a popup Component
+ */
+
+import React, {useState, useEffect} from 'react';
+
+import {View, Image, Text, TouchableOpacity, AppState} from 'react-native';
+
 import CustomButton from '../CustomButton';
+import styles from '@styles/elements/CustomSessionPopup';
 
 const data = [
   {

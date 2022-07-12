@@ -1,6 +1,6 @@
 /**
  * This is a filterpopup Component
- 
+
  * @param {Function} props.onPress - function to execute on pressing
 
  * @returns {CustomButtonPopup}- returns a popup Component
