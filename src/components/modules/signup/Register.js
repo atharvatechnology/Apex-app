@@ -81,7 +81,7 @@ const Register = props => {
         [key]: {
           ...prevState[key],
           focus: true,
-          touched: true,
+          
         },
       };
     });
