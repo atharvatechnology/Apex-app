@@ -221,11 +221,11 @@ const Home = props => {
 
   return (
     <>
-      <ScrollView style={styles.scrollView}>
-        <View style={styles.division}>
-          <View styles={styles.navbar}>
-            <NavBar />
-          </View>
+      <View style={styles.division}>
+        <View styles={styles.navbar}>
+          <NavBar />
+        </View>
+        <ScrollView style={styles.scrollView}>
           <View>
             <View style={styles.gap} />
             <View style={styles.txt}>
@@ -400,6 +400,7 @@ const Home = props => {
                       tappableDots={!!CarouselReffff}
                     />
                   </View>
+
                   <CustomButton
                     type="white"
                     title={'Explore all'}
@@ -410,8 +411,8 @@ const Home = props => {
               </View>
             </View>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </View>
     </>
   );
 };
