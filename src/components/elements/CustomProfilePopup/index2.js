@@ -10,7 +10,6 @@ import React, {useState} from 'react';
 
 import {View, Text, TouchableOpacity} from 'react-native';
 
-import Profile from '@apexapp/components/modules/Profile/Profile';
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
 import CustomButton from '@apexapp/components/elements/CustomButton';
 

@@ -15,8 +15,8 @@ import {
 } from 'react-native';
 
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
-import styles from '@styles/modules/Pages/Courses';
 import CustomButtonPopup1 from '@apexapp/components/elements/CustomButtonPopup/index1';
+import styles from '@styles/modules/Pages/Courses';
 
 let information = [
   {
