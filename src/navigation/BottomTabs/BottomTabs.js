@@ -1,5 +1,5 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {useTheme} from '@react-navigation/native';
+import React, { useEffect, useState, useRef } from 'react';
+import { useTheme } from '@react-navigation/native';
 import {
   StyleSheet,
   Text,
@@ -11,12 +11,14 @@ import {
 
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 import Home from '@apexapp/screens/Pages/Home';
 import HomePage from '@screens/Pages/Home';
 import HomeRouter from '../Home/Home';
-import CoursesRouter from '../Home/Courses';
+import CoursesRouter from '../Course/Courses';
+import Profile from '@apexapp/screens/Profile/Profile';
+import ProfileRouter from '../Profile/Profile';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -44,7 +46,7 @@ const BottomTabs = props => {
         component={HomeRouter}
         options={{
           tabBarLabel: 'HOME',
-          tabBarIcon: ({color, focused}) =>
+          tabBarIcon: ({ color, focused }) =>
             focused ? (
               <Image source={require('@assets/images/homeActive.png')} />
             ) : (
@@ -57,7 +59,7 @@ const BottomTabs = props => {
         component={CoursesRouter}
         options={{
           tabBarLabel: 'MY COURSES',
-          tabBarIcon: ({color, focused}) =>
+          tabBarIcon: ({ color, focused }) =>
             focused ? (
               <Image source={require('@assets/images/coursesActive.png')} />
             ) : (
@@ -71,7 +73,7 @@ const BottomTabs = props => {
         component={TabTest}
         options={{
           tabBarLabel: 'NOTIFICATION',
-          tabBarIcon: ({color, focused}) =>
+          tabBarIcon: ({ color, focused }) =>
             focused ? (
               <Image
                 source={require('@assets/images/notificationInactive.png')}
@@ -85,10 +87,10 @@ const BottomTabs = props => {
       />
       <Tab.Screen
         name="Profile"
-        component={TabTest}
+        component={ProfileRouter}
         options={{
           tabBarLabel: 'PROFILE',
-          tabBarIcon: ({color, focused}) =>
+          tabBarIcon: ({ color, focused }) =>
             focused ? (
               <Image source={require('@assets/images/profileInactive.png')} />
             ) : (
