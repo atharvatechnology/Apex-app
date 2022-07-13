@@ -6,12 +6,13 @@
  * @returns {CustomSessionPopup}- returns a popup Component
  */
 
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-import {View, Image, Text, TouchableOpacity, AppState} from 'react-native';
+import { View, Image, Text, TouchableOpacity, AppState } from 'react-native';
 
 import CustomButton from '../CustomButton';
-import styles from '@styles/elements/CustomSessionPopup';
+import styles from '@styles/elements/CustomSessionPopup.scss';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const data = [
   {
@@ -29,51 +30,73 @@ const data = [
     title2: 'Time',
     time: '5.00',
   },
+
+
 ];
 const CustomSessionPopup = props => {
-  const handleEnroll = () => {};
+
+  const handleEnroll = () => { };
 
   const closeModal = bool => {
     props.changeModalVisible(bool);
   };
   return (
+
     <TouchableOpacity disabled={true} style={styles.container}>
       <View style={styles.modal}>
         <View style={styles.flex1}>
-          <Text>Session</Text>
+          <Text style={styles.head}>Session</Text>
           <TouchableOpacity onPress={() => closeModal(false, 'Cancel')}>
             <Text style={styles.close}>Close</Text>
           </TouchableOpacity>
         </View>
         <Text style={styles.line}></Text>
         <View>
-          <Text>Choose exam session</Text>
-          <Text>
+          <Text style={styles.topic}>Choose exam session</Text>
+          <Text style={styles.p}>
             Choosing session will let you to particular session exam enrollment
           </Text>
         </View>
 
-        <View>
+
+        <ScrollView>
           {data.map((item, index) => {
             return (
-              <View key={index}>
-                <Text>{item.title1}</Text>
-                <Text>{item.title2}</Text>
-                <Text>{item.time} pm</Text>
+              <View style={styles.data}>
+                <View key={index}>
+
+                  <Text style={styles.title1}>{item.title1}</Text>
+                  <View style={styles.flex3}>
+                    <View style={styles.iconback}>
+                      <Image style={styles.clockicon}
+                        source={require('@assets/images/Vecto.png')} />
+                    </View>
+                    <View>
+                      <Text style={styles.title2}>{item.title2}</Text>
+                      <Text style={styles.time}>{item.time} pm</Text>
+                    </View>
+                  </View>
+                </View>
 
                 <CustomButton
                   onPress={handleEnroll}
                   style={styles.CustomButton}
                   type="theme"
                   title={'Enroll now'}
-                  color="#ffffff"
+
                 />
               </View>
+
             );
+
           })}
-        </View>
+        </ScrollView>
       </View>
-    </TouchableOpacity>
+
+
+
+
+    </TouchableOpacity >
   );
 };
 

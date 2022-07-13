@@ -1,13 +1,14 @@
 /**
- * This is  page containing the Home and other components of the organization.
+ * This is  page containing the Navbar and other components of the organization.
  * @param {Object} props.navigation - contains all the propeties of react navigation
- * @returns {Home}- returns a module for Home
+ * @returns {Navbar}- returns a module for navbar
  */
+
+import React, {useState} from 'react';
+
+import {Image, Text, View} from 'react-native';
+
 import CustomDropdown from '@apexapp/components/elements/CustomDropdown';
-
-import React, { useState } from 'react';
-import { Image, Text, View } from 'react-native';
-
 import styles from '@styles/elements/NavBar/Navbar.scss';
 
 let preparation = [
@@ -39,7 +40,6 @@ const NavBar = props => {
           data={preparation}
           onSelect={onSelect}
           label="Search here"
-
         />
       </View>
     </>

@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-import {View, Text, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import styles from '@styles/elements/CustomProfilePopup';

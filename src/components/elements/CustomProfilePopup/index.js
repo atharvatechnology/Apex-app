@@ -8,10 +8,10 @@
 
 import React from 'react';
 
-import {View, Image, Text, TouchableOpacity, AppState} from 'react-native';
+import { View, Image, Text, TouchableOpacity, AppState } from 'react-native';
 
 import CustomButton from '../CustomButton';
-import styles from '@styles/elements/CustomProfilePopup';
+import styles from '@styles/elements/CustomProfilePopup.scss';
 
 const CustomProfilePopup = props => {
   const handlelogout = () => {
@@ -43,7 +43,7 @@ const CustomProfilePopup = props => {
           type="theme"
           title={'Logout'}
           color="#ffffff"
-          backgroundColor="##2E3192"
+
         />
       </View>
     </TouchableOpacity>

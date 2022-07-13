@@ -17,20 +17,42 @@
 
 .h1 {
     font-size: theme.$h1;
+    color: theme.$black;
+    font-family: 'OpenSans-Regular';
 }
 
 .h2 {
     font-size: theme.$h2;
+    color: theme.$black;
+    font-family: 'OpenSans-Regular';
 }
 
 .h3 {
     font-size: theme.$h3;
+    color: theme.$black;
+    font-family: 'OpenSans-Regular';
+}
+
+.h4 {
+    font-size: theme.$h4;
+    color: theme.$black;
+    font-family: 'OpenSans-Regular';
 }
 
 .p {
     font-size: theme.$p;
     color: theme.$black;
+    font-family: 'OpenSans-Regular';
 }
+
+.p1 {
+    font-size: theme.$p1;
+    color: theme.$black;
+    font-family: 'OpenSans-Regular';
+}
+
+
+
 
 .link {
     color: theme.$primary;
@@ -42,6 +64,7 @@
 
 .input-bcr {
     background-color: white;
+
 }
 
 .title-bcr {
@@ -52,15 +75,16 @@
     background: #EAEAEA;
 }
 
-.button-bcr{
+.button-bcr {
     background: white;
+
 }
 
-.card-bcr{
+.card-bcr {
     background: #f8f8f8;
 }
 
-.footer-bcr{
-  background-color: #2E3192;
-    
+.footer-bcr {
+    background-color: #2E3192;
+
 }
