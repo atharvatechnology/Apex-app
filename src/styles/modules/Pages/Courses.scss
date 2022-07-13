@@ -4,8 +4,8 @@
 
 
 .mainContainer {
-  background-color: white
-
+  background-color: white;
+  
 }
 
 .searchandfilter {
@@ -17,7 +17,7 @@
   height: 55px;
   width: 45px;
   background-color: #F8F8F8;
-  margin-top: 0px;
+  margin-top: 6px;
   padding-left: 23px;
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
@@ -50,8 +50,6 @@
 
 .filterDiv{
   flex-direction: row;
-
-
 }
 
 .p {
@@ -64,7 +62,7 @@
 }
 
 .CustomTextInput {
-  width: 80%;
+  width: 320px;
   height: 55px;
   color: black;
 margin-top: 0;
@@ -161,4 +159,12 @@ margin-bottom: 16px;
 }
 .text{
   margin-top:16px;
+  background-color: white;
+
+}
+
+.Header{
+  position:absolute;
+  top:0;
+
 }
