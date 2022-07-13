@@ -1,3 +1,6 @@
+@use "../library" as themes;
+@import '../common';
+
 .container {
     flex: 1;
     align-items: center;
@@ -15,7 +18,6 @@
 
 .flex1 {
     flex-direction: row;
-
     padding: 10px;
 }
 
@@ -26,42 +28,45 @@
 }
 
 .head {
+    @extend .h2;
     margin-left: 5px;
-    font-size: 24px;
     font-weight: 700;
-    color: black;
+
 }
 
 .close {
-    font-size: 18px;
+    @extend .h4;
     margin-top: 2px;
     margin-left: 74%;
-    color: black;
+
 }
 
 .topic {
     margin-top: 5%;
     margin-left: 16px;
-    font-size: 21px;
+    @extend .h3;
     font-weight: 700;
-    color: black;
+
 }
 
 .p {
     margin-top: 3px;
     margin-left: 18px;
-    color: black;
-    font-size: 16.5px;
+    @extend .p;
+
 }
 
 .data {
-    margin: 16px;
+
 
     border-radius: 5px;
     background-color: #f8f8f8;
     flex-direction: row;
-    margin: 16px;
-    padding: 16px;
+
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 18px;
     justify-content: space-between;
     align-items: center;
 
@@ -69,32 +74,33 @@
 
 .title1 {
     margin-top: 10px;
-    font-size: 22px;
-    font-weight: 700;
-    color: black;
 
+    font-weight: 700;
+    @extend .h3
 }
 
 .title2 {
     margin-top: 12px;
-    font-size: 18px;
+
     font-weight: 600;
-    color: black;
+    @extend .h4;
     margin-left: 15px;
 }
 
 .time {
     margin-top: 6px;
-    font-size: 15px;
+
     margin-left: 20px;
-    color: black;
+    @extend .p1;
     margin-bottom: 15px;
 }
 
 
 .CustomButton {
-    height: 46%;
-    margin-top: 40px;
+    height: 45%;
+
+    margin-top: 20px;
+    color: white;
 }
 
 .clockicon {

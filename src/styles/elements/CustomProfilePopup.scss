@@ -1,4 +1,7 @@
+@import '../common';
+
 .container {
+    font-family: 'OpenSans-Regular';
     flex: 1;
     align-items: center;
     justify-content: flex-end;
@@ -22,14 +25,13 @@
 }
 
 .title {
-    font-size: 22px;
-    font-weight: 600;
-    color: black;
+    @extend .h4;
+
 }
 
 .close {
-    font-size: 16px;
-    color: black;
+    @extend .p;
+
 }
 
 .line {
@@ -40,19 +42,20 @@
 }
 
 .head {
-    font-size: 20px;
+    @extend .p;
     font-weight: 600;
     margin-top: 16px;
     margin-left: 16px;
-    color: black;
+
 
 }
 
 .subhead {
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 14px;
     margin-left: 16px;
     margin-top: 6px;
-    color: black;
+
 }
 
 .CustomButton {
@@ -61,5 +64,6 @@
     margin-left: 16px;
     bottom: 8;
     align-items: center;
+
 
 }

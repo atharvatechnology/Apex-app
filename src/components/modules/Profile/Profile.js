@@ -3,9 +3,9 @@
  * @param {Object} props.navigation - contains all the propeties of react navigation
  * @returns {Profile}- returns a module for profile of the user
  */
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import {View, Image, TouchableOpacity, Modal, Text} from 'react-native';
+import { View, Image, TouchableOpacity, Modal, Text } from 'react-native';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import CustomProfilePopup from '@apexapp/components/elements/CustomProfilePopup';
