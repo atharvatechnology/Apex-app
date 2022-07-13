@@ -55,8 +55,10 @@ const Courses = props => {
       <ScrollView stickyHeaderIndices={[0]} style={styles.scrollView}>
         <View styles={styles.Header}>
           <HeaderSearch
-            backnav=""
+            navigation={props.navigation}
+            backnav="Home"
             showFilterButton={true}
+            title="Courses"
             searchfunc={() => {}}
           />
         </View>
