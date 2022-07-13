@@ -43,7 +43,7 @@ const Profile = (props) => {
       <View style={styles.img}>
         <Image source={require('@assets/images/tulogo.png')} />
         <View style={styles.txt}>
-          <Text style={styles.name}>Sumna Panday</Text>
+          <Text style={styles.name}>Suman Panday</Text>
           <Text style={styles.number}>+977-9801202348</Text>
           <Text style={styles.gmail}>abc@gmail.com</Text>
         </View>
@@ -73,12 +73,10 @@ const Profile = (props) => {
 
         <Modal
           transparent={true}
-          animationType="slide"
           visible={isModalVisible}
-
+          animationType="slide"
           nRequestClose={() => changeModalVisible(true)}
         >
-
           <CustomProfilePopup
             changeModalVisible={changeModalVisible}
           />

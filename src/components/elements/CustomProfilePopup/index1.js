@@ -9,7 +9,7 @@
 
 import React from 'react';
 
-import { View, Image, Text, TouchableOpacity, AppState } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import CustomButton from '../CustomButton';
 import styles from '@styles/elements/CustomProfilePopup';
