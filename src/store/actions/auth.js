@@ -98,7 +98,7 @@ export const verifyRequest = (
         // Object.values(resJson).forEach(element => {
         //   msg = msg + element[0][0];
         // });
-        console.log('msg', resJson?.otp[0]);
+        // console.log('msg', resJson?.otp[0]);
 
         setErrorMsg(resJson.otp[0]);
         autoFadeOut();

@@ -11,9 +11,9 @@ export const examLive = (data) => {
 export const examLiveRequest = () => {
   return async (dispatch) => {
     try {
-      const response = await GET('api/exams/list/');
+      const response = await GET('api/exams/list/?page_size=6');
       const resJson = await response.json();
-      console.log("action", resJson)
+      // console.log("action", resJson)
       if (response.status === 200) {
         dispatch(examLive(resJson));
       }
@@ -37,7 +37,7 @@ export const examPractice = (data) => {
 export const examPracticeRequest = () => {
   return async (dispatch) => {
     try {
-      const response = await GET('api/exams/list/');
+      const response = await GET('api/exams/list/?page_size=6');
       const resJson = await response.json();
       if (response.status === 200) {
         dispatch(examPractice(resJson));
