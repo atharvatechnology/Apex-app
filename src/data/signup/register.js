@@ -72,7 +72,7 @@ export const registerForm = {
     errorMessage: "Enter correct Email format",
     style: { marginBottom: 4 },
     validationRules: {
-      required: true,
+      // required: true,
       isEmail: true,
       // isPhone: true
       // regex: phoneNumberRegex

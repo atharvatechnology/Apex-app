@@ -1,10 +1,14 @@
 @use "../library" as themes;
 @import '../common';
 
+.mainContainer{
+  margin: 6px 0px;
+}
+
 .container {
   background-color: themes.$input;
   border-radius: 5px;
-  margin: 4px 0px;
+  // margin: 4px 0px;
   position: relative;
   
 }

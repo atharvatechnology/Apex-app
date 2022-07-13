@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 
+import BottomTabs from './BottomTabs/BottomTabs';
 import CoursePaymentRouter from './Home/CoursePayment';
 import ExamPaymentRouter from './Home/ExamPayment';
 import ExamRouter from './Home/Exam';
@@ -33,17 +34,14 @@ const MainRouter = () => {
       <NavigationContainer>
         <MyStack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="ExamDetail">
+          initialRouteName="Walkthrough">
           <MyStack.Screen name="Walkthrough" component={Walkthrough} />
           <MyStack.Screen name="OnBoarding" component={OnBoarding} />
           {/* <MyStack.Screen name="Profile" component={Profile} /> */}
 
-
-
-
-          {/* {SignInRouter()}
+          {SignInRouter()}
           {SignUpRouter()}
-          {ResetRouter()} */}
+          {ResetRouter()}
           {/* {HomeRouter()} */}
           {/* {ExamRouter()} */}
           {ExamDetailRouter()}

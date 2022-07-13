@@ -4,12 +4,19 @@
  * @returns {Course}- returns a module for Course page
  */
 
-import React, { useState } from 'react';
-import { View, ScrollView, Modal, TouchableOpacity, Image, Text } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  ScrollView,
+  Modal,
+  TouchableOpacity,
+  Image,
+  Text,
+} from 'react-native';
 
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
+import CustomButtonPopup1 from '@apexapp/components/elements/CustomButtonPopup/index1';
 import styles from '@styles/modules/Pages/Courses';
-import CustomButtonPopup1 from '@apexapp/components/elements/CustomButtonPopup/index1'
 
 let information = [
   {
@@ -38,15 +45,14 @@ const data = [
 ];
 
 const Courses = props => {
-  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const changeModalVisible = (bool) => {
+  const changeModalVisible = bool => {
     setIsModalVisible(bool);
-  }
+  };
   const handlefilter = () => {
-    changeModalVisible(true)
-  }
-
+    changeModalVisible(true);
+  };
 
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
@@ -55,7 +61,7 @@ const Courses = props => {
     setShow(true);
   };
   const handleArrow = id => {
-    props.navigation.navigate('CourseOverview', { test: id });
+    props.navigation.navigate('CourseOverview', {test: id});
   };
 
   return (
@@ -68,10 +74,7 @@ const Courses = props => {
               <Text style={styles.p}>Courses</Text>
             </TouchableOpacity>
 
-
-            <TouchableOpacity onPress={handlefilter}
-
-            >
+            <TouchableOpacity onPress={handlefilter}>
               <Image
                 style={styles.filter}
                 source={require('@assets/images/Filter.png')}
@@ -79,16 +82,14 @@ const Courses = props => {
             </TouchableOpacity>
 
             <Modal
-              animationType='slide'
+              animationType="slide"
               transparent={true}
               visible={isModalVisible}
-              nRequestClose={() => { changeModalVisible(false) }}
-            >
-              <CustomButtonPopup1
-                changeModalVisible={changeModalVisible} />
+              nRequestClose={() => {
+                changeModalVisible(false);
+              }}>
+              <CustomButtonPopup1 changeModalVisible={changeModalVisible} />
             </Modal>
-
-
           </View>
           <View style={styles.searchandfilter}>
             <TouchableOpacity style={styles.search}>
