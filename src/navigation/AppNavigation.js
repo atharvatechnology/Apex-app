@@ -11,7 +11,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 
 import BottomTabs from './BottomTabs/BottomTabs';
-import CoursePaymentRouter from './Home/CoursePayment';
+import CoursePaymentRouter from './Course/CoursePayment';
 import ExamPaymentRouter from './Home/ExamPayment';
 import ExamRouter from './Home/Exam';
 import ExamDetailRouter from './Home/ExamDetail';
@@ -22,7 +22,6 @@ import SignUpRouter from './signup';
 import SignInRouter from './signin';
 import { store } from '@apexapp/store/store';
 import Walkthrough from '@screens/walkthrough';
-import BottomTabs from './BottomTabs/BottomTabs';
 import Profile from '@apexapp/screens/Profile/Profile';
 
 
@@ -44,7 +43,7 @@ const MainRouter = () => {
           {ResetRouter()}
           {/* {HomeRouter()} */}
           {/* {ExamRouter()} */}
-          {ExamDetailRouter()}
+          {/* {ExamDetailRouter()} */}
           {/* {ExamPaymentRouter()}
 
           {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
