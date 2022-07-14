@@ -240,7 +240,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding-left: 16px;
+    padding: 0px 16px;
     height: 90px;
     background-color: white;
 
@@ -249,8 +249,10 @@
 
 .enroll0 {
     margin-top: 12px;
-    width: 70%;
+    margin-right: 6px;
+    // width: 70%;
     height: 60px;
+    flex: 1;
 }
 
 .enroll1 {
@@ -263,6 +265,10 @@
 .enroll2 {
     @extend .p1;
     margin-top: 2px;
+}
+
+.buttons {
+    // flex: 1;
 }
 
 

@@ -18,6 +18,7 @@ import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
 import CustomButtonPopup1 from '@apexapp/components/elements/CustomButtonPopup/index1';
 import styles from '@styles/modules/Pages/Courses';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
+import {FlatList} from 'react-native-gesture-handler';
 
 let information = [
   {
@@ -55,9 +56,12 @@ const Courses = props => {
       <ScrollView stickyHeaderIndices={[0]} style={styles.scrollView}>
         <View styles={styles.Header}>
           <HeaderSearch
-            backnav=""
+            navigation={props.navigation}
+            backnav="Home"
             showFilterButton={true}
+            title="Courses"
             searchfunc={() => {}}
+            showSearchButton={true}
           />
         </View>
         <View style={styles.gap} />
