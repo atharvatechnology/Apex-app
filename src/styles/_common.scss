@@ -39,6 +39,18 @@
     font-family: 'OpenSans-Regular';
 }
 
+.h5 {
+    font-size: theme.$h5;
+    color: theme.$black;
+    font-family: 'OpenSans-Regular';
+}
+
+.h6 {
+    font-size: theme.$h6;
+    color: theme.$black;
+    font-family: 'OpenSans-Regular';
+}
+
 .p {
     font-size: theme.$p;
     color: theme.$black;
@@ -53,6 +65,11 @@
 
 
 
+.H {
+    font-size: theme.$h2;
+    color: theme.$black;
+    font-family: 'OpenSans-Bold';
+}
 
 .link {
     color: theme.$primary;
