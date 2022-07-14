@@ -41,7 +41,7 @@ const CourseOverview = props => {
         <HeaderSearch
           title="Courses Details"
           navigation={props.navigation}
-          backnav="Courses"
+          backnav="Courses "
         />
 
         <View style={styles.gap} />
@@ -60,7 +60,7 @@ const CourseOverview = props => {
               />
             </View>
             <View>
-              <Text style={styles.p1}>Engineering Entrance (IOE)</Text>
+              <Text style={styles.h1}>Engineering Entrance (IOE)</Text>
             </View>
             <View>
               <Text style={styles.p2}>
@@ -113,7 +113,6 @@ const CourseOverview = props => {
           <View style={{height: 100}}></View>
         </ScrollView>
         <View style={styles.gap} />
-
         <View style={styles.footer}>
           <View style={styles.txt}>
             <Text style={styles.p5}>Get enrollment</Text>

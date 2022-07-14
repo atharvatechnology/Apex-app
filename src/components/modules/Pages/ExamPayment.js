@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import {View, Image, TouchableOpacity, Text} from 'react-native';
+import { View, Image, TouchableOpacity, Text } from 'react-native';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
@@ -58,12 +58,12 @@ const ExamPaymentPage = props => {
             source={require('@assets/images/esewa.png')}
           />
           <View style={styles.txt}>
-            <Text style={styles.fottertext}>Pay with esewa</Text>
+            <Text style={styles.fottertext}>  Pay with esewa</Text>
           </View>
           <View>
             <CustomButton
               type="theme"
-              title={'pay now'}
+              title={'Pay now'}
               style={styles.button}
               color="white"
             />
