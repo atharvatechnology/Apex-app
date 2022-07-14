@@ -32,7 +32,7 @@ const HeaderSearch = props => {
   const onChange = () => {
     props.searchfunc();
   };
-  console.log(props);
+
   const backnav = () => {
     props.navigation.navigate(props.backnav);
   };
@@ -48,12 +48,14 @@ const HeaderSearch = props => {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={handlefilter}>
-            <Image
-              style={styles.filter}
-              source={require('@assets/images/Filter.png')}
-            />
-          </TouchableOpacity>
+          {props.showFilterButton ? (
+            <TouchableOpacity onPress={handlefilter}>
+              <Image
+                style={styles.filter}
+                source={require('@assets/images/Filter.png')}
+              />
+            </TouchableOpacity>
+          ) : null}
 
           <Modal
             animationType="slide"
@@ -67,21 +69,23 @@ const HeaderSearch = props => {
         </View>
 
         <View style={styles.searchandfilter}>
-          <TouchableOpacity style={styles.search}>
-            <Image
-              style={styles.searchicon}
-              source={require('@assets/images/search-interface-symbol.png')}
-            />
-          </TouchableOpacity>
-
-          <CustomTextInput
-            style={styles.CustomTextInput}
-            // value={selectedItem}
-            data={information}
-            onChange={onChange}
-            placeholder="Search here"
-            color="#000000"
-          />
+          {props.showSearchButton ? (
+            <>
+              <TouchableOpacity style={styles.search}>
+                <Image
+                  style={styles.searchicon}
+                  source={require('@assets/images/search-interface-symbol.png')}
+                />
+              </TouchableOpacity>
+              <CustomTextInput
+                style={styles.CustomTextInput}
+                data={information}
+                onChange={onChange}
+                placeholder="Search here"
+                color="#000000"
+              />
+            </>
+          ) : null}
         </View>
       </View>
     </>
