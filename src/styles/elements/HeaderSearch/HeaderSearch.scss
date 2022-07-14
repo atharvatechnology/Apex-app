@@ -20,10 +20,10 @@
  
  }
  .p {
-   font-family: Open sans-serif;
-   font-style: normal;
-   font-weight: 700;
-   font-size: 26px;
+  //  font-family: Open sans-serif;
+  //  font-style: normal;
+  //  font-weight: 700;
+   @extend .H;
    line-height: 25px;
    margin-left: 18px;
  }

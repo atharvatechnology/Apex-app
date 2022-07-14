@@ -8,6 +8,7 @@ import React from 'react';
 import {View, Image, TouchableOpacity, Text} from 'react-native';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
+import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
 import styles from '@styles/modules/Pages/ExamPayment';
 
 const data = [
@@ -18,14 +19,11 @@ const data = [
   },
 ];
 
-const ExamPaymentPage = () => {
+const ExamPaymentPage = props => {
   return (
     <>
       <View style={styles.maincontainer}>
-        <TouchableOpacity style={styles.left}>
-          <Image source={require('@assets/images/leftArrow.png')} />
-          <Text style={styles.p}>Payments</Text>
-        </TouchableOpacity>
+        <HeaderSearch title="Payments" navigation={props.navigation} />
 
         <View style={styles.gap} />
 
