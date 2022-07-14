@@ -4,7 +4,7 @@
  * @returns {CourseOverview}- returns a module for course overviews
  */
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Image,
@@ -14,7 +14,7 @@ import {
   Text,
 } from 'react-native';
 
-import {CommonActions} from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 
 import CustomButton from '@components/elements/CustomButton';
 import styles from '@styles/modules/Pages/CourseOverview';
@@ -107,7 +107,7 @@ const CourseOverview = props => {
             </Text>
           </View>
         </View>
-        <View style={{height: 100}}></View>
+        <View style={{ height: 100 }}></View>
       </ScrollView>
       <View style={styles.gap} />
       <View style={styles.footer}>
@@ -128,7 +128,8 @@ const CourseOverview = props => {
             animationType="slide"
             visible={isModalVisible}
             nRequestClose={() => changeModalVisible(true)}>
-            <CustomSessionPopup1 changeModalVisible={changeModalVisible} />
+            <CustomSessionPopup1
+              changeModalVisible={changeModalVisible} />
           </Modal>
         </View>
       </View>
