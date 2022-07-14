@@ -48,6 +48,7 @@
 
 
 .p {
+
     font-family: Open sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -78,9 +79,12 @@
     padding-left: 15px;
     margin-left: 8px;
     border-radius: 4px;
-    color: black;
+
     @extend .title-bcr;
-    font-weight: 700
+    font-weight: 700;
+
+    @extend .p1;
+
 }
 
 .title1 {
@@ -90,18 +94,19 @@
     padding-left: 15px;
     margin-left: 7px;
     border-radius: 4px;
-    color: black;
+
     font-weight: 700;
+    @extend .p1;
 
 }
 
 .text {
-    font-family: 'Open Sans-serif';
+    @extend .h4;
     font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: 700;
+
     line-height: 20px;
-    color: black;
+
     padding-left: 80px;
 
 }
@@ -110,9 +115,9 @@
     align-items: flex-end;
     padding-right: 16px;
     padding-left: 80px;
-    color: black;
     margin-top: 6px;
     margin-bottom: 15px;
+    @extend .p1;
 
 
 }
