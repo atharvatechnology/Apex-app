@@ -57,8 +57,12 @@ const ExamDetail = props => {
     setIsModalVisible(bool);
   };
 
-  const handleEnroll = () => {
+  const handleChooseSession = () => {
     changeModalVisible(true);
+  };
+
+  const handleEnroll = () => {
+    props.navigation.navigate('ExamPayment')
   };
 
   const handleArrow = () => {
@@ -141,7 +145,7 @@ const ExamDetail = props => {
         </View>
         <View style={styles.buttons}>
           {!examDetails.is_enrolled ? (examDetails.sessions.length > 1 ? <CustomButton
-            onPress={handleEnroll}
+            onPress={handleChooseSession}
             style={styles.CustomButton}
             type="theme"
             title={'Choose Session'}
@@ -149,7 +153,7 @@ const ExamDetail = props => {
           />
             :
             <CustomButton
-              // onPress={handleEnroll}
+              onPress={handleEnroll}
               style={styles.CustomButton}
               type="theme"
               title={'Enroll now'}
