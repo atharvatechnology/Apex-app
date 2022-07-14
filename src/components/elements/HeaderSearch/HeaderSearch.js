@@ -28,15 +28,13 @@ const HeaderSearch = props => {
   const handlefilter = () => {
     changeModalVisible(true);
   };
-  const [show, setShow] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(0);
-  const onChange = item => {
-    setSelectedItem(item.id);
-    setShow(true);
-  };
 
-  const handlePress = id => {
-    props.navigation.navigate('');
+  const onChange = () => {
+    props.searchfunc();
+  };
+  console.log(props);
+  const backnav = () => {
+    props.navigation.navigate(props.backnav);
   };
 
   return (
@@ -45,8 +43,8 @@ const HeaderSearch = props => {
         <View style={styles.filterDiv}>
           <TouchableOpacity style={styles.left}>
             <Image source={require('@assets/images/leftArrow.png')} />
-            <Text style={styles.p} onPress={() => handlePress('')}>
-              Courses
+            <Text style={styles.p} onPress={backnav}>
+              {props.title}
             </Text>
           </TouchableOpacity>
 
@@ -78,7 +76,7 @@ const HeaderSearch = props => {
 
           <CustomTextInput
             style={styles.CustomTextInput}
-            value={selectedItem}
+            // value={selectedItem}
             data={information}
             onChange={onChange}
             placeholder="Search here"
