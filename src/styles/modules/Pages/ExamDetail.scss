@@ -68,42 +68,42 @@
 
 
 
-.text {
-    padding: 2px;
-    font-weight: 700;
-    color: black;
-    margin-top: 15px;
-    background-color: #F8F8F8;
-    width: 100%;
-    height: 18px;
-    font-size: 15px;
-    border-radius: 2px;
-}
+// .text {
+//     padding: 2px;
+//     font-weight: 700;
+//     color: black;
+//     margin-top: 15px;
+//     background-color: #F8F8F8;
+//     width: 100%;
+//     height: 18px;
+//     font-size: 15px;
+//     border-radius: 2px;
+// }
 
-.text1 {
-    padding: 2px;
-    font-weight: 700;
-    color: black;
-    margin-top: 16px;
-    margin-left: 5px;
-    padding-left: 7px;
-    background-color: #F4777C;
-    width: 100%;
-    height: 18px;
-    font-size: 15px;
-    border-radius: 3px;
-}
+// .text1 {
+//     padding: 2px;
+//     font-weight: 700;
+//     color: black;
+//     margin-top: 16px;
+//     margin-left: 5px;
+//     padding-left: 7px;
+//     background-color: #F4777C;
+//     width: 100%;
+//     height: 18px;
+//     // font-size: 15px;
+//     border-radius: 3px;
+// }
 
-.p1 {
-    font-family: Open sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 25px;
-    margin-left: 16px;
-    margin-top: 30px;
-    color: black;
-}
+// .p1 {
+//     font-family: Open sans-serif;
+//     font-style: normal;
+//     font-weight: 700;
+//     font-size: 22px;
+//     line-height: 25px;
+//     margin-left: 16px;
+//     margin-top: 30px;
+//     color: black;
+// }
 
 
 .icon {
@@ -118,21 +118,23 @@
 
 .examDetail {
     margin-top: 6px;
-    padding-left: 18px;
+    padding-left: 16px;
 
 }
 
 .duration {
     margin-left: 15px;
-    font-size: 16px;
-    font-weight: 600;
-    color: black;
+
+    font-weight: 700;
+
+    @extend .h5;
 }
 
 .duration1 {
-    margin-top: 5px;
-    margin-left: 12px;
-    color: black;
+    margin-top: 4px;
+    margin-left: 11px;
+
+    @extend .p1;
 }
 
 .fullmark {
@@ -142,15 +144,15 @@
 
 .fullmarks {
     margin-left: 15px;
-    font-size: 16px;
-    font-weight: 600;
-    color: black;
+    font-weight: 700;
+    @extend .h5;
 }
 
 .fullmarks1 {
-    margin-top: 5px;
+    margin-top: 4px;
     margin-left: 15px;
-    color: black;
+
+    @extend .p1;
 
 }
 
@@ -162,38 +164,37 @@
 }
 
 .passmarks {
-    margin-top: 4px;
+    // margin-top: 4px;
     margin-left: 15px;
-    font-size: 16px;
-    font-weight: 600;
-    color: black;
+
+    font-weight: 700;
+    @extend .h5;
 }
 
 .passmarks1 {
-    margin-top: 5px;
+    margin-top: 4px;
     margin-left: 15px;
-    color: black;
+    @extend .p1;
 }
 
 
 .mark {
     flex-direction: row;
     margin-top: 24px;
-    margin-left: 45px;
+    margin-left: 28px;
 
 }
 
 .marks {
     margin-left: 15px;
-    font-size: 16px;
-    font-weight: 600;
-    color: black;
+    font-weight: 700;
+    @extend .h5;
 }
 
 .marks1 {
-    margin-top: 5px;
+    margin-top: 4px;
     margin-left: 15px;
-    color: black;
+    @extend .p1;
 }
 
 .flex1 {
@@ -217,9 +218,9 @@
 .instruction {
 
     font-weight: 700;
-    color: black;
+    @extend .h2;
     margin-top: 16px;
-    font-size: 24px;
+
     padding-left: 18px;
     padding-top: 2px;
 
@@ -227,9 +228,9 @@
 }
 
 .instruction1 {
-    color: black;
+    font-weight: 500;
     padding-left: 19px;
-    font-size: 16px;
+    @extend .p1;
     padding-top: 10px;
 }
 
@@ -256,14 +257,13 @@
 
 .enroll1 {
 
-    color: black;
+    @extend .h3;
     font-weight: 700;
-    font-size: 22px;
+
 }
 
 .enroll2 {
-    color: black;
-    font-size: 13px;
+    @extend .p1;
     margin-top: 2px;
 }
 

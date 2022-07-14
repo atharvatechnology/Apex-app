@@ -148,7 +148,7 @@ const Home = props => {
         <TouchableOpacity onPress={() => handleExamDetailsLink(item.id)} style={styles.cards}>
           <View style={styles.card}>
             <View style={styles.file}></View>
-            <Text style={styles.title}>LIVE</Text>
+            <Text style={styles.title}>LIVE </Text>
             <Text style={styles.title1}>RBB </Text>
           </View>
 
@@ -172,7 +172,7 @@ const Home = props => {
           <View style={styles.card}>
             <View style={styles.file}></View>
 
-            <Text style={styles.title1}>Practice</Text>
+            <Text style={styles.title1}>Practice </Text>
           </View>
 
           <View>
@@ -199,7 +199,7 @@ const Home = props => {
           </View>
 
           <View style={styles.card}>
-            <Text style={styles.main}>IOM</Text>
+            <Text style={styles.main}>IOM </Text>
 
             <Text style={styles.main1}>Multiple Session</Text>
           </View>
