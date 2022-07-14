@@ -18,6 +18,7 @@ import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
 import CustomButtonPopup1 from '@apexapp/components/elements/CustomButtonPopup/index1';
 import styles from '@styles/modules/Pages/Courses';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
+import {FlatList} from 'react-native-gesture-handler';
 
 let information = [
   {
@@ -60,6 +61,7 @@ const Courses = props => {
             showFilterButton={true}
             title="Courses"
             searchfunc={() => {}}
+            showSearchButton={true}
           />
         </View>
         <View style={styles.gap} />
