@@ -127,15 +127,16 @@
 
 .searchandfilter {
     flex-direction: row;
-    margin-left:16px;
-     
+    margin-left: 16px;
+
 }
 
-.filterDiv{
+.filterDiv {
     flex-direction: row;
 
 
 }
+
 .filter {
     margin-left: 200px;
     margin-top: 42px;
@@ -157,14 +158,14 @@
 }
 
 .searchicon {
-    
+
     height: 20px;
     width: 20px;
     margin-top: 20px;
-    margin-left:8px;
-    padding:5px;
-   
-    
+    margin-left: 8px;
+    padding: 5px;
+
+
 }
 
 .CustomTextInput {
@@ -173,4 +174,8 @@
     color: black;
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
+}
+
+.borderBlack {
+    border: 2px solid black;
 }

@@ -160,9 +160,9 @@ const ExamDetail = props => {
             />
           ) : <CustomButton
             // onPress={handleEnroll}
-            style={styles.CustomButton}
+            style={[styles.CustomButton, styles.borderBlack]}
             type="white"
-            title={'Enroll now'}
+            title={'Take Exam'}
             color="#ffffff"
           />
           }
