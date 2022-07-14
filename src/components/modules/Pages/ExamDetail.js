@@ -41,7 +41,6 @@ const ExamDetail = props => {
 
   const dispatch = useDispatch();
   const examDetails = useSelector(state => state.examsReducer.examDetail);
-  console.log("hhhh", examDetails.price);
 
   useEffect(() => {
     dispatch(examDetailRequest(id));
