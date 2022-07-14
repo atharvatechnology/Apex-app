@@ -4,7 +4,7 @@
  * @returns {ExamDetails}- returns a module for ExamDetails
  */
 
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Image,
@@ -14,14 +14,14 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { CommonActions } from '@react-navigation/native';
-import { useDispatch, useSelector } from 'react-redux';
+import {CommonActions} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import styles from '@styles/modules/Pages/ExamDetail';
 import CustomSessionPopup from '@apexapp/components/elements/CustomSessionPopup';
-import { examDetail, examDetailRequest } from '@apexapp/store/actions/exam';
-
+import {examDetail, examDetailRequest} from '@apexapp/store/actions/exam';
+import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
 
 const data = [
   {
@@ -35,7 +35,7 @@ const data = [
 ];
 
 const ExamDetail = props => {
-  const { id } = props.route.params;
+  const {id} = props.route.params;
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -61,29 +61,30 @@ const ExamDetail = props => {
   };
 
   const handleEnroll = () => {
-    props.navigation.navigate('ExamPayment')
+    props.navigation.navigate('ExamPayment');
   };
 
   const handleArrow = () => {
     props.navigation.dispatch(CommonActions.goBack());
   };
 
-
   return (
-
     <View style={styles.maincontainer}>
       <View style={styles.main}>
-        <TouchableOpacity onPress={handleArrow} style={styles.left}>
-          <Image source={require('@assets/images/leftArrow.png')} />
-          <Text style={styles.p}> Exam Details</Text>
-        </TouchableOpacity>
+        <HeaderSearch
+          title="Exam Details"
+          navigation={props.navigation}
+          backnav="Exam"
+        />
         <View style={styles.examDetail}>
           <View style={styles.flex1}>
             <View style={styles.flex2}>
               <Text style={styles.icon}> </Text>
               <View>
                 <Text style={styles.duration}>Date</Text>
-                <Text style={styles.duration1}>{examDetails.sessions[0].start_date.split('T')[0]}</Text>
+                <Text style={styles.duration1}>
+                  {examDetails.sessions[0].start_date.split('T')[0]}
+                </Text>
               </View>
             </View>
 
@@ -91,7 +92,9 @@ const ExamDetail = props => {
               <Text style={styles.icon}> </Text>
               <View>
                 <Text style={styles.fullmarks}>Duration</Text>
-                <Text style={styles.fullmarks1}>{examDetails.template.duration}</Text>
+                <Text style={styles.fullmarks1}>
+                  {examDetails.template.duration}
+                </Text>
               </View>
             </View>
           </View>
@@ -100,14 +103,21 @@ const ExamDetail = props => {
               <Text style={styles.icon}> </Text>
               <View>
                 <Text style={styles.passmarks}>Time</Text>
-                <Text style={styles.passmarks1}> {examDetails.sessions.length > 1 ? 'Multiple session' : 'Single'}</Text>
+                <Text style={styles.passmarks1}>
+                  {' '}
+                  {examDetails.sessions.length > 1
+                    ? 'Multiple session'
+                    : 'Single'}
+                </Text>
               </View>
             </View>
             <View style={styles.mark}>
               <Text style={styles.icon}> </Text>
               <View>
                 <Text style={styles.marks}>Full marks</Text>
-                <Text style={styles.marks1}>{examDetails.template.full_marks}</Text>
+                <Text style={styles.marks1}>
+                  {examDetails.template.full_marks}
+                </Text>
               </View>
             </View>
           </View>
@@ -115,7 +125,9 @@ const ExamDetail = props => {
             <Text style={styles.icon}> </Text>
             <View>
               <Text style={styles.passmarks}>Pass marks</Text>
-              <Text style={styles.passmarks1}>{examDetails.template.pass_marks}</Text>
+              <Text style={styles.passmarks1}>
+                {examDetails.template.pass_marks}
+              </Text>
             </View>
           </View>
         </View>
@@ -132,7 +144,9 @@ const ExamDetail = props => {
             </View>
           );
         })} */}
-        <Text style={styles.instruction1}>{examDetails.template.description}</Text>
+        <Text style={styles.instruction1}>
+          {examDetails.template.description}
+        </Text>
       </View>
 
       <View style={styles.enroll}>
@@ -143,38 +157,39 @@ const ExamDetail = props => {
           </Text>
         </View>
         <View style={styles.buttons}>
-          {!examDetails.is_enrolled ? (examDetails.sessions.length > 1 ? <CustomButton
-            onPress={handleChooseSession}
-            style={styles.CustomButton}
-            type="theme"
-            title={'Choose Session'}
-            color="#ffffff"
-          />
-            :
+          {!examDetails.is_enrolled ? (
+            examDetails.sessions.length > 1 ? (
+              <CustomButton
+                onPress={handleChooseSession}
+                style={styles.CustomButton}
+                type="theme"
+                title={'Choose Session'}
+                color="#ffffff"
+              />
+            ) : (
+              <CustomButton
+                onPress={handleEnroll}
+                style={styles.CustomButton}
+                type="theme"
+                title={'Enroll now'}
+                color="#ffffff"
+              />
+            )
+          ) : (
             <CustomButton
-              onPress={handleEnroll}
-              style={styles.CustomButton}
-              type="theme"
-              title={'Enroll now'}
+              // onPress={handleEnroll}
+              style={[styles.CustomButton, styles.borderBlack]}
+              type="white"
+              title={'Take Exam'}
               color="#ffffff"
             />
-          ) : <CustomButton
-            // onPress={handleEnroll}
-            style={[styles.CustomButton, styles.borderBlack]}
-            type="white"
-            title={'Take Exam'}
-            color="#ffffff"
-          />
-          }
-
-
+          )}
 
           <Modal
             transparent={true}
-            animationType='slide'
+            animationType="slide"
             visible={isModalVisible}
-            nRequestClose={() => changeModalVisible(true)}
-          >
+            nRequestClose={() => changeModalVisible(true)}>
             <CustomSessionPopup
               navigation={props.navigation}
               changeModalVisible={changeModalVisible}
@@ -182,8 +197,7 @@ const ExamDetail = props => {
           </Modal>
         </View>
       </View>
-    </View >
-
+    </View>
   );
 };
 

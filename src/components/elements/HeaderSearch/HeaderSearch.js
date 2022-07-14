@@ -5,8 +5,9 @@
  */
 
 import React, {useState} from 'react';
-
 import {Image, Text, View, TouchableOpacity, Modal} from 'react-native';
+
+import {CommonActions} from '@react-navigation/native';
 
 import CustomButtonPopup1 from '@apexapp/components/elements/CustomButtonPopup/index1';
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
@@ -33,8 +34,12 @@ const HeaderSearch = props => {
     props.searchfunc();
   };
 
-  const backnav = () => {
-    props.navigation.navigate(props.backnav);
+  // const backnav = () => {
+  //   props.navigation.navigate(props.backnav);
+  // };
+
+  const handleArrow = () => {
+    props.navigation.dispatch(CommonActions.goBack());
   };
 
   return (
@@ -43,7 +48,7 @@ const HeaderSearch = props => {
         <View style={styles.filterDiv}>
           <TouchableOpacity style={styles.left}>
             <Image source={require('@assets/images/leftArrow.png')} />
-            <Text style={styles.p} onPress={backnav}>
+            <Text style={styles.p} onPress={handleArrow}>
               {props.title}
             </Text>
           </TouchableOpacity>
