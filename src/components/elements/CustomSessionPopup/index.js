@@ -13,6 +13,7 @@ import { View, Image, Text, TouchableOpacity, AppState } from 'react-native';
 import CustomButton from '../CustomButton';
 import styles from '@styles/elements/CustomSessionPopup.scss';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useDispatch, useSelector } from 'react-redux';
 
 const data = [
   {
@@ -35,7 +36,12 @@ const data = [
 ];
 const CustomSessionPopup = props => {
 
-  const handleEnroll = () => { };
+  const dispatch = useDispatch();
+  const examDetails = useSelector(state => state.examsReducer.examDetail);
+
+  const handleEnroll = () => {
+    props.navigation.navigate('ExamPayment')
+  };
 
   const closeModal = bool => {
     props.changeModalVisible(bool);
@@ -60,20 +66,21 @@ const CustomSessionPopup = props => {
 
 
         <ScrollView>
-          {data.map((item, index) => {
+          {examDetails.sessions.map((item, index) => {
             return (
               <View style={styles.data}>
                 <View key={index}>
 
-                  <Text style={styles.title1}>{item.title1}</Text>
+                  <Text style={styles.title1}>Session {index + 1}</Text>
                   <View style={styles.flex3}>
                     <View style={styles.iconback}>
                       <Image style={styles.clockicon}
                         source={require('@assets/images/Vecto.png')} />
                     </View>
                     <View>
-                      <Text style={styles.title2}>{item.title2}</Text>
-                      <Text style={styles.time}>{item.time} pm</Text>
+                      <Text style={styles.title2}>Time</Text>
+                      <Text style={styles.time}> {new Date(item.start_date).toLocaleTimeString('en',
+                        { timeStyle: 'short', hour12: false, timeZone: 'UTC' })}</Text>
                     </View>
                   </View>
                 </View>
