@@ -8,7 +8,36 @@ const initialState = {
     results: [],
   },
 
-  examDetail: {},
+  examDetail: {
+    sessions: [
+      {
+        id: 0,
+        created_at: "",
+        updated_at: "",
+        created_by: 0,
+        updated_by: 1,
+        start_date: "",
+        end_date: "",
+        status: "",
+        exam: 0
+      },
+    ],
+    template: {
+      id: 15,
+      created_at: "",
+      updated_at: "",
+      created_by: 0,
+      updated_by: 0,
+      name: "",
+      description: "No description available",
+      full_marks: "100.00",
+      pass_percentage: "0.40",
+      pass_marks: 40,
+      duration: "",
+      display_num_questions: 12
+    },
+  },
+
 }
 
 const examsReducer = (state = initialState, action) => {

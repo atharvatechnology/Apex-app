@@ -41,10 +41,16 @@ const ExamDetail = props => {
 
   const dispatch = useDispatch();
   const examDetails = useSelector(state => state.examsReducer.examDetail);
-  console.log("hhhh", examDetails);
+  console.log("hhhh", examDetails.price);
 
   useEffect(() => {
     dispatch(examDetailRequest(id));
+
+    const subscribe = props.navigation.addListener('focus', () => {
+      setIsModalVisible(false);
+    });
+
+    return subscribe;
   }, []);
 
   const changeModalVisible = bool => {
@@ -62,11 +68,7 @@ const ExamDetail = props => {
 
   return (
 
-    <View
-
-
-      style={styles.maincontainer}>
-      {console.log(props.route.params)}
+    <View style={styles.maincontainer}>
       <View style={styles.main}>
         <TouchableOpacity onPress={handleArrow} style={styles.left}>
           <Image source={require('@assets/images/leftArrow.png')} />
@@ -137,14 +139,32 @@ const ExamDetail = props => {
             On clicking Enroll now leads you exam session page
           </Text>
         </View>
-        <View>
-          <CustomButton
+        <View style={styles.buttons}>
+          {!examDetails.is_enrolled ? (examDetails.sessions.length > 1 ? <CustomButton
             onPress={handleEnroll}
             style={styles.CustomButton}
             type="theme"
+            title={'Choose Session'}
+            color="#ffffff"
+          />
+            :
+            <CustomButton
+              // onPress={handleEnroll}
+              style={styles.CustomButton}
+              type="theme"
+              title={'Enroll now'}
+              color="#ffffff"
+            />
+          ) : <CustomButton
+            // onPress={handleEnroll}
+            style={styles.CustomButton}
+            type="white"
             title={'Enroll now'}
             color="#ffffff"
           />
+          }
+
+
 
           <Modal
             transparent={true}
@@ -153,6 +173,7 @@ const ExamDetail = props => {
             nRequestClose={() => changeModalVisible(true)}
           >
             <CustomSessionPopup
+              navigation={props.navigation}
               changeModalVisible={changeModalVisible}
             />
           </Modal>
