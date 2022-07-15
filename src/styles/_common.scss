@@ -57,10 +57,22 @@
     font-family: 'OpenSans-Regular';
 }
 
+.P {
+    font-size: theme.$P;
+    color: theme.$black;
+    font-family: 'OpenSans-SemiBold';
+}
+
 .p1 {
     font-size: theme.$p1;
     color: theme.$black;
     font-family: 'OpenSans-Regular';
+}
+
+.p2 {
+    font-size: theme.$p;
+    color: theme.$black;
+    font-family: 'OpenSans-SemiBold';
 }
 
 

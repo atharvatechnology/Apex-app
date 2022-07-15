@@ -4,12 +4,12 @@
  * @returns {Navbar}- returns a module for navbar
  */
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import {Image, Text, View} from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 
-import CustomDropdown from '@apexapp/components/elements/CustomDropdown';
 import styles from '@styles/elements/NavBar/Navbar.scss';
+import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
 
 let preparation = [
   {
@@ -21,7 +21,7 @@ let preparation = [
 const NavBar = props => {
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
-  const onSelect = item => {
+  const onChange = item => {
     setSelectedItem(item.id);
     setShow(true);
   };
@@ -33,14 +33,23 @@ const NavBar = props => {
           style={styles.image}
           source={require('@assets/images/apexLogo.png')}
         />
+        <View style={styles.flex}>
 
-        <CustomDropdown
-          style={styles.CustomDropDown}
-          value={selectedItem}
-          data={preparation}
-          onSelect={onSelect}
-          label="Search here"
-        />
+          <TouchableOpacity style={styles.search}>
+            <Image
+              style={styles.searchicon}
+              source={require('@assets/images/search-interface-symbol.png')}
+            />
+          </TouchableOpacity>
+
+          <CustomTextInput
+            style={styles.CustomTextInput}
+            data={preparation}
+            onChange={onChange}
+            placeholder="Search here"
+            color="#000000"
+          />
+        </View>
       </View>
     </>
   );

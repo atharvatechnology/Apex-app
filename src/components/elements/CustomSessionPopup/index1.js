@@ -6,7 +6,7 @@
  * @returns {CustomSessionPopup1}- returns another popup Component
  */
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import {
   View,
@@ -33,7 +33,10 @@ const data = [
   },
 ];
 const CustomSessionPopup1 = props => {
-  const handleEnroll = () => {};
+
+  const handleEnroll = () => {
+    props.navigation.navigate('CoursePayment');
+  };
 
   const closeModal = bool => {
     props.changeModalVisible(bool);
