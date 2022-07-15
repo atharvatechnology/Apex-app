@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import {View, Image, TouchableOpacity, Text} from 'react-native';
+import { View, Image, TouchableOpacity, Text } from 'react-native';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
@@ -19,7 +19,7 @@ const data = [
   },
 ];
 
-const CoursePayment = () => {
+const CoursePayment = (props) => {
   return (
     <>
       <View style={styles.maincontainer}>
@@ -55,20 +55,22 @@ const CoursePayment = () => {
         </View>
 
         <View style={styles.footer}>
-          <Image
-            style={styles.image}
-            source={require('@assets/images/esewa.png')}
-          />
-          <View style={styles.txt}>
-            <Text style={styles.fottertext}>Pay with esewa</Text>
+          <View style={styles.flex}>
+            <Image
+              style={styles.image}
+              source={require('@assets/images/esewa.png')}
+            />
+            <View >
+              <Text style={styles.fottertext}>Pay with esewa</Text>
+            </View>
           </View>
           <View>
             <CustomButton
               type="theme"
-              title={'pay now'}
+              title={'Pay now'}
               style={styles.button}
-              color="white"
-              font-size="600"
+
+
             />
           </View>
         </View>

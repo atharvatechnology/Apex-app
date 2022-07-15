@@ -53,21 +53,24 @@ const ExamPaymentPage = props => {
         </View>
 
         <View style={styles.footer}>
-          <Image
-            style={styles.image}
-            source={require('@assets/images/esewa.png')}
-          />
-          <View style={styles.txt}>
-            <Text style={styles.fottertext}>  Pay with esewa</Text>
-          </View>
-          <View>
-            <CustomButton
-              type="theme"
-              title={'Pay now'}
-              style={styles.button}
-              color="white"
+          <View style={styles.flex}>
+            <Image
+              style={styles.image}
+              source={require('@assets/images/esewa.png')}
             />
+            <View style={styles.txt}>
+              <Text style={styles.fottertext}>  Pay with esewa</Text>
+            </View>
           </View>
+
+
+          <CustomButton
+            type="theme"
+            title={'Pay now'}
+            style={styles.button}
+            color="white"
+          />
+
         </View>
       </View>
     </>
