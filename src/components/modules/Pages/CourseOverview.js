@@ -41,7 +41,7 @@ const CourseOverview = props => {
         <HeaderSearch
           title="Courses Details"
           navigation={props.navigation}
-          backnav="Courses "
+          backnav="Courses"
         />
 
         <View style={styles.gap} />
@@ -131,7 +131,9 @@ const CourseOverview = props => {
               animationType="slide"
               visible={isModalVisible}
               nRequestClose={() => changeModalVisible(true)}>
-              <CustomSessionPopup1 changeModalVisible={changeModalVisible} />
+              <CustomSessionPopup1
+                navigation={props.navigation}
+                changeModalVisible={changeModalVisible} />
             </Modal>
           </View>
         </View>

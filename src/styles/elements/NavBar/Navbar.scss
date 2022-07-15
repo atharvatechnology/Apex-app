@@ -1,25 +1,48 @@
-
 @use "../../library" as themes;
 @import "../../common";
 
 .container {
- 
+
   display: flex;
   flex-direction: row;
-justify-content:space-between ;
-align-items: flex-start;
-padding: 16px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
 }
 
-.CustomDropDown {
-  display: flex;
-  width: 80%;
-  // flex:2;
-  // background-color: green;
-}
-.image{
+
+.image {
   // flex:1;
-   height: 48;
+  height: 48;
   width: 50;
 }
 
+.search {
+  margin-top: 6px;
+  width: 15%;
+  height: 49px;
+  border-bottom-left-radius: 4px;
+  background-color: #f8f8f8;
+  border-top-left-radius: 4px;
+}
+
+.searchicon {
+  margin-top: 14px;
+  margin-left: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.flex {
+  flex-direction: row;
+  margin-left: 28px;
+
+}
+
+.CustomTextInput {
+  @extend .h5;
+  margin-right: 27%;
+  width: 95%;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}

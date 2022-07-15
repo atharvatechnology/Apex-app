@@ -33,8 +33,10 @@ const data = [
   },
 ];
 const CustomSessionPopup1 = props => {
+
   const handleEnroll = () => {
-  }
+    props.navigation.navigate('CoursePayment');
+  };
 
   const closeModal = bool => {
     props.changeModalVisible(bool);
