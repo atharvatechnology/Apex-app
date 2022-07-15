@@ -4,7 +4,7 @@
  * @returns {CourseOverview}- returns a module for course overviews
  */
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Image,
@@ -14,7 +14,7 @@ import {
   Text,
 } from 'react-native';
 
-import {CommonActions} from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 
 import CustomButton from '@components/elements/CustomButton';
 import CustomSessionPopup1 from '@apexapp/components/elements/CustomSessionPopup/index1';
@@ -37,7 +37,7 @@ const CourseOverview = props => {
 
   return (
     <>
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <HeaderSearch
           title="Courses Details"
           navigation={props.navigation}
@@ -60,7 +60,7 @@ const CourseOverview = props => {
               />
             </View>
             <View>
-              <Text style={styles.h1}>Engineering Entrance (IOE)</Text>
+              <Text style={styles.p1}>Engineering Entrance (IOE)</Text>
             </View>
             <View>
               <Text style={styles.p2}>
@@ -90,7 +90,7 @@ const CourseOverview = props => {
               <View style={styles.pass}>
                 <Text style={styles.icon}> </Text>
                 <View>
-                  <Text style={styles.passmarks}>student</Text>
+                  <Text style={styles.passmarks}>Student</Text>
                   <Text style={styles.passmarks1}>200+ student</Text>
                 </View>
               </View>
@@ -99,7 +99,7 @@ const CourseOverview = props => {
           <View style={styles.gap} />
           <View style={styles.main}>
             <View>
-              <Text style={styles.p3}>Course Overview </Text>
+              <Text style={styles.p3}>Course  Overview </Text>
             </View>
             <View>
               <Text style={styles.p2}>
@@ -110,7 +110,7 @@ const CourseOverview = props => {
             </View>
           </View>
 
-          <View style={{height: 100}}></View>
+          <View style={{ height: 100 }}></View>
         </ScrollView>
         <View style={styles.gap} />
         <View style={styles.footer}>

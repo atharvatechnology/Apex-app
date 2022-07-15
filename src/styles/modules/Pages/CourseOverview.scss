@@ -62,26 +62,22 @@
 }
 
 .p1 {
-  font-family: Open sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 27px;
+
+  @extend .H;
+  font-size: 20;
+
   margin-left: 16px;
-  color: black;
+
 
 }
 
 .p2 {
-  font-family: Open sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
+  @extend .h6;
   line-height: 20px;
   margin-left: 16px;
   margin-right: 16px;
   margin-top: 8px;
-  color: black;
+
 }
 
 .examDetail {
@@ -108,15 +104,17 @@
   background-color: yellow;
   border-radius: 4px;
   margin-right: 6px;
+  margin-top: 8px;
 
 
 }
 
 .duration {
+  margin-top: 5px;
   margin-left: 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: black;
+  @extend .P;
+  font-size: 14;
+
 }
 
 .duration1 {
@@ -126,15 +124,15 @@
 }
 
 .fullmark {
+  margin-top: 5px;
   margin-left: 60px;
   flex-direction: row;
 }
 
 .fullmarks {
   margin-left: 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: black;
+  @extend .P;
+  font-size: 14;
 }
 
 .fullmarks1 {
@@ -154,9 +152,10 @@
 .passmarks {
   margin-top: 4px;
   margin-left: 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: black;
+  @extend .P;
+  font-size: 14;
+
+
 }
 
 .passmarks1 {
@@ -166,13 +165,11 @@
 }
 
 .p3 {
-  font-family: Open sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
+
+  @extend .P;
   line-height: 24.51px;
   margin-left: 16px;
-  color: black;
+
   margin-top: 16px;
 }
 
@@ -187,28 +184,27 @@
   // margin-bottom:8px;
 }
 
+
+
 .p4 {
-  font-family: Open sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 16px;
-  margin-left: 16px;
-  color: black;
+
+  line-height: 19px;
+
+  @extend .h6;
+  font-size: 12px;
 }
 
 .button {
   background-color: #2E3192;
   margin-bottom: 16px;
+  margin-right: 8%;
 
 }
 
 .p5 {
-  font-family: Open sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
+  @extend .P;
+
   line-height: 24.51px;
-  margin-left: 16px;
-  color: black;
+
+
 }
