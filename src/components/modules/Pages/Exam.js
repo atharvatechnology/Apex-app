@@ -63,7 +63,7 @@ const data = [
     icon: '',
     title: 'LIVE',
     title1: 'RBB',
-    text: 'Loksewa Mock Test - 1',
+    text: 'Loksewa sMock Test - 1',
     amount: `Rs.500 \u2022 60 min`,
   },
 ];
@@ -125,6 +125,7 @@ const Exam = props => {
           placeholder="Search here"
           color="#000000"
         />
+
         <Modal
           transparent={true}
           animationType="slide"
