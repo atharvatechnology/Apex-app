@@ -1,3 +1,6 @@
+@use "../library" as themes;
+@import '../common';
+
 .container {
     flex: 1;
     align-items: center;
@@ -40,18 +43,16 @@
 }
 
 .title {
-    color: black;
-    font-size: 24px;
-    font-weight: 700;
+    @extend .P;
     margin-top: 15px;
     margin-left: 16px;
 }
 
 .close {
-    color: black;
+    @extend .h5;
     margin-right: 26px;
     margin-top: 15px;
-    font-size: 18px;
+
 }
 
 .line {
@@ -62,9 +63,7 @@
 }
 
 .type {
-    font-size: 20px;
-    color: black;
-    font-weight: 600;
+    @extend .P;
     margin-top: 5%;
     margin-left: 16px;
 }
@@ -77,50 +76,41 @@
 }
 
 .type2 {
-    color: black;
-    font-size: 16px;
-    margin-top: 10px;
+    @extend .h5;
+    margin-top: 6px;
     margin-bottom: 15px;
 }
 
 .type3 {
-    color: black;
-    font-size: 16px;
-    margin-top: 10px;
+    @extend .h5;
+    margin-top: 6px;
     margin-bottom: 15px;
 }
 
 .type4 {
-    color: black;
-    font-size: 16px;
-    margin-top: 10px;
+    @extend .h5;
+    margin-top: 6px;
 }
 
 .category {
-    font-size: 20px;
-    color: black;
-    font-weight: 600;
+    @extend .P;
 
     margin-left: 16px;
 }
 
 .category1 {
 
-    padding: 24px;
+    padding: 22px;
 
 }
 
 .category2 {
-    color: black;
-    font-size: 16px;
-    margin-top: 10px;
+    @extend .h5;
+    margin-top: 6px;
     margin-bottom: 15px;
 }
 
 .category3 {
-    color: black;
-    font-size: 16px;
-    margin-top: 10px;
+    @extend .h5;
+    margin-top: 6px;
 }
-
-.radi01 {}
