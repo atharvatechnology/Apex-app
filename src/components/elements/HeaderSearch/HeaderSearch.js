@@ -4,10 +4,10 @@
  * @returns {HeaderSearch}- returns a module for HeaderSearch
  */
 
-import React, {useState} from 'react';
-import {Image, Text, View, TouchableOpacity, Modal} from 'react-native';
+import React, { useState } from 'react';
+import { Image, Text, View, TouchableOpacity, Modal } from 'react-native';
 
-import {CommonActions} from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 
 import CustomButtonPopup1 from '@apexapp/components/elements/CustomButtonPopup/index1';
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';

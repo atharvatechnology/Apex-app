@@ -4,7 +4,7 @@
  * @returns {Course}- returns a module for Course page
  */
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   ScrollView,
@@ -18,7 +18,7 @@ import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
 import CustomButtonPopup1 from '@apexapp/components/elements/CustomButtonPopup/index1';
 import styles from '@styles/modules/Pages/Courses';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
-import {FlatList} from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 
 let information = [
   {
@@ -30,8 +30,8 @@ let information = [
 const data = [
   {
     image: '',
-    main: 'IOM',
-    main1: 'Multiple Section',
+    main: 'IOM ',
+    main1: 'Multiple  Section',
     info: 'Medical Entrance (ME-CEE) with multiple line ',
     date: 'Starting on Feb ,2022 (4 month)',
     data: ' 200+ students enrolled',
@@ -40,7 +40,7 @@ const data = [
     image: '',
     main: 'IOM',
     main1: 'Multiple Section',
-    info: 'Medical Entrance (ME-CEE) with multiple line ',
+    info: 'Medical Entrance  (ME-CEE) with multiple line ',
     date: 'Starting on Feb ,2022 (4 month)',
     data: ' 200+ students enrolled',
   },
@@ -48,7 +48,7 @@ const data = [
 
 const Courses = props => {
   const handleArrow = id => {
-    props.navigation.navigate('CourseOverview', {test: id});
+    props.navigation.navigate('CourseOverview', { test: id });
   };
 
   return (
@@ -60,7 +60,7 @@ const Courses = props => {
             backnav="Home"
             showFilterButton={true}
             title="Courses"
-            searchfunc={() => {}}
+            searchfunc={() => { }}
             showSearchButton={true}
           />
         </View>
