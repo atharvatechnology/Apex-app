@@ -6,9 +6,9 @@
  * @returns {CustomProfilePopup2}- returns a Edit Info popup Component
  */
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import {View, Text, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
 import CustomButton from '@apexapp/components/elements/CustomButton';
@@ -67,6 +67,7 @@ const CustomProfilePopup2 = props => {
 
         <CustomButton
           onPress={handleEditInfo}
+          type="disabled"
           style={styles.CustomButton}
           title={'Save'}
         />

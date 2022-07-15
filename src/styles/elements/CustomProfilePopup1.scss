@@ -1,8 +1,10 @@
+@import '../common';
+
 .container {
     flex: 1;
     align-items: center;
     justify-content: flex-end;
-        
+
 }
 
 .modal {
@@ -29,7 +31,8 @@
 }
 
 .close {
-    margin-top: 8px;;
+    margin-top: 8px;
+    ;
     font-size: 16px;
     color: black;
 }
@@ -47,28 +50,30 @@
     position: absolute;
     margin-left: 16px;
     bottom: 8;
+
     align-items: center;
-    background-color:#909090;
-color:white;
+
 }
 
 
-.btn{
+.btn {
     margin-top: 24px;
 
-    
-}
-.input{
 
-    margin-top:12px;
-    color:black;
-        margin-left: 16px;
-   
 }
-.number{
- 
-    color:black;
+
+.input {
+
+    margin-top: 12px;
+    @extend .p;
     margin-left: 16px;
-   
-    
+
+}
+
+.number {
+
+    color: black;
+    margin-left: 16px;
+
+
 }

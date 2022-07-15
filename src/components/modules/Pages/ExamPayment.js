@@ -14,8 +14,8 @@ import styles from '@styles/modules/Pages/ExamPayment';
 const data = [
   {
     title: 'Instructions',
-    header1: '1.instruction number 1',
-    header2: '2.instruction number 2',
+    header1: '1.Instruction number 1',
+    header2: '2.Instruction number 2',
   },
 ];
 
