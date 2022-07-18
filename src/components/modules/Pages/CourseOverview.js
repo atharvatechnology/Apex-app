@@ -60,7 +60,7 @@ const CourseOverview = props => {
               />
             </View>
             <View>
-              <Text style={styles.h1}>Engineering Entrance (IOE)</Text>
+              <Text style={styles.p1}>Engineering Entrance (IOE)</Text>
             </View>
             <View>
               <Text style={styles.p2}>
