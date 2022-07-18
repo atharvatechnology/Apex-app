@@ -63,7 +63,7 @@ const CourseOverview = props => {
               <Text style={styles.p1}>Engineering Entrance (IOE)</Text>
             </View>
             <View>
-              <Text style={styles.p2}>
+              <Text style={styles.p7}>
                 Apex Education Academy (AEA) has been offering various
                 Career-oriented Entrance Preparation Courses including Medical
                 and Engineering Preparation asince two decades.
@@ -102,7 +102,7 @@ const CourseOverview = props => {
               <Text style={styles.p3}>Course  Overview </Text>
             </View>
             <View>
-              <Text style={styles.p2}>
+              <Text style={styles.p6}>
                 Apex Education Academy (AEA) has been offering various
                 Career-oriented Entrance Preparation Courses including Medical
                 and Engineering Preparation asince two decades.
