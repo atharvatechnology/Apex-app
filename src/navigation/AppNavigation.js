@@ -39,9 +39,9 @@ const MainRouter = () => {
           {SignUpRouter()}
           {ResetRouter()}
           {/* {HomeRouter()} */}
-          {ExamRouter()}
+          {/* {ExamRouter()}
           {ExamDetailRouter()}
-          {ExamPaymentRouter()}
+          {ExamPaymentRouter()} */}
 
           {/* <MyStack.Screen name="Drawer" component={DrawerApp} /> */}
           <MyStack.Screen name="BottomTabs" component={BottomTabs} />
