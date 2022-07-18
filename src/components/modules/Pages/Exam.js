@@ -4,7 +4,7 @@
  * @returns {Exam}- returns a module for Exam
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   View,
@@ -20,6 +20,7 @@ import CustomButton from '@apexapp/components/elements/CustomButton';
 import CustomButtonPopup from '@apexapp/components/elements/CustomButtonPopup';
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
 import styles from '@styles/modules/Pages/Exam';
+import { useDispatch, useSelector } from 'react-redux';
 
 let preparation = [
   {
@@ -67,6 +68,17 @@ const data = [
     amount: `Rs.500 \u2022 60 min`,
   },
 ];
+
+// const dispatch = useDispatch();
+// const examsList = useSelector(state => state.examsReducer.examsList);
+// const examDetail = useSelector (state => state.examsReducer.examsDetail);
+
+// useEffect(()=>{
+// dispatch( examsListRequest ());
+//dispatch( examsDetailRequest ());
+
+// },[])
+
 
 const Exam = props => {
   const [isModalVisible, setIsModalVisible] = useState(false);
