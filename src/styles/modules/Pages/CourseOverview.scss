@@ -73,6 +73,7 @@
 
 .p2 {
   @extend .h6;
+
   line-height: 20px;
   margin-left: 16px;
   margin-right: 16px;
@@ -124,12 +125,13 @@
 }
 
 .fullmark {
-  margin-top: 5px;
+
   margin-left: 60px;
   flex-direction: row;
 }
 
 .fullmarks {
+  margin-top: 5px;
   margin-left: 15px;
   @extend .P;
   font-size: 14;
@@ -166,7 +168,7 @@
 
 .p3 {
 
-  @extend .P;
+  @extend .p1;
   line-height: 24.51px;
   margin-left: 16px;
 
@@ -207,4 +209,24 @@
   line-height: 24.51px;
 
 
+}
+
+.p6 {
+  @extend .h6;
+
+  line-height: 20px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 8px;
+
+
+}
+
+.p7 {
+  @extend .h6;
+
+  line-height: 20px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 8px;
 }

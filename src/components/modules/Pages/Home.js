@@ -119,9 +119,7 @@ const Home = props => {
 
   const dispatch = useDispatch();
   const examsLiveList = useSelector(state => state.homeReducer.examsLiveList);
-  const examsPracticeList = useSelector(
-    state => state.homeReducer.examsPracticeList,
-  );
+  const examsPracticeList = useSelector(state => state.homeReducer.examsPracticeList,);
   const coursesList = useSelector(state => state.homeReducer.coursesList);
 
   const CarouselRef = useRef(null);
