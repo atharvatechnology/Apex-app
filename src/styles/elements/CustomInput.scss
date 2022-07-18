@@ -1,7 +1,7 @@
 @use "../library" as themes;
 @import '../common';
 
-.mainContainer{
+.mainContainer {
   margin: 6px 0px;
 }
 
@@ -10,20 +10,23 @@
   border-radius: 5px;
   // margin: 4px 0px;
   position: relative;
-  
+
+
 }
 
-.errorContainer{
+.errorContainer {
   background-color: themes.$input;
   border-radius: 5px;
   margin: 4px 0px;
   position: relative;
-  color:crimson;
+  color: crimson;
   border: 1px solid crimson;
 }
 
 .input {
   padding: 8px 24px;
+
+
 }
 
 .eye {
@@ -35,11 +38,13 @@
   height: 1rem;
   width: 2rem;
 }
-.errorText{
-  color:crimson;
+
+.errorText {
+  color: crimson;
 
 }
+
 .errorTexts {
-  color:crimson;
+  color: crimson;
   padding: 8px 24px;
 }

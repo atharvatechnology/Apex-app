@@ -79,8 +79,6 @@
   margin-top: 8px;
   margin-right: 16px;
   margin-left: 16px;
-
-
 }
 
 .img {
@@ -90,7 +88,6 @@
 
 .image {
   width: 100%;
-
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
@@ -106,9 +103,9 @@
 
 // }
 .main {
+  @extend .p1;
   @extend .title1-bcr;
   padding: 8px;
-  color: black;
   border-radius: 5px;
   margin-top: 18px;
 
@@ -116,9 +113,10 @@
 }
 
 .main1 {
+  @extend .p1;
   @extend .title-bcr;
   padding: 8px;
-  color: black;
+
   border-radius: 5px;
   margin-top: 18px;
   margin-left: 12px;
@@ -127,12 +125,10 @@
 
 .infos {
 
-  color: black;
   margin-left: 32px;
   margin-top: 8px;
   margin-bottom: 8px;
-  font-weight: 600;
-  font-size: 20px;
+  @extend .P;
 
 
 
@@ -142,9 +138,9 @@
   align-items: flex-end;
   padding-right: 16px;
   padding-left: 20px;
-  color: black;
+  @extend .h6;
   margin-left: 38px;
-  font-size: 16px;
+
 
 
 }
@@ -162,7 +158,6 @@
 }
 
 .gap {
-
   height: 8px;
   @extend .card-bcr;
 

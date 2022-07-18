@@ -78,6 +78,7 @@ const CustomButtonPopup1 = (props) => {
                         title={'Reset filter'}
                         onPress={handlereset}
                         color="#000000"
+
                     />
                     <CustomButton
                         style={styles.CustomButton2}

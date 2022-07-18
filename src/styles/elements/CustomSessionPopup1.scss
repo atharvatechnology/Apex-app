@@ -1,3 +1,6 @@
+@use "../library" as themes;
+@import '../common';
+
 .container {
     flex: 1;
     align-items: center;
@@ -27,31 +30,26 @@
 
 .head {
     margin-left: 5px;
-    font-size: 24px;
-    font-weight: 700;
-    color: black;
+    @extend .P;
 }
 
 .close {
-    font-size: 18px;
+    @extend .h5;
     margin-top: 2px;
     margin-left: 74%;
-    color: black;
+
 }
 
 .topic {
     margin-top: 5%;
     margin-left: 16px;
-    font-size: 21px;
-    font-weight: 700;
-    color: black;
+    @extend .P;
 }
 
 .p {
     margin-top: 3px;
     margin-left: 18px;
-    color: black;
-    font-size: 16.5px;
+    @extend .p;
 }
 
 .data {
@@ -70,26 +68,22 @@
 }
 
 .title1 {
-    margin-top: 10px;
-    font-size: 22px;
-    font-weight: 700;
-    color: black;
+    margin-top: 6px;
+    @extend .P;
 
 }
 
 .title2 {
     margin-top: 12px;
-    font-size: 18px;
-    font-weight: 600;
-    color: black;
+    @extend .p2;
     margin-left: 15px;
 }
 
 .time {
     margin-top: 6px;
-    font-size: 15px;
+    @extend .p1;
     margin-left: 20px;
-    color: black;
+
     margin-bottom: 15px;
 }
 

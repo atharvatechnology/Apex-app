@@ -18,7 +18,7 @@
 }
 
 .left {
-    // background-color: aqua;
+
     padding: 15px 14px;
     margin-top: 40px;
     flex-direction: row;
@@ -44,15 +44,9 @@
     margin-top: 30px;
 }
 
-
-
-
 .p {
 
-    font-family: Open sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 26px;
+    @extend .H;
     line-height: 25px;
     margin-left: 10px;
 }
@@ -81,9 +75,9 @@
     border-radius: 4px;
 
     @extend .title-bcr;
-    font-weight: 700;
 
-    @extend .p1;
+
+    @extend .p3;
 
 }
 
@@ -95,15 +89,14 @@
     margin-left: 7px;
     border-radius: 4px;
 
-    font-weight: 700;
-    @extend .p1;
+
+    @extend .p3;
 
 }
 
 .text {
-    @extend .h4;
-    font-style: normal;
-    font-weight: 700;
+    @extend .p2;
+
 
     line-height: 20px;
 
@@ -132,21 +125,23 @@
 
 .searchandfilter {
     flex-direction: row;
+    width: 100%;
+
     margin-left: 16px;
 
 }
 
 .filterDiv {
     flex-direction: row;
-
+    justify-content: space-between;
 
 }
 
 .filter {
-    margin-left: 200px;
-    margin-top: 42px;
-    height: 35px;
-    width: 35px;
+    margin-right: 16px;
+    margin-top: 50px;
+    height: 30px;
+    width: 30px;
 
 
 }
@@ -154,12 +149,12 @@
 .search {
 
     height: 55px;
-    width: 30px;
+    width: 40px;
     background-color: #F8F8F8;
     margin-top: 6px;
     border-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-top-right-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .searchicon {
@@ -168,17 +163,16 @@
     width: 20px;
     margin-top: 20px;
     margin-left: 8px;
-    padding: 5px;
-
-
 }
 
 .CustomTextInput {
-    width: 330px;
+
+    width: 370%;
     height: 55px;
     color: black;
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
+    @extend .h5;
 }
 
 .borderBlack {

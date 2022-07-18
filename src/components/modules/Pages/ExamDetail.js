@@ -4,7 +4,7 @@
  * @returns {ExamDetails}- returns a module for ExamDetails
  */
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Image,
@@ -14,13 +14,13 @@ import {
   Dimensions,
 } from 'react-native';
 
-import {CommonActions} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
+import { CommonActions } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import styles from '@styles/modules/Pages/ExamDetail';
 import CustomSessionPopup from '@apexapp/components/elements/CustomSessionPopup';
-import {examDetail, examDetailRequest} from '@apexapp/store/actions/exam';
+import { examDetail, examDetailRequest } from '@apexapp/store/actions/exam';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
 
 const data = [
@@ -35,11 +35,12 @@ const data = [
 ];
 
 const ExamDetail = props => {
-  const {id} = props.route.params;
+  const { id } = props.route.params;
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const dispatch = useDispatch();
+
   const examDetails = useSelector(state => state.examsReducer.examDetail);
 
   useEffect(() => {
@@ -83,7 +84,7 @@ const ExamDetail = props => {
               <View>
                 <Text style={styles.duration}>Date</Text>
                 <Text style={styles.duration1}>
-                  {examDetails.sessions[0].start_date.split('T')[0]}
+                  {/* {examDetails.sessions[0].start_date.split('T')[0]} */}
                 </Text>
               </View>
             </View>
