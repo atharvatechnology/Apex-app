@@ -48,3 +48,27 @@ export const examDetailRequest = (id) => {
     }
   };
 };
+
+export const takeExamDetail = data => {
+  return {
+    type: types.SET_TAKE_EXAM_DETAILS,
+    payload: data,
+  };
+};
+
+export const takeExamDetailRequest = (id, token) => {
+  return async dispatch => {
+    try {
+      const response = await GET('api/exams/paper/preview/' + id, token);
+      const resJson = await response.json();
+      console.log(response, resJson)
+      if (response.status === 200) {
+        dispatch(takeExamDetail(resJson));
+      }
+      if (response.status === 400) {
+      }
+    } catch (error) {
+      console.log('err', error);
+    }
+  };
+};

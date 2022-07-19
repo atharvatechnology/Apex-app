@@ -65,6 +65,10 @@ const ExamDetail = props => {
     props.navigation.navigate('ExamPayment');
   };
 
+  const handleTakeExam = (id) => {
+    props.navigation.navigate('TakeExams', { id });
+  }
+
   const handleArrow = () => {
     props.navigation.dispatch(CommonActions.goBack());
   };
@@ -150,6 +154,14 @@ const ExamDetail = props => {
         </Text>
       </View>
 
+      <CustomButton
+        onPress={() => handleTakeExam(id)}
+        style={[styles.CustomButton, styles.borderBlack]}
+        type="white"
+        title={'Take Exam'}
+        color="#ffffff"
+      />
+
       <View style={styles.enroll}>
         <View style={styles.enroll0}>
           <Text style={styles.enroll1}>Get enrollment</Text>
@@ -178,7 +190,7 @@ const ExamDetail = props => {
             )
           ) : (
             <CustomButton
-              // onPress={handleEnroll}
+              onPress={handleTakeExam}
               style={[styles.CustomButton, styles.borderBlack]}
               type="white"
               title={'Take Exam'}

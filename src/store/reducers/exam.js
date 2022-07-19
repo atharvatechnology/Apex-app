@@ -38,6 +38,11 @@ const initialState = {
     },
   },
 
+
+  takeExamDetails: {
+    questions: []
+  }
+
 }
 
 const examsReducer = (state = initialState, action) => {
@@ -47,6 +52,9 @@ const examsReducer = (state = initialState, action) => {
 
     case types.SET_EXAM_DETAILS:
       return { ...state, examDetail: action.payload };
+
+    case types.SET_TAKE_EXAM_DETAILS:
+      return { ...state, takeExamDetails: action.payload };
 
     default:
       return state;

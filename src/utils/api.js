@@ -4,7 +4,14 @@ import react from 'react';
 // export const apiBaseURL = 'http://192.168.0.2:8001/';
 export const apiBaseURL = 'https://apex.calcgen.com/';
 
-const getHeaders = () => {
+const getHeaders = (token) => {
+  if (token) {
+    return {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token,
+    };
+  }
   return {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -14,7 +21,7 @@ const getHeaders = () => {
 export const GET = (url, token) => {
   return fetch(apiBaseURL + url, {
     method: 'GET',
-    headers: getHeaders(),
+    headers: getHeaders(token),
   });
 };
 

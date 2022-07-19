@@ -4,14 +4,17 @@
  * @returns {Exams}- returns a module for Exams
  */
 
-import React, {useState} from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
-import {View, Text, TouchableOpacity, Image} from 'react-native';
-import {RadioButton} from 'react-native-paper';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { RadioButton } from 'react-native-paper';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
 import styles from '@styles/modules/Exams/Exams.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { takeExamDetailRequest } from '@apexapp/store/actions/exam';
+import { HEIGHT } from '@apexapp/utils/constants';
 
 const data = [
   {
@@ -31,21 +34,57 @@ const data = [
   },
 ];
 
-const Exams = props => {
-  const [checked, setChecked] = useState('first');
+const getIndex = (index) => {
+  switch (index) {
+    case 0:
+      return 'a.';
+
+    case 1:
+      return 'b.';
+
+    case 2:
+      return 'c.';
+
+    case 3:
+      return 'd.';
+
+    default:
+      return 'a.';
+  }
+}
+
+const TakeExams = props => {
+  const { id } = props.route.params;
+
+  const [checked, setChecked] = useState(0);
   const [checked1, setChecked1] = useState();
+
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const handlereset = () => {
     setChecked('first');
     setChecked1(null);
   };
 
+  const details = useSelector(state => state.examsReducer.takeExamDetails);
+  const auth = useSelector(state => state.authReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const subscribe = props.navigation.addListener('focus', () => {
+      dispatch(takeExamDetailRequest(id, auth.access_token));
+    });
+
+    return subscribe;
+  }, []);
+
   return (
     <>
-      <View style={styles.maincontainer}>
+      <ScrollView stickyHeaderIndices={[0]} style={styles.maincontainer}>
+        {/* {console.log("gggg", details)} */}
         <View style={styles.main}>
           <HeaderSearch
-            title="Test Exam 1"
+            title={details.name}
             navigation={props.navigation}
             backnav="Exam"
           />
@@ -57,97 +96,73 @@ const Exams = props => {
 
         <View style={styles.container}>
           <View style={styles.text5}>
-            {data.map((item, index) => {
-              return (
-                <>
-                  <View style={styles.cards}>
-                    <Text style={styles.point}>{item.point}</Text>
-                  </View>
-                  <View style={styles.img}>
-                    <Text style={styles.num}>{item.num}</Text>
 
-                    <Image
-                      style={styles.image}
-                      source={require('@assets/images/MCQ.png')}
-                    />
-                  </View>
-                  <View style={styles.txt}>
-                    <Text style={styles.text}>{item.text}</Text>
-                  </View>
-                  <View style={styles.txt1}>
-                    <RadioButton
-                      color="#2E3192"
-                      style={styles.radi01}
-                      value="first"
-                      status={checked === 'first' ? 'checked' : 'unchecked'}
-                      onPress={() => setChecked('first')}
-                    />
-                    <Text style={styles.a}>{item.a}</Text>
+            <Fragment>
+              <View style={styles.cards}>
+                <Text style={styles.point}>1 points</Text>
+              </View>
+              <View style={styles.img}>
+                <Text style={styles.num}>{currentQuestion + 1}</Text>
 
-                    <Text style={styles.text1}>{item.text1}</Text>
-                  </View>
-                  <View style={styles.txt1}>
-                    <RadioButton
-                      color="#2E3192"
-                      style={styles.radi01}
-                      value="first"
-                      status={checked === 'second' ? 'checked' : 'unchecked'}
-                      onPress={() => setChecked('second')}
-                    />
-                    <Text style={styles.b}>{item.b}</Text>
+                <Image
+                  style={styles.image}
+                  source={{ uri: details?.questions[currentQuestion]?.img }}
+                />
+              </View>
+              <View style={styles.txt}>
+                <Text style={styles.text}>{details?.questions[currentQuestion]?.detail}</Text>
+              </View>
+              {
+                details?.questions[currentQuestion]?.options.map((item, index) => <View style={styles.txt1}>
+                  <RadioButton
+                    color="#2E3192"
+                    style={styles.radi01}
+                    value={item.id}
+                    status={item.id === checked ? 'checked' : 'unchecked'}
+                    onPress={() => setChecked(item.id)}
+                  />
+                  <Text style={styles.a}>{getIndex(index)}</Text>
 
-                    <Text style={styles.text2}>{item.text2}</Text>
-                  </View>
-                  <View style={styles.txt1}>
-                    <RadioButton
-                      color="#2E3192"
-                      style={styles.radi01}
-                      value="first"
-                      status={checked === 'third' ? 'checked' : 'unchecked'}
-                      onPress={() => setChecked('third')}
-                    />
-                    <Text style={styles.c}>{item.c}</Text>
+                  <Text style={styles.text1}>{item.detail}</Text>
+                </View>
+                )}
 
-                    <Text style={styles.text3}>{item.text3}</Text>
-                  </View>
+              <Text style={styles.hint}>bvsdjkbv</Text>
+            </Fragment>
 
-                  <View style={styles.txt1}>
-                    <RadioButton
-                      color="#2E3192"
-                      style={styles.radi01}
-                      value="first"
-                      status={checked === 'fourth' ? 'checked' : 'unchecked'}
-                      onPress={() => setChecked('fourth')}
-                    />
-                    <Text style={styles.d}>{item.d}</Text>
-
-                    <Text style={styles.text4}>{item.text4}</Text>
-                  </View>
-                  <Text style={styles.hint}>{item.hint}</Text>
-                </>
-              );
-            })}
           </View>
         </View>
+        <View style={{ height: HEIGHT * 0.5 }}></View>
         <View style={styles.gap}></View>
-        <View style={styles.footer}>
-          <View style={styles.txts}>
-            <Text style={styles.fottertext}>Questions</Text>
-            <Text style={styles.fottertexts}>1/40</Text>
-          </View>
-          <View>
-            <CustomButton
-              type="theme"
-              title={'Next'}
-              style={styles.button}
-              color="white"
-              font-size="600"
-            />
-          </View>
+      </ScrollView>
+      <View style={styles.footer}>
+        <View style={styles.txts}>
+          <Text style={styles.fottertext}>Questions</Text>
+          <Text style={styles.fottertexts}>{currentQuestion + 1}/{details.questions.length}</Text>
+        </View>
+        <View style={styles.nextContainer}>
+          {currentQuestion > 0 && <CustomButton
+            type="theme"
+            title={'Previous'}
+            onPress={() => { if (currentQuestion - 1 > -1) { setCurrentQuestion(prevState => prevState - 1) } }}
+
+            style={styles.button}
+            color="white"
+            font-size="600"
+          />}
+          {currentQuestion + 1 !== details.questions.length && <CustomButton
+            type="theme"
+            title={'Next'}
+            onPress={() => { if (currentQuestion + 1 <= details.questions.length) { setCurrentQuestion(prevState => prevState + 1) } }}
+            style={styles.button}
+            color="white"
+            font-size="600"
+          />}
         </View>
       </View>
+
     </>
   );
 };
 
-export default Exams;
+export default TakeExams;
