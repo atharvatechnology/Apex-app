@@ -56,14 +56,16 @@ export const takeExamDetail = data => {
   };
 };
 
-export const takeExamDetailRequest = (id, token) => {
+export const takeExamDetailRequest = (id, token, checklistInit) => {
   return async dispatch => {
     try {
       const response = await GET('api/exams/paper/preview/' + id, token);
+      // console.log(response)
       const resJson = await response.json();
-      console.log(response, resJson)
+      // console.log(resJson)
       if (response.status === 200) {
         dispatch(takeExamDetail(resJson));
+        checklistInit(resJson.questions);
       }
       if (response.status === 400) {
       }

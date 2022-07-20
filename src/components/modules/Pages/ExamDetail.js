@@ -39,8 +39,8 @@ const ExamDetail = props => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const examDetails = useSelector(state => state.examsReducer.examDetail);
 
   useEffect(() => {
@@ -65,8 +65,8 @@ const ExamDetail = props => {
     props.navigation.navigate('ExamPayment');
   };
 
-  const handleTakeExam = (id) => {
-    props.navigation.navigate('TakeExams', { id });
+  const handleTakeExam = (id, enrollId) => {
+    props.navigation.navigate('TakeExams', { id: id, enrollId: enrollId });
   }
 
   const handleArrow = () => {
@@ -154,14 +154,6 @@ const ExamDetail = props => {
         </Text>
       </View>
 
-      <CustomButton
-        onPress={() => handleTakeExam(id)}
-        style={[styles.CustomButton, styles.borderBlack]}
-        type="white"
-        title={'Take Exam'}
-        color="#ffffff"
-      />
-
       <View style={styles.enroll}>
         <View style={styles.enroll0}>
           <Text style={styles.enroll1}>Get enrollment</Text>
@@ -170,6 +162,7 @@ const ExamDetail = props => {
           </Text>
         </View>
         <View style={styles.buttons}>
+          {/* {console.log("kdkkdkdkdk", examDetails)} */}
           {!examDetails.is_enrolled ? (
             examDetails.sessions.length > 1 ? (
               <CustomButton
@@ -190,7 +183,7 @@ const ExamDetail = props => {
             )
           ) : (
             <CustomButton
-              onPress={handleTakeExam}
+              onPress={() => handleTakeExam(examDetails?.id, examDetails?.exam_enroll?.id)}
               style={[styles.CustomButton, styles.borderBlack]}
               type="white"
               title={'Take Exam'}
