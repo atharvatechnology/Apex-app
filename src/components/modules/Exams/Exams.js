@@ -15,10 +15,10 @@ import { RadioButton } from 'react-native-paper';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
+import { HEIGHT } from '@apexapp/utils/constants';
 import styles from '@styles/modules/Exams/Exams.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { submitExam, takeExamDetailRequest } from '@apexapp/store/actions/exam';
-import { HEIGHT } from '@apexapp/utils/constants';
+
 
 
 const getIndex = (index) => {
@@ -81,6 +81,8 @@ const TakeExams = props => {
 
     return subscribe;
   }, []);
+
+
 
 
   //for setting questions

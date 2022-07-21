@@ -25,6 +25,30 @@ export const examsListRequest = () => {
   };
 };
 
+export const examsFullList = data => {
+  return {
+    type: types.SET_EXAM_FULL_LIST,
+    payload: data,
+  };
+};
+
+export const examsFullListRequest = () => {
+  return async dispatch => {
+    try {
+      const response = await GET('api/exams/list/');
+      const resJson = await response.json();
+      // console.log(response, resJson)
+      if (response.status === 200) {
+        dispatch(examsFullList(resJson));
+      }
+      if (response.status === 400) {
+      }
+    } catch (error) {
+      console.log('err', error);
+    }
+  };
+};
+
 export const examDetail = data => {
   return {
     type: types.SET_EXAM_DETAILS,
@@ -84,6 +108,33 @@ export const submitExam = (enrollId, data, token) => {
       const resJson = await response.json();
       console.log(resJson)
       if (response.status === 200) {
+
+      }
+      if (response.status === 400) {
+      }
+    } catch (error) {
+      console.log('err', error);
+    }
+  };
+};
+
+export const examResults = data => {
+  return {
+    type: types.SET_EXAM_RESULT,
+    payload: data,
+  };
+};
+
+export const examResultsRequest = (id, token) => {
+  return async dispatch => {
+    try {
+      console.log("action", id, token);
+      const response = await GET('api/enrollments/exam/result/' + id, token);
+      console.log(response)
+      const resJson = await response.json();
+      console.log(resJson)
+      if (response.status === 200) {
+        dispatch(examResults(resJson));
 
       }
       if (response.status === 400) {
