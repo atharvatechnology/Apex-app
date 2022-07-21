@@ -17,33 +17,9 @@ import CustomButton from '@apexapp/components/elements/CustomButton';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
 import styles from '@styles/modules/Exams/Exams.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { takeExamDetailRequest } from '@apexapp/store/actions/exam';
+import { submitExam, takeExamDetailRequest } from '@apexapp/store/actions/exam';
 import { HEIGHT } from '@apexapp/utils/constants';
 
-const source = {
-  html: `
-<p style='text-align:center;'>
-  Hello World!
-</p>`
-};
-
-const data = [
-  {
-    point: '1 Points',
-    num: '1.',
-    image: '',
-    text: 'Direction cosine of a line lying on both XY and XY plane is:',
-    text1: '4 same atoms or group are attached to 4 different C atoms. ',
-    text2: '4 same atoms or group are attached to 4 different C atoms. ',
-    text3: '4 same atoms or group are attached to 4 different C atoms.',
-    text4: '4 same atoms or group are attached to 4 different C atoms.',
-    a: 'a.',
-    b: 'b.',
-    c: 'c.',
-    d: 'd.',
-    hint: 'SHOW HINTS',
-  },
-];
 
 const getIndex = (index) => {
   switch (index) {
@@ -65,14 +41,9 @@ const getIndex = (index) => {
 }
 
 const TakeExams = props => {
-  const { id } = props.route.params;
-
-  const [checked, setChecked] = useState(0);
-  const [checked1, setChecked1] = useState();
+  const { id, enrollId } = props.route.params;
 
   const [checkedList, setCheckedList] = useState([]);
-
-
   const [answers, setAnswers] = useState({
     question_states: [],
     submitted: true,
@@ -81,55 +52,11 @@ const TakeExams = props => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [currentQuestionId, setCurrentQuestionId] = useState(0);
 
-  const handlereset = () => {
-    setChecked('first');
-    setChecked1(null);
-  };
 
   const details = useSelector(state => state.examsReducer.takeExamDetails);
   const auth = useSelector(state => state.authReducer);
   const dispatch = useDispatch();
 
-  const findChecked = (optionId) => {
-    let itemToDisplay = {
-      selected_option: 0,
-    };
-    itemToDisplay = answers.question_states.find(el => el.question === currentQuestion);
-    // let indexOfItem = -1;
-
-    // itemToChange = answers.question_states.filter(el => el.question === currentQuestion);
-    // indexOfItem = answers.question_states.indexOf(itemToChange[0]);
-    // console.log(optionId, itemToDisplay)
-
-    if (itemToDisplay && itemToDisplay.selected_option === optionId) {
-      // console.log("true")
-      return true;
-    } else {
-      // console.log("false")
-      return false;
-    }
-    // tempAnswers.question_states.push({
-    //   questions: currentQuestionId,
-    //   selected_option: optionId,
-    // })
-
-
-
-    // console.log("hhhh", answers,
-    //   //   itemToChange, 
-    //   //   indexOfItem, 
-    //   //   {
-    //   //   questions: currentQuestionId,
-    //   //   selected_option: optionId,
-    //   // }
-    // );
-
-
-    // if(answers.) { 
-    //   details?.questions[currentQuestion]?.}
-
-    // return true;
-  }
 
   const checklistInit = (list) => {
     // console.log(list)
@@ -139,6 +66,10 @@ const TakeExams = props => {
     })
 
     setCheckedList(templist);
+  }
+
+  const handleSubmit = () => {
+    dispatch(submitExam(enrollId, answers, auth.access_token))
   }
 
   useEffect(() => {
@@ -160,7 +91,7 @@ const TakeExams = props => {
   return (
     <>
       <ScrollView stickyHeaderIndices={[0]} style={styles.maincontainer}>
-        {/* {console.log("answers", checkedList)} */}
+        {console.log("answers", props.route.params)}
         <View style={styles.main}>
           <HeaderSearch
             title={details.name}
@@ -207,7 +138,7 @@ const TakeExams = props => {
                     value={item.id}
                     status={checkedList[currentQuestion] === item.id ? 'checked' : 'unchecked'}
                     onPress={() => {
-                      setChecked(item.id);
+                      // setChecked(item.id);
 
                       //to display selected dots.
                       let tempCheck = [...checkedList];
@@ -305,9 +236,7 @@ const TakeExams = props => {
           {currentQuestion + 1 == details.questions.length && <CustomButton
             type="theme"
             title={'Submit'}
-            onPress={() => {
-
-            }}
+            onPress={handleSubmit}
             style={styles.button}
             color="white"
             font-size="600"

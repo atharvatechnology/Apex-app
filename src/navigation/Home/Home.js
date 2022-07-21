@@ -6,9 +6,11 @@ import { MyStack } from '../AppNavigation';
 
 import Home from '@screens/Pages/Home';
 import Exam from '@screens/Pages/Exam';
-import ExamDetail from '@apexapp/screens/Pages/ExamDetail';
-import ExamPayment from '@apexapp/screens/Pages/ExamPayment';
-import TakeExams from '@apexapp/screens/Exams/Exams';
+import ExamDetail from '@screens/Pages/ExamDetail';
+import ExamPayment from '@screens/Pages/ExamPayment';
+import ExamsResults from '@screens/Exams/ExamsResults';
+import TakeExams from '@screens/Exams/Exams';
+
 
 const HomeRouter = () => {
   return (
@@ -18,6 +20,7 @@ const HomeRouter = () => {
       <MyStack.Screen name="ExamDetail" component={ExamDetail} />
       <MyStack.Screen name="ExamPayment" component={ExamPayment} />
       <MyStack.Screen name="TakeExams" component={TakeExams} />
+      <MyStack.Screen name="ExamsResults" component={ExamsResults} />
     </MyStack.Navigator>
   );
 };

@@ -74,3 +74,22 @@ export const takeExamDetailRequest = (id, token, checklistInit) => {
     }
   };
 };
+
+export const submitExam = (enrollId, data, token) => {
+  return async dispatch => {
+    try {
+      console.log("data", data);
+      const response = await PATCH('api/enrollments/exam/submit/' + enrollId, data, token);
+      console.log(response)
+      const resJson = await response.json();
+      console.log(resJson)
+      if (response.status === 200) {
+
+      }
+      if (response.status === 400) {
+      }
+    } catch (error) {
+      console.log('err', error);
+    }
+  };
+};

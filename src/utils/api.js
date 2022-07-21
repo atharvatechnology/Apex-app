@@ -1,8 +1,18 @@
 import react from 'react';
 // import axios from 'axios';
 
-// export const apiBaseURL = 'http://192.168.0.2:8001/';
-export const apiBaseURL = 'https://apex.calcgen.com/';
+export const apiBaseURL = 'http://192.168.0.39:8000/';
+// export const apiBaseURL = 'https://apex.calcgen.com/';
+
+export const getSocketUrl = () => {
+
+  let socketUrl = `ws://${apiBaseURL}/ws`;
+  if (process.env.NODE_ENV === 'production') {
+    //     socketUrl = `wss://${process.env.NEXT_PUBLIC_API_URI}/ws`
+    socketUrl = `wss://${prodUrl}/ws`
+  }
+  return socketUrl;
+}
 
 const getHeaders = (token) => {
   if (token) {
@@ -33,10 +43,10 @@ export const POST = (url, data) => {
   });
 };
 
-export const PATCH = (url, data) => {
+export const PATCH = (url, data, token) => {
   return fetch(apiBaseURL + url, {
     method: 'PATCH',
-    headers: getHeaders(),
+    headers: getHeaders(token),
     body: JSON.stringify(data),
   });
 };

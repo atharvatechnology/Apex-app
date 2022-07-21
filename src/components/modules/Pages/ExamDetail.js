@@ -22,6 +22,7 @@ import styles from '@styles/modules/Pages/ExamDetail';
 import CustomSessionPopup from '@apexapp/components/elements/CustomSessionPopup';
 import { examDetail, examDetailRequest } from '@apexapp/store/actions/exam';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
+import { getSocketUrl } from '@utils/api';
 
 const data = [
   {
@@ -42,11 +43,13 @@ const ExamDetail = props => {
 
   const dispatch = useDispatch();
   const examDetails = useSelector(state => state.examsReducer.examDetail);
+  console.log("details", examDetails.status);
 
   useEffect(() => {
     dispatch(examDetailRequest(id));
 
     const subscribe = props.navigation.addListener('focus', () => {
+      dispatch(examDetailRequest(id));
       setIsModalVisible(false);
     });
 
@@ -67,6 +70,10 @@ const ExamDetail = props => {
 
   const handleTakeExam = (id, enrollId) => {
     props.navigation.navigate('TakeExams', { id: id, enrollId: enrollId });
+  }
+
+  const handleViewResults = (enrollId) => {
+    props.navigation.navigate('ExamsResults', { id: id, enrollId: enrollId });
   }
 
   const handleArrow = () => {
@@ -182,13 +189,21 @@ const ExamDetail = props => {
               />
             )
           ) : (
-            <CustomButton
-              onPress={() => handleTakeExam(examDetails?.id, examDetails?.exam_enroll?.id)}
-              style={[styles.CustomButton, styles.borderBlack]}
-              type="white"
-              title={'Take Exam'}
-              color="#ffffff"
-            />
+            examDetails?.sessions[0]?.status === 'resultsout' ?
+              <CustomButton
+                onPress={() => { handleViewResults(examDetails?.exam_enroll?.id) }}
+                style={[styles.CustomButton]}
+                type={'theme'}
+                title={'View Results'}
+              // color="#ffffff"
+              /> :
+              <CustomButton
+                onPress={() => handleTakeExam(examDetails?.id, examDetails?.exam_enroll?.id)}
+                style={[styles.CustomButton, styles.borderBlack]}
+                type={['in_progress', 'scheduled'].includes(examDetails?.status) ? "white" : 'disabled'}
+                title={'Take Exam'}
+              // color="#ffffff"
+              />
           )}
 
           <Modal
