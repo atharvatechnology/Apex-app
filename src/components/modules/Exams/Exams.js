@@ -93,7 +93,7 @@ const TakeExams = props => {
   return (
     <>
       <ScrollView stickyHeaderIndices={[0]} style={styles.maincontainer}>
-        {console.log("answers", props.route.params)}
+        {/* {console.log("answers", props.route.params)} */}
         <View style={styles.main}>
           <HeaderSearch
             title={details.name}

@@ -38,9 +38,19 @@ const CustomSessionPopup = props => {
 
   const dispatch = useDispatch();
   const examDetails = useSelector(state => state.examsReducer.examDetail);
+  const auth = useSelector(state => state.authReducer);
 
   const handleEnroll = () => {
-    props.navigation.navigate('ExamPayment')
+    // props.navigation.navigate('ExamPayment')
+
+    // props.navigation.navigate('ExamPayment');
+    // let data = {
+    //   exams: [{
+    //     exam: id,
+    //     selected_session: examDetails.sessions[0].id
+    //   }]
+    // }
+    dispatch(examsEnrollRequest(props.data, auth.access_token));
   };
 
   const closeModal = bool => {

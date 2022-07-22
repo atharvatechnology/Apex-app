@@ -50,6 +50,26 @@ export const examsFullListRequest = () => {
   };
 };
 
+export const examsEnrollRequest = (data, token) => {
+  return async dispatch => {
+    try {
+      console.log("test", data, token);
+      const response = await POST('api/enrollments/create/', data, token);
+      console.log(response)
+      const resJson = await response.json();
+      console.log(resJson)
+      if (response.status === 200) {
+        dispatch(examsFullList(resJson.results));
+        dispatch(examDetailRequest(data.exam[0].exam));
+      }
+      if (response.status === 400) {
+      }
+    } catch (error) {
+      console.log('err', error);
+    }
+  };
+};
+
 export const examDetail = data => {
   return {
     type: types.SET_EXAM_DETAILS,

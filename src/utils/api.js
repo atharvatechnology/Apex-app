@@ -35,10 +35,10 @@ export const GET = (url, token) => {
   });
 };
 
-export const POST = (url, data) => {
+export const POST = (url, data, token) => {
   return fetch(apiBaseURL + url, {
     method: 'POST',
-    headers: getHeaders(),
+    headers: getHeaders(token),
     body: JSON.stringify(data),
   });
 };

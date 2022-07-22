@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import styles from '@styles/modules/Pages/ExamDetail';
 import CustomSessionPopup from '@apexapp/components/elements/CustomSessionPopup';
-import { examDetail, examDetailRequest, examResultsRequest } from '@apexapp/store/actions/exam';
+import { examDetail, examDetailRequest, examResultsRequest, examsEnrollRequest } from '@apexapp/store/actions/exam';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
 import { getSocketUrl } from '@utils/api';
 
@@ -45,7 +45,7 @@ const ExamDetail = props => {
   const examDetails = useSelector(state => state.examsReducer.examDetail);
   const auth = useSelector(state => state.authReducer);
   const result = useSelector(state => state.examsReducer.examResult);
-  // console.log("resuklt", result);
+  console.log("detail", examDetails, id);
 
 
   useEffect(() => {
@@ -74,7 +74,14 @@ const ExamDetail = props => {
   };
 
   const handleEnroll = () => {
-    props.navigation.navigate('ExamPayment');
+    // props.navigation.navigate('ExamPayment');
+    let data = {
+      exams: [{
+        exam: id,
+        selected_session: examDetails.sessions[0].id
+      }]
+    }
+    dispatch(examsEnrollRequest(data, auth.access_token));
   };
 
   const handleTakeExam = (id, enrollId) => {
@@ -254,6 +261,12 @@ const ExamDetail = props => {
             visible={isModalVisible}
             nRequestClose={() => changeModalVisible(true)}>
             <CustomSessionPopup
+              data={{
+                exams: [{
+                  exam: id,
+                  selected_session: examDetails.sessions[0].id
+                }]
+              }}
               navigation={props.navigation}
               changeModalVisible={changeModalVisible}
             />
