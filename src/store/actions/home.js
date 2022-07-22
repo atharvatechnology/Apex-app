@@ -11,7 +11,7 @@ export const examLive = (data) => {
 export const examLiveRequest = () => {
   return async (dispatch) => {
     try {
-      const response = await GET('api/exams/list/?page_size=6');
+      const response = await GET('api/exams/list/?page_size=8');
       const resJson = await response.json();
       // console.log("action", resJson)
       if (response.status === 200) {

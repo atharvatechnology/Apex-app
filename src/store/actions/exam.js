@@ -35,11 +35,12 @@ export const examsFullList = data => {
 export const examsFullListRequest = () => {
   return async dispatch => {
     try {
+      // console.log("test",);
       const response = await GET('api/exams/list/');
       const resJson = await response.json();
-      // console.log(response, resJson)
+      // console.log(resJson)
       if (response.status === 200) {
-        dispatch(examsFullList(resJson));
+        dispatch(examsFullList(resJson.results));
       }
       if (response.status === 400) {
       }
