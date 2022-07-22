@@ -45,7 +45,7 @@ const ExamDetail = props => {
   const examDetails = useSelector(state => state.examsReducer.examDetail);
   const auth = useSelector(state => state.authReducer);
   const result = useSelector(state => state.examsReducer.examResult);
-  console.log("resuklt", result);
+  // console.log("resuklt", result);
 
 
   useEffect(() => {
@@ -212,7 +212,6 @@ const ExamDetail = props => {
           </Text>
         </View>
         <View style={styles.buttons}>
-          {/* {console.log("kdkkdkdkdk", examDetails)} */}
           {!examDetails.is_enrolled ? (
             examDetails.sessions.length > 1 ? (
               <CustomButton
@@ -237,13 +236,13 @@ const ExamDetail = props => {
                 onPress={() => { handleViewResults(examDetails?.exam_enroll?.id) }}
                 style={[styles.CustomButton]}
                 type={'theme'}
-                title={'View Results'}
+                title={'Result Details'}
               // color="#ffffff"
               /> :
               <CustomButton
                 onPress={() => handleTakeExam(examDetails?.id, examDetails?.exam_enroll?.id)}
                 style={[styles.CustomButton, styles.borderBlack]}
-                type={['in_progress', 'scheduled'].includes(examDetails?.status) ? "white" : 'disabled'}
+                type={['in_progress'].includes(examDetails?.status) ? "white" : 'disabled'}
                 title={'Take Exam'}
               // color="#ffffff"
               />
