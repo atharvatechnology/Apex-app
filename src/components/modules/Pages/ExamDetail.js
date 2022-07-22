@@ -45,7 +45,7 @@ const ExamDetail = props => {
   const examDetails = useSelector(state => state.examsReducer.examDetail);
   const auth = useSelector(state => state.authReducer);
   const result = useSelector(state => state.examsReducer.examResult);
-  console.log("detail", examDetails, id);
+  // console.log("detail", examDetails, id);
 
 
   useEffect(() => {

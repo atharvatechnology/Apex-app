@@ -175,7 +175,6 @@ const Exam = props => {
 
                 <View>
                   <Text style={styles.text}>{item.name}</Text>
-                  {console.log(item)}
                   <Text style={styles.amount}>{item.price}  {'\u2022'}  {item.template.duration}</Text>
                 </View>
               </TouchableOpacity>
