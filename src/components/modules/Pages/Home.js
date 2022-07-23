@@ -143,7 +143,7 @@ const Home = props => {
   const _renderItemWithParallax = ({ item, index }, parallaxProps) => {
     return (
       <>
-        <TouchableOpacity onPress={() => handleExamDetailsLink(item.id)} style={styles.cards}>
+        <TouchableOpacity activeOpacity={1} onPress={() => handleExamDetailsLink(item.id)} style={styles.cards}>
           <View style={styles.card}>
             <View style={styles.file}></View>
             <Text style={styles.title}>LIVE </Text>
@@ -166,7 +166,7 @@ const Home = props => {
   const _renderItemWithParallax1 = ({ item, index }, parallaxProps) => {
     return (
       <>
-        <TouchableOpacity onPress={handleExamDetailsLink} style={styles.cards}>
+        <TouchableOpacity activeOpacity={1} onPress={handleExamDetailsLink} style={styles.cards}>
           <View style={styles.card}>
             <View style={styles.file}></View>
 
@@ -366,7 +366,7 @@ const Home = props => {
           </View>
           <View style={styles.gap} />
 
-          <View style={styles.div}>
+          {/* <View style={styles.div}>
             <View>
               <View style={styles.txt}>
                 <Text style={styles.p}>Loksewa preparation</Text>
@@ -407,7 +407,7 @@ const Home = props => {
                 </View>
               </View>
             </View>
-          </View>
+          </View> */}
         </ScrollView>
       </View>
     </>

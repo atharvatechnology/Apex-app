@@ -8,6 +8,8 @@ const initialState = {
     results: [],
   },
 
+  examsFullList: [],
+
   examDetail: {
     sessions: [
       {
@@ -38,6 +40,16 @@ const initialState = {
     },
   },
 
+
+  takeExamDetails: {
+    questions: []
+  },
+
+
+  examResult: {
+
+  },
+
 }
 
 const examsReducer = (state = initialState, action) => {
@@ -45,8 +57,17 @@ const examsReducer = (state = initialState, action) => {
     case types.SET_EXAM_LIST:
       return { ...state, examsList: action.payload };
 
+    case types.SET_EXAM_FULL_LIST:
+      return { ...state, examsFullList: action.payload };
+
     case types.SET_EXAM_DETAILS:
       return { ...state, examDetail: action.payload };
+
+    case types.SET_EXAM_RESULT:
+      return { ...state, examResult: action.payload };
+
+    case types.SET_TAKE_EXAM_DETAILS:
+      return { ...state, takeExamDetails: action.payload };
 
     default:
       return state;

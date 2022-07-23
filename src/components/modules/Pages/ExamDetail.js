@@ -12,6 +12,8 @@ import {
   Text,
   Modal,
   Dimensions,
+  ScrollView,
+  RefreshControl
 } from 'react-native';
 
 import { CommonActions } from '@react-navigation/native';
@@ -20,8 +22,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import styles from '@styles/modules/Pages/ExamDetail';
 import CustomSessionPopup from '@apexapp/components/elements/CustomSessionPopup';
-import { examDetail, examDetailRequest } from '@apexapp/store/actions/exam';
+import { examDetail, examDetailRequest, examResultsRequest, examsEnrollRequest } from '@apexapp/store/actions/exam';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
+import { getSocketUrl } from '@utils/api';
 
 const data = [
   {
@@ -38,20 +41,38 @@ const ExamDetail = props => {
   const { id } = props.route.params;
 
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+
 
   const dispatch = useDispatch();
-
   const examDetails = useSelector(state => state.examsReducer.examDetail);
+  const auth = useSelector(state => state.authReducer);
+  const result = useSelector(state => state.examsReducer.examResult);
+  console.log("exam detail", examDetails, id);
+
+
+  useEffect(() => {
+    if (examDetails?.sessions[0]?.status === 'resultsout') {
+      dispatch(examResultsRequest(examDetails?.exam_enroll?.id, auth.access_token));
+    }
+  }, [examDetails]);
 
   useEffect(() => {
     dispatch(examDetailRequest(id));
 
     const subscribe = props.navigation.addListener('focus', () => {
+      dispatch(examDetailRequest(id));
       setIsModalVisible(false);
     });
 
     return subscribe;
   }, []);
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await dispatch(examDetailRequest(id));
+    setRefreshing(false);
+  }
 
   const changeModalVisible = bool => {
     setIsModalVisible(bool);
@@ -62,81 +83,133 @@ const ExamDetail = props => {
   };
 
   const handleEnroll = () => {
-    props.navigation.navigate('ExamPayment');
+    // props.navigation.navigate('ExamPayment');
+    let data = {
+      exams: [{
+        exam: id,
+        selected_session: examDetails.sessions[0].id
+      }]
+    }
+    dispatch(examsEnrollRequest(data, auth.access_token));
   };
+
+  const handleTakeExam = (id, enrollId, sessionId) => {
+    props.navigation.navigate('TakeExams', { id: id, enrollId: enrollId });
+  }
+
+  const handleViewResults = (enrollId) => {
+    props.navigation.navigate('ExamsResults', { id: id, enrollId: enrollId });
+  }
 
   const handleArrow = () => {
     props.navigation.dispatch(CommonActions.goBack());
   };
 
   return (
-    <View style={styles.maincontainer}>
-      <View style={styles.main}>
-        <HeaderSearch
-          title="Exam Details"
-          navigation={props.navigation}
-          backnav="Exam"
-        />
-        <View style={styles.examDetail}>
-          <View style={styles.flex1}>
-            <View style={styles.flex2}>
-              <Text style={styles.icon}> </Text>
-              <View>
-                <Text style={styles.duration}>Date</Text>
-                <Text style={styles.duration1}>
-                  {/* {examDetails.sessions[0].start_date.split('T')[0]} */}
-                </Text>
+    <>
+      <ScrollView style={styles.maincontainer} refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }>
+        <View style={styles.main}>
+          <HeaderSearch
+            title="Exam Details"
+            navigation={props.navigation}
+            backnav="Exam"
+          />
+          <View style={styles.examDetail}>
+            <View style={styles.flex1}>
+              <View style={styles.flex2}>
+                <Text style={styles.icon}> </Text>
+                <View>
+                  <Text style={styles.duration}>Date</Text>
+                  <Text style={styles.duration1}>
+                    {/* {examDetails.sessions[0].start_date.split('T')[0]} */}
+                  </Text>
+                </View>
               </View>
+
+              <View style={styles.fullmark}>
+                <Text style={styles.icon}> </Text>
+                <View>
+                  <Text style={styles.fullmarks}>Duration</Text>
+                  <Text style={styles.fullmarks1}>
+                    {examDetails.template.duration}
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View style={styles.flex3}>
+              <View style={styles.passmark}>
+                <Text style={styles.icon}> </Text>
+                <View>
+                  <Text style={styles.passmarks}>Time</Text>
+                  <Text style={styles.passmarks1}>
+                    {' '}
+                    {examDetails.sessions.length > 1
+                      ? 'Multiple session'
+                      : 'Single'}
+                  </Text>
+                </View>
+              </View>
+              <View style={styles.mark}>
+                <Text style={styles.icon}> </Text>
+                <View>
+                  <Text style={styles.marks}>Full marks</Text>
+                  <Text style={styles.marks1}>
+                    {examDetails.template.full_marks}
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View style={styles.flex3}>
+              <View style={styles.pass}>
+                <Text style={styles.icon}> </Text>
+                <View>
+                  <Text style={styles.passmarks}>Pass marks</Text>
+                  <Text style={styles.passmarks1}>
+                    {examDetails.template.pass_marks}
+                  </Text>
+                </View>
+              </View>
+
+              {examDetails?.sessions[0]?.status === 'resultsout' && <View style={[styles.pass, { marginHorizontal: 16 }]}>
+                <Text style={styles.icon}> </Text>
+                <View>
+                  <Text style={styles.passmarks}>Marks</Text>
+                  <Text style={styles.passmarks1}>
+                    {result.score}
+                  </Text>
+                </View>
+              </View>}
             </View>
 
-            <View style={styles.fullmark}>
-              <Text style={styles.icon}> </Text>
-              <View>
-                <Text style={styles.fullmarks}>Duration</Text>
-                <Text style={styles.fullmarks1}>
-                  {examDetails.template.duration}
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View style={styles.flex3}>
-            <View style={styles.passmark}>
-              <Text style={styles.icon}> </Text>
-              <View>
-                <Text style={styles.passmarks}>Time</Text>
-                <Text style={styles.passmarks1}>
-                  {' '}
-                  {examDetails.sessions.length > 1
-                    ? 'Multiple session'
-                    : 'Single'}
-                </Text>
-              </View>
-            </View>
-            <View style={styles.mark}>
-              <Text style={styles.icon}> </Text>
-              <View>
-                <Text style={styles.marks}>Full marks</Text>
-                <Text style={styles.marks1}>
-                  {examDetails.template.full_marks}
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View style={styles.pass}>
-            <Text style={styles.icon}> </Text>
-            <View>
-              <Text style={styles.passmarks}>Pass marks</Text>
-              <Text style={styles.passmarks1}>
-                {examDetails.template.pass_marks}
-              </Text>
+            <View style={styles.flex3}>
+              {examDetails?.sessions[0]?.status === 'resultsout' && <View style={styles.pass}>
+                <Text style={styles.icon}> </Text>
+                <View>
+                  <Text style={styles.passmarks}>Rank</Text>
+                  <Text style={styles.passmarks1}>
+                    {result.rank}
+                  </Text>
+                </View>
+              </View>}
+
+              {examDetails?.sessions[0]?.status === 'resultsout' && <View style={[styles.pass, { marginHorizontal: 16 }]}>
+                <Text style={styles.icon}> </Text>
+                <View>
+                  <Text style={styles.passmarks}>Result</Text>
+                  <Text style={styles.passmarks1}>
+                    {result.status}
+                  </Text>
+                </View>
+              </View>}
             </View>
           </View>
         </View>
-      </View>
 
-      <View style={styles.main2}>
-        <Text style={styles.instruction}>Instructions</Text>
-        {/* {data.map((item, index) => {
+        <View style={styles.main2}>
+          <Text style={styles.instruction}>Instructions</Text>
+          {/* {data.map((item, index) => {
           return (
             <View key={index}>
               <Text style={styles.instruction1}>
@@ -145,10 +218,13 @@ const ExamDetail = props => {
             </View>
           );
         })} */}
-        <Text style={styles.instruction1}>
-          {examDetails.template.description}
-        </Text>
-      </View>
+          <Text style={styles.instruction1}>
+            {examDetails.template.description}
+          </Text>
+        </View>
+
+
+      </ScrollView>
 
       <View style={styles.enroll}>
         <View style={styles.enroll0}>
@@ -157,6 +233,7 @@ const ExamDetail = props => {
             On clicking Enroll now leads you exam session page
           </Text>
         </View>
+        {/* {console.log('enroll check in render', examDetails.is_enrolled)} */}
         <View style={styles.buttons}>
           {!examDetails.is_enrolled ? (
             examDetails.sessions.length > 1 ? (
@@ -177,13 +254,30 @@ const ExamDetail = props => {
               />
             )
           ) : (
-            <CustomButton
-              // onPress={handleEnroll}
-              style={[styles.CustomButton, styles.borderBlack]}
-              type="white"
-              title={'Take Exam'}
-              color="#ffffff"
-            />
+            examDetails?.sessions[0]?.status === 'resultsout' ?
+              <CustomButton
+                onPress={() => { handleViewResults(examDetails?.exam_enroll?.id) }}
+                style={[styles.CustomButton]}
+                type={'theme'}
+                title={'Result Details'}
+              // color="#ffffff"
+              /> : (
+                examDetails.exam_enroll ?
+                  <CustomButton
+                    onPress={() => {  }}
+                    style={[styles.CustomButton]}
+                    type={'disabled'}
+                    title={'Result Details'}
+                  // color="#ffffff"
+                  />
+                  :
+                  <CustomButton
+                    onPress={() => handleTakeExam(examDetails?.id, examDetails?.exam_enroll?.id)}
+                    style={[styles.CustomButton, styles.borderBlack]}
+                    type={['in_progress'].includes(examDetails?.status) ? "white" : 'disabled'}
+                    title={'Take Exam'}
+                  // color="#ffffff"
+                  />)
           )}
 
           <Modal
@@ -192,13 +286,20 @@ const ExamDetail = props => {
             visible={isModalVisible}
             nRequestClose={() => changeModalVisible(true)}>
             <CustomSessionPopup
+              data={{
+                exams: [{
+                  exam: id,
+                  selected_session: examDetails.sessions[0].id
+                }]
+              }}
+              examDetails={examDetails}
               navigation={props.navigation}
               changeModalVisible={changeModalVisible}
             />
           </Modal>
         </View>
       </View>
-    </View>
+    </>
   );
 };
 

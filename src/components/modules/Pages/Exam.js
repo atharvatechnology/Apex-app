@@ -14,13 +14,16 @@ import {
   Dimensions,
   Modal,
 } from 'react-native';
+
 import { ScrollView } from 'react-native-gesture-handler';
+import { useDispatch, useSelector } from 'react-redux';
 
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import CustomButtonPopup from '@apexapp/components/elements/CustomButtonPopup';
 import CustomTextInput from '@apexapp/components/elements/CustomTextInput';
+import { examsFullListRequest } from '@apexapp/store/actions/exam';
 import styles from '@styles/modules/Pages/Exam';
-import { useDispatch, useSelector } from 'react-redux';
+
 
 let preparation = [
   {
@@ -94,6 +97,10 @@ const Exam = props => {
     setShow(true);
   };
 
+  const dispatch = useDispatch();
+  const examList = useSelector(state => state.examsReducer.examsFullList);
+  // console.log('exam lis', examList);
+
   const handleArrow = () => {
     props.navigation.navigate('Home');
   };
@@ -102,9 +109,13 @@ const Exam = props => {
     changeModalVisible(true);
   };
 
-  const handleToDetail = () => {
-    props.navigation.navigate('ExamDetail');
+  const handleToDetail = (id) => {
+    props.navigation.navigate('ExamDetail', { id: id });
   };
+
+  useEffect(() => {
+    dispatch(examsFullListRequest());
+  }, []);
 
   return (
     <View style={styles.maincontainer}>
@@ -153,19 +164,18 @@ const Exam = props => {
 
       <ScrollView nestedScrollEnabled={true}>
         <View>
-          {data.map((item, index) => {
+          {examList.map((item, index) => {
             return (
-              <TouchableOpacity onPress={handleToDetail} style={styles.main}>
+              <TouchableOpacity onPress={() => handleToDetail(item.id)} style={styles.main} key={index}>
                 <View style={styles.card}>
                   <Text style={styles.icon}>{item.icon}</Text>
-                  <Text style={styles.title}>{item.title}</Text>
-                  <Text style={styles.title1}>{item.title1}</Text>
+                  <Text style={styles.title}>LIVE</Text>
+                  <Text style={styles.title1}>PRACTICE</Text>
                 </View>
 
                 <View>
-                  <Text style={styles.text}>{item.text}</Text>
-
-                  <Text style={styles.amount}>{item.amount}</Text>
+                  <Text style={styles.text}>{item.name}</Text>
+                  <Text style={styles.amount}>{item.price}  {'\u2022'}  {item.template.duration}</Text>
                 </View>
               </TouchableOpacity>
             );

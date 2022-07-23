@@ -1,0 +1,70 @@
+@use "../../library" as themes;
+@import "../../common";
+
+.overviewContainer {
+  background-color: white;
+  align-items: center;
+  padding: 5px;
+  margin: 0px 0px 8px 0px;
+}
+
+.index {
+  @extend .h5;
+}
+
+.questionsContainer {
+  background-color: white;
+  padding: 16px;
+  height: 100%;
+}
+
+.question {
+  @extend .h6;
+  padding: 0px 0px 0px 24px;
+
+  font-family: 'OpenSans-SemiBold';
+
+}
+
+.option {
+  padding: 2px 0px 2px 0px;
+  flex-direction: row;
+}
+
+.optionText {
+  @extend .p;
+  font-family: 'OpenSans-Regular';
+
+}
+
+.a {
+  @extend .p;
+  font-family: 'OpenSans-Regular';
+}
+
+.buttonContainer {
+  flex-direction: row;
+  margin: 16px 0px;
+}
+
+.radio {
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectedOption {
+  background-color: #C3DFDD;
+  flex-direction: row;
+  border-radius: 5px;
+  padding: 6px 0px;
+  margin: 6px 0px;
+}
+
+.incorrectSelectedOption {
+  background-color: #F3C4C5;
+  flex-direction: row;
+  border-radius: 5px;
+  padding: 6px 0px;
+  margin: 6px 0px;
+}
