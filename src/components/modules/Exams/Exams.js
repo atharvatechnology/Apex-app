@@ -5,7 +5,7 @@
  */
 
 import React, { Fragment, useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, useWindowDimensions } from 'react-native';
 
 import RenderHtml from 'react-native-render-html';
 import { RadioButton } from 'react-native-paper';
@@ -16,8 +16,12 @@ import { RadioButton } from 'react-native-paper';
 import CustomButton from '@apexapp/components/elements/CustomButton';
 import HeaderSearch from '@apexapp/components/elements/HeaderSearch/HeaderSearch';
 import { HEIGHT } from '@apexapp/utils/constants';
+import { PATCH } from '@utils/api';
 import styles from '@styles/modules/Exams/Exams.scss';
+import { submitExam, takeExamDetailRequest } from '@apexapp/store/actions/exam';
 import { useDispatch, useSelector } from 'react-redux';
+
+
 
 
 
@@ -42,6 +46,7 @@ const getIndex = (index) => {
 
 const TakeExams = props => {
   const { id, enrollId } = props.route.params;
+  const width = useWindowDimensions().width;
 
   const [checkedList, setCheckedList] = useState([]);
   const [answers, setAnswers] = useState({
@@ -56,6 +61,7 @@ const TakeExams = props => {
   const details = useSelector(state => state.examsReducer.takeExamDetails);
   const auth = useSelector(state => state.authReducer);
   const dispatch = useDispatch();
+  // console.log("taking exams page,", details)
 
 
   const checklistInit = (list) => {
@@ -69,14 +75,14 @@ const TakeExams = props => {
   }
 
   const handleSubmit = () => {
-    dispatch(submitExam(enrollId, answers, auth.access_token))
+    dispatch(submitExam(details.exam_enroll, answers, auth.access_token, props.navigation.navigate))
   }
 
   useEffect(() => {
     setCheckedList([]);
     const subscribe = props.navigation.addListener('focus', () => {
       setCheckedList([]);
-      dispatch(takeExamDetailRequest(id, auth.access_token, checklistInit));
+      dispatch(takeExamDetailRequest(id, auth.access_token, checklistInit, answers, setAnswers, setCurrentQuestion));
     });
 
     return subscribe;
@@ -85,14 +91,14 @@ const TakeExams = props => {
 
 
 
-  //for setting questions
+  //for setting checkpoints
   useEffect(() => {
-
+    
   }, []);
 
   return (
     <>
-      <ScrollView stickyHeaderIndices={[0]} style={styles.maincontainer}>
+      <ScrollView stickyHeaderIndices={[0]} style={styles.maincontainer} >
         {/* {console.log("answers", props.route.params)} */}
         <View style={styles.main}>
           <HeaderSearch
@@ -125,7 +131,7 @@ const TakeExams = props => {
                 {/* <HTML html={'<p>test test</p>'} /> */}
                 {/* <HTMLView value='<p>cjasgvcgasdvcga</p>' /> */}
                 <RenderHtml
-                  // contentWidth={100}
+                  contentWidth={width}
                   baseStyle={styles.text}
                   source={{ html: details?.questions[currentQuestion]?.detail }}
                 />
@@ -185,7 +191,7 @@ const TakeExams = props => {
                   <Text style={styles.a}>{getIndex(index)}</Text>
 
                   <RenderHtml
-                    // contentWidth={100}
+                    contentWidth={width}
                     baseStyle={styles.text1}
                     source={{ html: item.detail }}
                   />
@@ -207,7 +213,7 @@ const TakeExams = props => {
           <Text style={styles.fottertexts}>{currentQuestion + 1}/{details.questions.length}</Text>
         </View>
         <View style={styles.nextContainer}>
-          {currentQuestion > 0 && <CustomButton
+          {/* {currentQuestion > 0 && <CustomButton
             type="theme"
             title={'Previous'}
             onPress={() => {
@@ -220,12 +226,26 @@ const TakeExams = props => {
             style={styles.button}
             color="white"
             font-size="600"
-          />}
+          />} */}
           {currentQuestion + 1 !== details.questions.length && <CustomButton
             type="theme"
             title={'Next'}
-            onPress={() => {
+            onPress={async() => {
               if (currentQuestion + 1 <= details.questions.length) {
+                try {
+                  // console.log("data", data);
+                  const response = await PATCH('api/enrollments/exam/submit/' + details.exam_enroll.id, {...answers, submitted: false}, auth.access_token);
+                  // console.log("submit exma",response)
+                  const resJson = await response.json();
+                  console.log("submit exam",resJson)
+                  if (response.status === 200) {
+            
+                  }
+                  if (response.status === 400) {
+                  }
+                } catch (error) {
+                  console.log('err', error);
+                }
                 setCurrentQuestion(prevState => prevState + 1);
                 setCurrentQuestionId(details?.questions[currentQuestion + 1].id)
               }

@@ -97,7 +97,7 @@ const ExamResults = (props) => {
   return <ScrollView stickyHeaderIndices={[0]}>
     <View>
       <HeaderSearch
-        title={result.exam.name}
+        title={result?.exam?.name}
         navigation={props.navigation}
       // backnav="Exam"
       />
