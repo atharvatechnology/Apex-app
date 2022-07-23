@@ -57,7 +57,7 @@ export const examsEnrollRequest = (data, token) => {
       const response = await POST('api/enrollments/create/', data, token);
       // console.log("enroll",response)
       const resJson = await response.json();
-      console.log("enroll", resJson)
+      // console.log("enroll", resJson)
       if (response.status === 200) {
         dispatch(examsFullList(resJson.results));
         dispatch(examDetailRequest(data.exam[0].exam));
@@ -117,10 +117,10 @@ export const takeExamDetailRequest = (id, token, checklistInit = () => { }, answ
 
         try {
           const response2 = await GET('api/enrollments/exam/checkpoint/' + resJson.exam_enroll.id, token);
-          console.log("exam checkpoint", response2)
+          // console.log("exam checkpoint", response2)
 
           const resJson2 = await response2.json();
-          console.log("exam checkpoint", resJson2)
+          // console.log("exam checkpoint", resJson2)
 
           if (response2.status === 200) {
             // dispatch(examDetail(resJson));

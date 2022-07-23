@@ -237,7 +237,7 @@ const TakeExams = props => {
                   const response = await PATCH('api/enrollments/exam/submit/' + details.exam_enroll.id, {...answers, submitted: false}, auth.access_token);
                   // console.log("submit exma",response)
                   const resJson = await response.json();
-                  console.log("submit exam",resJson)
+                  // console.log("submit exam",resJson)
                   if (response.status === 200) {
             
                   }

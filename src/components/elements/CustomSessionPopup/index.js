@@ -115,33 +115,50 @@ const CustomSessionPopup = props => {
                   </View>
                 </View>
 
-                {/* {!examDetails.is_enrolled ? (
-                  
-                    <CustomButton
-                      onPress={() => handleEnroll(index)}
-                      style={styles.CustomButton}
-                      type="theme"
-                      title={'Enroll now'}
-                      color="#ffffff"
-                    />
-                  
-                ) : (
-                  examDetails?.sessions[index]?.status === 'resultsout' ?
-                    <CustomButton
-                      onPress={() => { handleViewResults(examDetails?.exam_enroll?.id) }}
-                      style={[styles.CustomButton]}
-                      type={'theme'}
-                      title={'Result Details'}
-                    // color="#ffffff"
-                    /> :
-                    <CustomButton
-                      onPress={() => handleTakeExam(examDetails?.id, examDetails?.exam_enroll?.id)}
-                      style={[styles.CustomButton, styles.borderBlack]}
-                      type={['in_progress'].includes(examDetails?.status) ? "white" : 'disabled'}
-                      title={'Take Exam'}
-                    // color="#ffffff"
-                    />
-                )} */}
+                {!examDetails.is_enrolled ? (
+            examDetails.sessions.length > 1 ? (
+              <CustomButton
+                onPress={handleChooseSession}
+                style={styles.CustomButton}
+                type="theme"
+                title={'Choose Session'}
+                color="#ffffff"
+              />
+            ) : (
+              <CustomButton
+                onPress={() => handleEnroll(index)}
+                style={styles.CustomButton}
+                type="theme"
+                title={'Enroll now'}
+                color="#ffffff"
+              />
+            )
+          ) : (
+            examDetails?.sessions[index]?.status === 'resultsout' ?
+              <CustomButton
+                onPress={() => { handleViewResults(examDetails?.exam_enroll?.id) }}
+                style={[styles.CustomButton]}
+                type={'theme'}
+                title={'Result Details'}
+              // color="#ffffff"
+              /> : (
+                examDetails.exam_enroll ?
+                  <CustomButton
+                    onPress={() => {  }}
+                    style={[styles.CustomButton]}
+                    type={'disabled'}
+                    title={'Result Details'}
+                  // color="#ffffff"
+                  />
+                  :
+                  <CustomButton
+                    onPress={() => handleTakeExam(examDetails?.id, examDetails?.exam_enroll?.id)}
+                    style={[styles.CustomButton, styles.borderBlack]}
+                    type={['in_progress'].includes(examDetails?.status) ? "white" : 'disabled'}
+                    title={'Take Exam'}
+                  // color="#ffffff"
+                  />)
+          )}
               </View>
 
             );
